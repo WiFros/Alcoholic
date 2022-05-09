@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                             //로그인 성공
                             Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                             startActivity(intent);
-                            finish(); // 현재 액티비티 파괴
+                            //finish(); // 현재 액티비티 파괴
                         }else {
                         // 로그인 실패
                             Toast.makeText(LoginActivity.this,"로그인에 실패하셨습니다.",Toast.LENGTH_LONG).show();
