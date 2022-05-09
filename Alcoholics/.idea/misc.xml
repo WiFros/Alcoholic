@@ -20,7 +20,15 @@
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/community_main.xml" value="0.1" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_community_board.xml" value="0.1" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.20205078125000003" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22056159420289856" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.26260986328125" />
+        <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/cocktails.xml" value="0.21195652173913043" />
+        <entry key="app/src/main/res/layout/community_main.xml" value="0.21195652173913043" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.21195652173913043" />
+        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/menu/main.xml" value="0.24166666666666667" />
       </map>
     </option>
   </component>
@@ -29,5 +37,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.165" />
+      </ProjectState>
+    </option>
   </component>
 </project>

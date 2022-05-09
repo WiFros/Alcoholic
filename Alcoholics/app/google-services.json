@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "55648495780",
+    "firebase_url": "https://alcoholic-80bdd-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "alcoholic-80bdd",
+    "storage_bucket": "alcoholic-80bdd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:55648495780:android:00eab5c3c86dc94da01e31",
+        "android_client_info": {
+          "package_name": "com.example.alcoholics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "55648495780-t3nbhguua5lcilndo99cj6n7kcrreo22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpdSjLiczVKyfkY7u4_5C96IcL1hjH2YA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "55648495780-t3nbhguua5lcilndo99cj6n7kcrreo22.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:55648495780:android:2b81b7a83a60725aa01e31",
+        "android_client_info": {
+          "package_name": "com.hanul.alcoholic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "55648495780-t3nbhguua5lcilndo99cj6n7kcrreo22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpdSjLiczVKyfkY7u4_5C96IcL1hjH2YA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "55648495780-t3nbhguua5lcilndo99cj6n7kcrreo22.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

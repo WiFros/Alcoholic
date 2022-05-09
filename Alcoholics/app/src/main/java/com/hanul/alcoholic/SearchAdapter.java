@@ -43,7 +43,7 @@ public class SearchAdapter extends BaseAdapter {
             convertView = inflate.inflate(R.layout.cocktails,null);
 
             viewHolder = new ViewHolder();
-            viewHolder.label = (TextView) convertView.findViewById(R.id.label);
+            //viewHolder.label = (TextView) convertView.findViewById(R.id.label);
 
             convertView.setTag(viewHolder);
         }else{
