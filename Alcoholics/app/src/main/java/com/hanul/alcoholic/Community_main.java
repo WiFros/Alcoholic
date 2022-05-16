@@ -77,7 +77,7 @@ public class Community_main extends Fragment {
         String[] listItems = {"sample one", "sample two", "sample three"};
 
 
-        ListView listView = (ListView)view.findViewById(R.id.main_list);
+        ListView listView = (ListView)view.findViewById(android.R.id.list);
         //데이터 입력받을 adapter 생성
         //fragment에서 this사용 안됨 -> Activity의 참조 획득이 가능한 getActivity() 함수 사용
         ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, listItems);
@@ -101,9 +101,11 @@ public class Community_main extends Fragment {
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 Community_post chosen_post = new Community_post();
                 chosen_post.setArguments(data);
-                transaction.replace(R.id.postContext, chosen_post);
+                transaction.replace(R.id.frameLayout, chosen_post);
                 transaction.commit();
 
+                //for test
+                Toast.makeText(getContext(), "success", Toast.LENGTH_SHORT).show();
 
             }
         });
