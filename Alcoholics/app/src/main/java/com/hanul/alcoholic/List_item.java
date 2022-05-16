@@ -5,11 +5,14 @@ import java.util.Date;
 public class List_item {
     private String nickname;
     private String title;
-    private Date write_date;
+    private String write_date;
     private String content;
     private int comment_count;
 
-    public List_item(String nickname, String title, Date write_date, String content, int comment_count) {
+    public List_item() {
+
+    }
+    public List_item(String nickname, String title, String write_date, String content, int comment_count) {
         this.nickname = nickname;
         this.title = title;
         this.write_date = write_date;
@@ -33,11 +36,11 @@ public class List_item {
         this.title = title;
     }
 
-    public Date getWrite_date() {
+    public String getWrite_date() {
         return write_date;
     }
 
-    public void setWrite_date(Date write_date) {
+    public void setWrite_date(String write_date) {
         this.write_date = write_date;
     }
 

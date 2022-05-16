@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class MyListAdapter extends BaseAdapter {
     Context context;
-    ArrayList<List_item> list_itemArrayList;
+    private ArrayList<List_item> list_itemArrayList = new ArrayList<List_item>();
 
     public MyListAdapter(Context context, ArrayList<List_item> list_itemArrayList) {
         this.context = context;
@@ -62,6 +62,8 @@ public class MyListAdapter extends BaseAdapter {
     TextView comment;
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        final int pos = position;
+        final Context context = parent.getContext();
         if(convertView==null){
             convertView = LayoutInflater.from(context).inflate(R.layout.item,null);
             nickname = (TextView)convertView.findViewById(R.id.nickname);
@@ -76,5 +78,16 @@ public class MyListAdapter extends BaseAdapter {
 
         }
         return convertView;
+    }
+
+    public void addItem(String nickname, String date, String content, int comment) {
+        List_item item = new List_item();
+        item.setNickname(nickname);
+        item.setContent(content);
+        item.setComment_count(comment);
+        item.setWrite_date(date);
+
+        list_itemArrayList.add(item);
+
     }
 }

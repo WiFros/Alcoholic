@@ -14,6 +14,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -45,6 +46,21 @@ class Post {
         return date;
     }
 
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setComments(int comments) {
+        this.comments = comments;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 }
 /* 들어가야 할 내용
 * 1. Firebase에서 content/nickname/timeline/comment 갯수 불러와서 setText()
@@ -78,7 +94,7 @@ public class Community_main extends Fragment {
                 Post post = new Post("nick", "sample", 0, "20220509");
                 data.putString("nickname", post.getNickname());
                 data.putString("post", post.getContent());
-                //data.putInt("comments", post.getComments());
+                data.putInt("comments", post.getComments());
                 data.putString("date", post.getDate());
 
                 //값을 넘길 fragment 선언하고 전달
@@ -87,6 +103,7 @@ public class Community_main extends Fragment {
                 chosen_post.setArguments(data);
                 transaction.replace(R.id.postContext, chosen_post);
                 transaction.commit();
+
 
             }
         });
