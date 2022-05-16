@@ -1,4 +1,4 @@
-package com.hanul.alcoholic;
+package com.hanul.alcoholic.Registe;
 
 /**
  *  사용자 계정 정보 모델 클래스
