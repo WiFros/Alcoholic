@@ -23,11 +23,15 @@
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/nav_header_main.xml" value="0.1984375" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/menu/main.xml" value="0.1984375" />
+        <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/font/default_font.xml" value="0.1718683197947841" />
+        <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/activity_main.xml" value="0.13191296464188576" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/community_main.xml" value="0.1" />
-        <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_community_board.xml" value="0.22" />
-        <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_community_post.xml" value="0.22" />
+        <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/fragment__alcohol_list.xml" value="0.1470713980333476" />
+        <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_community_board.xml" value="0.1" />
+        <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_community_post.xml" value="0.1" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_gallery.xml" value="0.17916666666666667" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_home.xml" value="0.17916666666666667" />
+        <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_recipe_list.xml" value="0.1470713980333476" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_slideshow.xml" value="0.12441214194100043" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/item.xml" value="0.1" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/register_post.xml" value="0.22" />
@@ -54,7 +58,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

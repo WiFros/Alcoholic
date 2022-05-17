@@ -26,6 +26,7 @@
                 android:maxLength="20"
                 android:inputType="text"
                 android:textSize="18sp"
+
                 android:hint="검색어를 입력하세요." />
 
             <Button
@@ -33,7 +34,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="검색"
-                android:backgroundTint="#605353"
+                android:textStyle="bold"
+                android:textColor="@color/white"
                 android:textSize="18sp"/>
         </LinearLayout>
 
