@@ -5,14 +5,18 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Bundle;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -68,18 +72,23 @@ class Post {
 *
 * */
 public class Community_main extends Fragment {
+    Button btn_search;
+    EditText editText_search;
+    ListView listView;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_community_board, container, false);
-        //ListView 아이템에 표시될 사용자 데이터 정의
-        //***** listItems에 들어갈 내용 : firebase에서 데이터 가져오기 (위에 Post 클래스 사용?)
-        String[] listItems = {"sample one", "sample two", "sample three"};
+        btn_search = (Button)view.findViewById(R.id.btn_search);
+        listView = (ListView)view.findViewById(android.R.id.list);
+        editText_search = (EditText)view.findViewById(R.id.editText_search);
 
-
-        ListView listView = (ListView)view.findViewById(android.R.id.list);
         //데이터 입력받을 adapter 생성
         //fragment에서 this사용 안됨 -> Activity의 참조 획득이 가능한 getActivity() 함수 사용
+        //ListView 아이템에 표시될 사용자 데이터 정의
+        //***** listItems에 들어갈 내용 : 현재 임시로 적어둠 -> firebase에서 데이터 가져오기 (위에 Post 클래스 사용?)
+        String[] listItems = {"sample one", "sample two", "sample three"};
         ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, listItems);
         listView.setAdapter(listViewAdapter);
         setHasOptionsMenu(true);
@@ -111,6 +120,19 @@ public class Community_main extends Fragment {
         });
 
 
+        btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // editText에 입력된 값 받아와서 변수 search_query에 저장(done)
+                // firebase에 search_query 검색해 리스트뷰에 띄우는 기능 구현 필요
+                // editText id : editText_search
+                String search_query = editText_search.getText().toString();
+                Toast.makeText(getContext(), "button enter", Toast.LENGTH_SHORT).show();
+
+            }
+
+        });
+
         return view;
     }
 
@@ -119,5 +141,6 @@ public class Community_main extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
     }
+
 
 }

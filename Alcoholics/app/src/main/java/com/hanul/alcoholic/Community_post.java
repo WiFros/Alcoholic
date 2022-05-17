@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 /* 바꿔야할 부분??
-* 현재 bundle로 메인 community에서 값 받아오는데- firebase에서 값 가져올건지?
+* 현재 bundle로 메인 community에서 값 받아옴 -> 선택된 값을 firebase에서 찾아서 나머지 데이터까지 띄워야함
 *
 * */
 public class Community_post extends Fragment {
@@ -33,6 +33,7 @@ public class Community_post extends Fragment {
         view = inflater.inflate(R.layout.fragment_community_post, container, false);
         if (getArguments() != null) {
             //bundle에 값이 있다면 각 key값 불러서 setText()
+            //**** firebase에서 가져온 값으로 수정해야 함
             get_nickname = getArguments().getString("nickname");
             nickname = view.findViewById(R.id.nickname);
             nickname.setText(get_nickname);
