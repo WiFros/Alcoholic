@@ -1,5 +1,6 @@
 package com.hanul.alcoholic;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,8 @@ public class Community_post extends Fragment {
     private String get_timeline;
     private String get_post;
     private String get_reply_list;
+
+    private ImageButton imgButton;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -51,7 +54,24 @@ public class Community_post extends Fragment {
             reply_list = view.findViewById(R.id.reply_list);
             reply_list.setText(get_reply_list);
 
+            imgButton = view.findViewById(R.id.imageButton);
+            imgButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(getContext(), "button pressed", Toast.LENGTH_SHORT).show();
+                    //갤러리에서 이미지 가져오기 - 액티비티로 구현해야 하거나 삭제하거나 ><
+                    //Intent intent = new Intent();
+                    //Show only images, no videos or anything else
+                    //intent.setType("image/*");
+                    //intent.setAction(Intent.ACTION_GET_CONTENT);
+                    //Always show the chooser (if there are multiple options available)
+                    //startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+
+                }
+            });
+
         }
+
 
         return view;
     }

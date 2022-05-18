@@ -4,8 +4,8 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">#022873</item>
         <item name="colorPrimaryVariant">#010726</item>
-        <item name="colorOnPrimary">#590902</item>
-        <!-- Secondary brand color. -->
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <!-- Secondary brand color.  EF87AA 610F08-->
         <item name="colorSecondary">#EF87AA</item>
         <item name="colorSecondaryVariant">#056CF2</item>
         <item name="colorOnSecondary">@color/black</item>

@@ -35,7 +35,6 @@
                 android:layout_height="wrap_content"
                 android:text="검색"
                 android:textStyle="bold"
-                android:textColor="@color/white"
                 android:textSize="18sp"/>
         </LinearLayout>
 
