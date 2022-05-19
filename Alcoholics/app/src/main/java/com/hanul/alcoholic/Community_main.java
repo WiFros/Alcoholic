@@ -72,9 +72,9 @@ class Post {
 *
 * */
 public class Community_main extends Fragment {
-    Button btn_search;
-    EditText editText_search;
-    ListView listView;
+    private Button btn_search;
+    private EditText editText_search;
+    private ListView listView;
 
     @Nullable
     @Override
@@ -83,6 +83,7 @@ public class Community_main extends Fragment {
         btn_search = (Button)view.findViewById(R.id.btn_search);
         listView = (ListView)view.findViewById(android.R.id.list);
         editText_search = (EditText)view.findViewById(R.id.editText_search);
+
 
         //데이터 입력받을 adapter 생성
         //fragment에서 this사용 안됨 -> Activity의 참조 획득이 가능한 getActivity() 함수 사용
@@ -108,13 +109,17 @@ public class Community_main extends Fragment {
 
                 //값을 넘길 fragment 선언하고 전달
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                //Fragment fragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.?);
+
                 Community_post chosen_post = new Community_post();
                 chosen_post.setArguments(data);
                 transaction.replace(R.id.frameLayout, chosen_post);
+                transaction.addToBackStack(null);
                 transaction.commit();
 
+
                 //for test
-                Toast.makeText(getContext(), "success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), data.getString("post")+" success", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -141,6 +146,11 @@ public class Community_main extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
     }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
 
 
 }
