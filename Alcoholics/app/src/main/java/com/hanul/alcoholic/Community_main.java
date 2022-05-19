@@ -25,12 +25,19 @@ import java.util.List;
 
 /* 리스트 뷰에 들어갈 내용 입력받기 위해 클래스 만들어둠 */
 class Post {
+    private String name;
     private String nickname;
     private String content;
     private int comments;
     private String date;
 
-    Post() {}
+    Post(String name,String nickname,String content, int comments,String date){
+        this.name = name;
+        this.nickname = nickname;
+        this.content = content;
+        this.comments = comments;
+        this.date = date;
+    }
     Post(String nickname, String content, int comments, String date) {
         this.nickname = nickname;
         this.content = content;
@@ -114,6 +121,16 @@ public class Community_main extends Fragment {
                 data.putString("post", post.getContent());
                 data.putInt("comments", post.getComments());
                 data.putString("date", post.getDate());
+
+                //값을 넘길 fragment 선언하고 전달
+                //FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                //Fragment fragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.?);
+
+                //Community_post chosen_post = new Community_post();
+                //chosen_post.setArguments(data);
+                //transaction.replace(R.id.frameLayout, chosen_post);
+                //transaction.addToBackStack(null);
+                //transaction.commit();
 
                 Intent intent = new Intent(getContext().getApplicationContext(), Community_post.class);
                 intent.putExtra("nickname", data.getString("nickname"));

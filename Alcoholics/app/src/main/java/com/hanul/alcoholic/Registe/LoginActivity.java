@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         mEtMail = findViewById(R.id.et_email);
         mEtpwd = findViewById(R.id.et_pwd);
 
+
         Button btn_login = findViewById(R.id.btn_login);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -7,12 +7,27 @@
     tools:context=".Registe.RegisterActivity">
 
     <EditText
+        android:id="@+id/et_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:ems="10"
+        android:hint="닉네임"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
         android:id="@+id/et_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="106dp"
         android:ems="10"
-        android:hint="Enter a email"
+        android:hint="이메일"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="172dp"
         android:ems="10"
-        android:hint="Enter a password"
+        android:hint="비밀번호"
 
         android:inputType="textPassword"
         android:minHeight="48dp"
@@ -40,11 +55,12 @@
         android:id="@+id/btn_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="89dp"
+        android:layout_marginTop="15dp"
         android:text="가입"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_pwd" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_back_reg" />
 
     <Button
         android:id="@+id/btn_back_reg"
@@ -54,5 +70,7 @@
         android:layout_marginEnd="160dp"
         android:text="뒤로가기"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_pwd"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

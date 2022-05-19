@@ -13,15 +13,28 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.hanul.alcoholic.Registe.UserAccount;
+
+import java.util.Date;
+
 //activity
 public class Community_writing extends AppCompatActivity {
     private static final int GET_GALLERY_IMAGE = 200;; //갤러리 선택용도?
     private String title;
     private String contents;
+    private String writer;
+    private int comment;
+    private Date date;
 
     private TextView textViewTitle;
     private TextView textViewContent;
 
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference = firebaseDatabase.getReference("alcoholic");
     Button btn_upload;
     Button btn_back;
     ImageButton btn_img;
@@ -41,15 +54,26 @@ public class Community_writing extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "글 업로드 됨", Toast.LENGTH_SHORT).show();
+                //제목
                 textViewTitle = findViewById(R.id.editTextTitle);
                 title = textViewTitle.getText().toString();
+                //내용
                 textViewContent = findViewById(R.id.editTextContents);
                 contents = textViewContent.getText().toString();
+                //작성자
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                final FirebaseUser user = mAuth.getCurrentUser();
+                //user.get
                 // firebase에 글 저장하기
+                //Post post = new Post(title,)
+                //글 올리기
+                //databaseReference.child("Post").push()
+
+                //databaseReference.child("alcoholic").child("Post").child(title).push().setValue(contents);
+                //글 수정
 
             }
         });
-
         btn_back.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
