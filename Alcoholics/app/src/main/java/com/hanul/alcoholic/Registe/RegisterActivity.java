@@ -22,9 +22,10 @@ import com.hanul.alcoholic.R;
 public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth; // 파이어베이스 인증
     private DatabaseReference mDatabaseRef; // 실시간 데이터 베이스
-    private EditText mEtMail, mEtpwd; // 회원가입 입력 필드
+    private EditText mEtMail, mEtpwd,mNickname; // 회원가입 입력 필드
     private Button mBtmRegister; // 회원가입 버튼
     private Button btnBackRegi; // 뒤로가기 버튼
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
         mEtMail = findViewById(R.id.et_email);
         mEtpwd = findViewById(R.id.et_pwd);
         mBtmRegister = findViewById(R.id.btn_register);
+        mNickname = findViewById(R.id.et_name);
 
         mBtmRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
                 // 회원가입 처리 시작
                 String strEmail = mEtMail.getText().toString();
                 String strPwd = mEtpwd.getText().toString();
+                String strName = mNickname.getText().toString();
 
                 //firebase auth 실행
 
@@ -56,6 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
                             account.setIdToken(firebaseUser.getUid());
                             account.setEmailID(firebaseUser.getEmail());
                             account.setPassword(strPwd);
+                            account.setNickName(strName);
 
                             mDatabaseRef.child("USerAccount").child(firebaseUser.getUid()).setValue(account);
 
