@@ -6,7 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:lines="1"
+        android:hint="칵테일의 이름을 입력하세요."></EditText>
     <Button
         android:id="@+id/btnData"
         android:layout_width="match_parent"

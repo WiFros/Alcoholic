@@ -7,11 +7,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-
-import com.hanul.alcoholic.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,6 +30,7 @@ public class API_Parsing extends AppCompatActivity {
     private String address = "https://www.thecocktaildb.com/api/json/v2/";
     private ListView listView;
     private Button btnData;
+    private EditText editText;
     ArrayAdapter adapter;
 
     // 영화 제목을 담을 ArrayList 변수(items) 선언
@@ -50,6 +50,7 @@ public class API_Parsing extends AppCompatActivity {
         // listView에 adapter 적용
         listView.setAdapter(adapter);
         btnData = (Button)findViewById(R.id.btnData);
+        editText=(EditText)findViewById(R.id.name);
 
         btnData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,8 +59,8 @@ public class API_Parsing extends AppCompatActivity {
                     @Override
                     public void run() {
                         items.clear();
-
-                        String urlAddress = "www.thecocktaildb.com/api/json/v2/9973533/search.php?f=m";
+                        String name=editText.getText().toString();
+                        String urlAddress = address+key+"/search.php?s="+name;
 
                         try {
                             URL url = new URL(urlAddress);
@@ -79,18 +80,14 @@ public class API_Parsing extends AppCompatActivity {
 
                             // jsonData를 먼저 JSONObject 형태로 바꾼다.
                             JSONObject obj = new JSONObject(jsonData);
-                            // boxOfficeResult의 JSONObject에서 "dailyBoxOfficeList"의 JSONArray 추출
-                            JSONArray dailyBoxOfficeList = (JSONArray)obj.get("drinks");
+                            // obj의 JSONObject에서 "drinkList"의 JSONArray 추출
+                            JSONArray drinkList = (JSONArray) obj.get("drinks");
 
-                            for (int i = 0; i < dailyBoxOfficeList.length(); i++) {
-
-                                JSONObject temp = dailyBoxOfficeList.getJSONObject(i);
-
-                                String movieNm = temp.getString("strDrink");
-
-                                items.add(movieNm);
+                            for (int i = 0; i < drinkList.length(); i++) {
+                                JSONObject temp = drinkList.getJSONObject(i);
+                                String drinkNm = temp.getString("strDrink");
+                                items.add(drinkNm);
                             }
-
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -114,7 +111,7 @@ public class API_Parsing extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String data = (String)parent.getItemAtPosition(position);
-                Toast.makeText(getApplicationContext(), data, Toast.LENGTH_SHORT).show();
+                Toast.makeText(API_Parsing.this, data, Toast.LENGTH_SHORT).show();
             }
         });
 
