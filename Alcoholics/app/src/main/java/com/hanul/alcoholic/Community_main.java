@@ -115,16 +115,6 @@ public class Community_main extends Fragment {
                 data.putInt("comments", post.getComments());
                 data.putString("date", post.getDate());
 
-                //값을 넘길 fragment 선언하고 전달
-                //FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                //Fragment fragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.?);
-
-                //Community_post chosen_post = new Community_post();
-                //chosen_post.setArguments(data);
-                //transaction.replace(R.id.frameLayout, chosen_post);
-                //transaction.addToBackStack(null);
-                //transaction.commit();
-
                 Intent intent = new Intent(getContext().getApplicationContext(), Community_post.class);
                 intent.putExtra("nickname", data.getString("nickname"));
                 intent.putExtra("post", data.getString("post"));

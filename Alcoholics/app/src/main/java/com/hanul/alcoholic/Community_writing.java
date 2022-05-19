@@ -1,5 +1,6 @@
 package com.hanul.alcoholic;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -9,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 //activity
@@ -51,8 +53,7 @@ public class Community_writing extends AppCompatActivity {
         btn_back.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "글쓰기 취소됨", Toast.LENGTH_SHORT).show();
-                //pop-up 메시지로 다시 확인하는 기능 넣기 - 추가적인 부분
+
                 onBackPressed();
             }
         });
@@ -80,6 +81,24 @@ public class Community_writing extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        //super.onBackPressed();
+        AlertDialog.Builder oDialog = new AlertDialog.Builder(this);
+        oDialog.setMessage("글 작성을 취소할까요?")
+                .setPositiveButton("아니오", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {}
+                })
+                .setNeutralButton("예", new DialogInterface.OnClickListener()
+                {
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        Toast.makeText(getApplicationContext(), "글쓰기 취소됨", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                })
+                .setCancelable(false).show();
+
     }
 }

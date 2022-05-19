@@ -1,13 +1,19 @@
 package com.hanul.alcoholic;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -42,6 +48,39 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+           @Override
+            public void onDestinationChanged(@NonNull NavController controller,
+                                             @NonNull NavDestination destination, @Nullable Bundle arguments) {
+                if(destination.getId() == R.id.nav_logout) {
+                    //LOGOUT인 경우
+                    AlertDialog.Builder oDialog = new AlertDialog.Builder(MainActivity.this);
+                    oDialog.setMessage("로그아웃 하시겠습니까?")
+                            .setPositiveButton("아니오", new DialogInterface.OnClickListener()
+                            {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which)
+                                {}
+                            })
+                            .setNeutralButton("예", new DialogInterface.OnClickListener()
+                            {
+                                public void onClick(DialogInterface dialog, int which)
+                                {
+                                    Toast.makeText(getApplicationContext(), "로그아웃됨", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                    Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                                    startActivity(intent);
+                                    //로그아웃 서버에서 가능?
+                                }
+                            })
+                            .setCancelable(false).show();
+
+                }else {
+                    Toast.makeText(getApplicationContext(), "move", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override

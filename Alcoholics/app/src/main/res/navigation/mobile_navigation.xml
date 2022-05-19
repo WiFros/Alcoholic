@@ -24,6 +24,6 @@
         tools:layout="@layout/fragment_community_board" />
     <fragment
         android:id="@+id/nav_logout"
-        android:name="com.hanul.alcoholic.Community_post"
+        android:name="com.hanul.alcoholic.ui.gallery.GalleryFragment"
         android:label="@string/menu_logout" />
 </navigation>
