@@ -11,8 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Bundle;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Adapter;
+
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -158,6 +157,7 @@ public class Community_main extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+
     }
 
 

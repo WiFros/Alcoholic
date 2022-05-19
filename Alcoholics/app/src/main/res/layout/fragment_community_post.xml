@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Board"
     android:orientation="vertical"
+    android:background="@color/white"
     android:id= "@+id/postContent">
 
 
@@ -77,9 +78,12 @@
         android:orientation="horizontal">
         <ImageButton
             android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/recommend"
+
+            />
 
         <EditText
             android:id="@+id/reply_input"
@@ -90,11 +94,13 @@
             android:gravity="start|top"
             android:hint="댓글을 입력해주세요."
             android:inputType="textMultiLine"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
             android:maxLines="10" />
 
         <Button
             android:id="@+id/enter"
-            android:layout_width="10dp"
+            android:layout_width="20dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="입력"

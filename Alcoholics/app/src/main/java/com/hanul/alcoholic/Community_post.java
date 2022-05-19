@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethod;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 
 import androidx.annotation.NonNull;
@@ -29,6 +31,9 @@ public class Community_post extends Fragment {
     private String get_reply_list;
 
     private ImageButton imgButton;
+    private Button btn_enter;
+    private EditText reply;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -58,14 +63,24 @@ public class Community_post extends Fragment {
             imgButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getContext(), "button pressed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "게시글에 공감하셨습니다.", Toast.LENGTH_SHORT).show();
                     //갤러리에서 이미지 가져오기 - 액티비티로 구현해야 하거나 삭제하거나 ><
-                    //Intent intent = new Intent();
-                    //Show only images, no videos or anything else
-                    //intent.setType("image/*");
-                    //intent.setAction(Intent.ACTION_GET_CONTENT);
-                    //Always show the chooser (if there are multiple options available)
-                    //startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+                    //게시글 좋아요로 버튼 변경 - 팝업메시지 추가하기
+
+                }
+            });
+
+            btn_enter = view.findViewById(R.id.enter);
+            reply = view.findViewById(R.id.reply_input);
+            btn_enter.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String txt;
+                    txt = reply.getText().toString();
+                    Toast.makeText(getContext(), txt + "댓글을 입력했습니다.", Toast.LENGTH_SHORT).show();
+                    //firebase에 댓글 내용 업데이트하기?
+
+                    //reply 리스트에 올린 내용 업데이트하고, 텍스트 비우기
 
                 }
             });
@@ -85,4 +100,5 @@ public class Community_post extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
     }
+
 }
