@@ -57,7 +57,7 @@ public class Community_post extends AppCompatActivity {
         get_reply_list = "";
         reply_list = findViewById(R.id.reply_list);
         reply_list.setText(get_reply_list);
-
+        //보류..........................................................................
         imgButton = findViewById(R.id.imageButton);
         imgButton.setOnClickListener(new View.OnClickListener() {
             @Override

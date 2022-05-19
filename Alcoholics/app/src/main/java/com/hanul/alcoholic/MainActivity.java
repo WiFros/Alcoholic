@@ -3,6 +3,8 @@ package com.hanul.alcoholic;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Toast;
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
+    private DrawerLayout drawer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,18 +41,17 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.appBarMain.toolbar);
 
-        DrawerLayout drawer = binding.drawerLayout;
+        drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_cocktail, R.id.nav_myCocktail, R.id.nav_community, R.id.nav_logout)
+                R.id.nav_cocktail, R.id.nav_myCocktail, R.id.nav_community, R.id.nav_logout, R.id.nav_info)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
            @Override
             public void onDestinationChanged(@NonNull NavController controller,
@@ -61,7 +64,10 @@ public class MainActivity extends AppCompatActivity {
                             {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which)
-                                {}
+                                {
+                                    //이전 destination으로 돌아가기
+                                    onBackPressed();
+                                }
                             })
                             .setNeutralButton("예", new DialogInterface.OnClickListener()
                             {
@@ -76,11 +82,21 @@ public class MainActivity extends AppCompatActivity {
                             })
                             .setCancelable(false).show();
 
-                }else {
-                    Toast.makeText(getApplicationContext(), "move", Toast.LENGTH_SHORT).show();
-                }
+                }else {}
             }
         });
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(drawer.isDrawerOpen(Gravity.LEFT)){
+            drawer.closeDrawers();
+        }else{
+            super.onBackPressed();
+        }
+
     }
 
     @Override

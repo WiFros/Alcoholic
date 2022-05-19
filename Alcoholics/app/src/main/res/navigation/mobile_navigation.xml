@@ -26,4 +26,9 @@
         android:id="@+id/nav_logout"
         android:name="com.hanul.alcoholic.ui.gallery.GalleryFragment"
         android:label="@string/menu_logout" />
+    <fragment
+        android:id="@+id/nav_info"
+        android:name="com.hanul.alcoholic.ui.home.HomeFragment"
+        android:label="@string/menu_info"
+        tools:layout="@layout/fragment_home"/>
 </navigation>
