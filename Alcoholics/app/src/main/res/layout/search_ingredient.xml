@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/labelCocktail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff993300"
+        android:text="Cocktail base"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/ingredientList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingredients: "
+        android:layout_gravity="center"/>
+
+    <CheckBox
+        android:id="@+id/chkVodka"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vodka"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/chkGin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gin"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/chkRum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rum"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/chkWhiskey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Whiskey"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/chkTequila"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tequila"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/chkBrandy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Brandy"
+        android:textStyle="bold" />
+
+
+
+</LinearLayout>

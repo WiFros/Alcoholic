@@ -4,4 +4,5 @@
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Android API 32 Platform" project-jdk-type="Android SDK" />
 </project>

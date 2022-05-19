@@ -70,7 +70,6 @@ Blue Maui
 Blueberries
 Blueberry Schnapps
 Bourbon
-Brandy
 Brown Sugar
 Butter
 Butterscotch Schnapps
@@ -200,7 +199,6 @@ Fruit Punch
 Galliano
 Garlic Sauce
 Gatorade
-Gin
 Ginger
 Ginger Ale
 Ginger Beer
@@ -393,7 +391,6 @@ Roses sweetened lime juice
 Rosewater
 Rosso Vermouth
 Ruby Port
-Rum
 Rumple Minze
 Rye Whiskey
 Sake
@@ -441,7 +438,6 @@ Tang
 Tawny port
 Tea
 Tennessee whiskey
-Tequila
 Tequila rose
 Thyme
 Tia Maria
@@ -460,14 +456,11 @@ Vanilla syrup
 Vanilla vodka
 Vermouth
 Vinegar
-Vodka
 Water
 Watermelon
 Watermelon schnapps
 Whipped Cream
 Whipping Cream
-Whiskey
-Whisky
 White Creme de Menthe
 White Rum
 White Vermouth
