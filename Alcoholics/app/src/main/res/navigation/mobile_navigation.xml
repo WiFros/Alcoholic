@@ -3,23 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_cocktail">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.hanul.alcoholic.Community_main"
+        android:id="@+id/nav_cocktail"
+        android:name="com.hanul.alcoholic.RecipeList"
         android:label="@string/menu_home"
+        tools:layout="@layout/fragment__alcohol_list" />
+
+    <fragment
+        android:id="@+id/nav_myCocktail"
+        android:name="com.hanul.alcoholic.ui.gallery.GalleryFragment"
+        android:label="@string/menu_myCocktail"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_community"
+        android:name="com.hanul.alcoholic.Community_main"
+        android:label="@string/menu_community"
         tools:layout="@layout/fragment_community_board" />
-
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_logout"
         android:name="com.hanul.alcoholic.Community_post"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_community_post" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.hanul.alcoholic.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:label="@string/menu_logout" />
 </navigation>

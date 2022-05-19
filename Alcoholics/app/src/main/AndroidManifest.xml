@@ -30,7 +30,8 @@
         </activity>
         <activity
             android:name=".Community_writing"
-            android:exported="false"> </activity>
+            android:exported="false"
+            android:theme="@style/Theme.Alcoholic.NoActionBar"> </activity>
     </application>
 
 </manifest>
