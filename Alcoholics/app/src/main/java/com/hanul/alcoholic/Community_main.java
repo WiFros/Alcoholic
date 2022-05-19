@@ -20,6 +20,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.List;
 
 /* 리스트 뷰에 들어갈 내용 입력받기 위해 클래스 만들어둠 */
@@ -84,7 +86,14 @@ public class Community_main extends Fragment {
         listView = (ListView)view.findViewById(android.R.id.list);
         editText_search = (EditText)view.findViewById(R.id.editText_search);
 
-
+        FloatingActionButton fab = view.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext().getApplicationContext(), Community_writing.class);
+                startActivity(intent);
+            }
+        });
         //데이터 입력받을 adapter 생성
         //fragment에서 this사용 안됨 -> Activity의 참조 획득이 가능한 getActivity() 함수 사용
         //ListView 아이템에 표시될 사용자 데이터 정의
