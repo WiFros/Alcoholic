@@ -1,4 +1,4 @@
-package com.example.parsing;
+package com.hanul.alcoholic;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,7 +25,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class API_Parsing extends AppCompatActivity {
 
     private String key = "9973533";
     private String address = "https://www.thecocktaildb.com/api/json/v2/";
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String data = (String)parent.getItemAtPosition(position);
-                Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), data, Toast.LENGTH_SHORT).show();
             }
         });
 
