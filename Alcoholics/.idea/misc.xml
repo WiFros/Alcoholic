@@ -50,7 +50,6 @@
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_slideshow.xml" value="0.12441214194100043" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/item.xml" value="0.1" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/register_post.xml" value="0.1" />
-        <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/menu/activity_main_drawer.xml" value="0.3333333333333333" />
         <entry key="app/src/main/res/drawable/ic_menu_camera.xml" value="0.442" />
         <entry key="app/src/main/res/drawable/ic_menu_gallery.xml" value="0.398" />
         <entry key="app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.398" />
@@ -62,19 +61,24 @@
         <entry key="app/src/main/res/layout/cocktails.xml" value="0.21195652173913043" />
         <entry key="app/src/main/res/layout/community_main.xml" value="0.21195652173913043" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.21195652173913043" />
+        <entry key="app/src/main/res/layout/fragment__alcohol_list.xml" value="0.17300724637681159" />
         <entry key="app/src/main/res/layout/fragment_community_board.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/layout/fragment_community_post.xml" value="0.14673913043478262" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.14673913043478262" />
+        <entry key="app/src/main/res/layout/fragment_recipe_list.xml" value="0.17300724637681159" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.14673913043478262" />
         <entry key="app/src/main/res/layout/item.xml" value="0.14673913043478262" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.14673913043478262" />
+        <entry key="app/src/main/res/layout/recycle_item.xml" value="0.17300724637681159" />
+        <entry key="app/src/main/res/layout/recycleview_main.xml" value="0.17300724637681159" />
+        <entry key="app/src/main/res/layout/register_post.xml" value="0.17300724637681159" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/menu/main.xml" value="0.24166666666666667" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
