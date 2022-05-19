@@ -32,8 +32,14 @@
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/register_post.xml" value="0.34692028985507245" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/menu/main.xml" value="0.1984375" />
+        <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.147" />
+        <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_launcher_background.xml" value="0.147" />
+        <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_menu_camera.xml" value="0.155" />
+        <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.147" />
+        <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.147" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/font/default_font.xml" value="0.1718683197947841" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/activity_main.xml" value="0.13191296464188576" />
+        <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/app_bar_main.xml" value="0.22" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/community_main.xml" value="0.1" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/fragment__alcohol_list.xml" value="0.1470713980333476" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_community_board.xml" value="0.1" />
@@ -43,7 +49,7 @@
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_recipe_list.xml" value="0.1470713980333476" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_slideshow.xml" value="0.12441214194100043" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/item.xml" value="0.1" />
-        <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/register_post.xml" value="0.22" />
+        <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/register_post.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_menu_camera.xml" value="0.442" />
         <entry key="app/src/main/res/drawable/ic_menu_gallery.xml" value="0.398" />
         <entry key="app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.398" />

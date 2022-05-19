@@ -23,14 +23,17 @@ public class Community_writing extends AppCompatActivity {
     Button btn_upload;
     Button btn_back;
     ImageButton btn_img;
+    ImageButton btn_gal;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.register_post);
         //버튼 클릭시 화면에서 입력한 내용 받아와서 파이어베이스에 올리기
         btn_upload = (Button) findViewById(R.id.button_upload);
         btn_back = (Button) findViewById(R.id.button_back);
         btn_img = (ImageButton) findViewById(R.id.imageButton_picture);
+        btn_gal = (ImageButton) findViewById(R.id.imageButton_gallery);
 
         btn_upload.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -54,14 +57,20 @@ public class Community_writing extends AppCompatActivity {
             }
         });
 
-        btn_img.setOnClickListener(new View.OnClickListener() {
-
+        btn_gal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "이미지 업로드", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
                 startActivityForResult(intent,GET_GALLERY_IMAGE); //될지 모르겠음
+                //이미지 선택 후 실행될 이벤트 구현해야 함..
+            }
+        });
+        btn_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "카메라 실행", Toast.LENGTH_SHORT).show();
                 //이미지 선택 후 실행될 이벤트 구현해야 함..
             }
         });

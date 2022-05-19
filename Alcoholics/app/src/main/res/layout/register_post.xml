@@ -17,7 +17,10 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="←" />
+            android:layout_marginLeft="3dp"
+            android:text="←"
+            android:textSize="20sp"
+            android:textAlignment="center"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,14 +30,16 @@
             android:textColor="@color/black"
             android:gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/button_upload"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="완료" />
+            android:layout_marginRight="3dp"
+            android:text="완료"
+            android:textSize="20sp" />
 
 
     </LinearLayout>
@@ -76,7 +81,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_menu_camera"
-            android:text="사진 올리기"/>
+            />
+        <ImageButton
+            android:id="@+id/imageButton_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_menu_gallery"
+            />
     </LinearLayout>
 
 

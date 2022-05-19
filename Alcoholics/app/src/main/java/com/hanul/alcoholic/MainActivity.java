@@ -35,11 +35,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                        // .setAction("Action", null).show();
-                mFirebaseAuth.signOut();
-
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                //Writing activity로 넘어감
+                Intent intent = new Intent(getApplicationContext(), Community_writing.class);
                 startActivity(intent);
-                finish();
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
