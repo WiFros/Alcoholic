@@ -17,10 +17,7 @@
             android:icon="@drawable/ic_menu_com"
             android:title="@string/menu_community" />
 
-        <item
-            android:id="@+id/nav_logout"
-            android:icon="@drawable/ic_menu_logout"
-            android:title="@string/menu_logout" />
+
 
         <item android:title="추가 정보">
             <menu>
@@ -28,6 +25,10 @@
                     android:id="@+id/nav_info"
                     android:icon="@drawable/ic_menu_caution"
                     android:title="@string/menu_info"  />
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/ic_menu_logout"
+                    android:title="@string/menu_logout" />
             </menu>
         </item>
     </group>

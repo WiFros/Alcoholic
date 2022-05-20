@@ -2,12 +2,12 @@
     <!-- Base application theme. -->
     <style name="Theme.Alcoholic" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#022873</item>
-        <item name="colorPrimaryVariant">#010726</item>
-        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
         <!-- Secondary brand color.  EF87AA 610F08-->
-        <item name="colorSecondary">#EF87AA</item>
-        <item name="colorSecondaryVariant">#056CF2</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->S
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>

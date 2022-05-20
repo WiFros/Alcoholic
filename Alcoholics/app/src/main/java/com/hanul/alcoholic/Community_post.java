@@ -57,17 +57,7 @@ public class Community_post extends AppCompatActivity {
         get_reply_list = "";
         reply_list = findViewById(R.id.reply_list);
         reply_list.setText(get_reply_list);
-        //보류..........................................................................
-        imgButton = findViewById(R.id.imageButton);
-        imgButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "게시글에 공감하셨습니다.", Toast.LENGTH_SHORT).show();
-                //갤러리에서 이미지 가져오기 - 액티비티로 구현해야 하거나 삭제하거나 ><
-                //게시글 좋아요로 버튼 변경 - 팝업메시지 추가하기
 
-            }
-        });
 
         btn_enter = findViewById(R.id.enter);
         reply = findViewById(R.id.reply_input);
