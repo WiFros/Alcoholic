@@ -81,7 +81,7 @@
             android:layout_height="40dp"
             android:scaleType="centerInside"
             android:background="@drawable/round"
-            app:srcCompat="@drawable/icon_comments"
+            app:srcCompat="@drawable/icon_comment"
             android:clipToOutline="true"
 
             />
