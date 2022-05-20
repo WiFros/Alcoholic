@@ -93,6 +93,8 @@ public class LoginActivity extends AppCompatActivity {
                 //회원 가입 화면 이동
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
+
+                //메인 액티비티에서 뒤로가기 눌렀을때 로그인으로 돌아오는 이슈!!!
             }
         });
     }

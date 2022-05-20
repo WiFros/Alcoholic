@@ -3,6 +3,8 @@ package com.hanul.alcoholic;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethod;
@@ -29,8 +31,9 @@ public class Community_post extends AppCompatActivity {
     private String get_post;
     private String get_reply_list;
 
-    private ImageButton imgButton;
     private Button btn_enter;
+    private Button btn_report;
+    private ImageButton btn_back;
     private EditText reply;
 
     @Nullable
@@ -73,8 +76,27 @@ public class Community_post extends AppCompatActivity {
 
             }
         });
+        btn_report = findViewById(R.id.btn_report);
+        btn_report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "신고가 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                //신고 기능?
+
+            }
+        });
+
+        btn_back = findViewById(R.id.btn_back);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+
+            }
+        });
+
+
 
     }
-
 
 }

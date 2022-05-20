@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawer;
 
+    private long backKeyPressTime = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
         }else{
             super.onBackPressed();
         }
+
+        //이전화면이 로그인화면이라면 종료 물어보기
+
 
     }
 

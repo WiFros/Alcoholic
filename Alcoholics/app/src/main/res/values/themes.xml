@@ -24,8 +24,13 @@
         <item name="windowNoTitle">true</item>
     </style>
     <style name="Theme.Alcoholic.ActionBar">
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Alcoholic.PostBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+
     </style>
 
 

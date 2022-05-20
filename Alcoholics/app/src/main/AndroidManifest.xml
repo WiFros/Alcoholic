@@ -29,6 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:parentActivityName=".MainActivity"
             android:exported="false"
             android:label="@string/app_name"
             android:theme="@style/Theme.Alcoholic.NoActionBar">
@@ -36,10 +37,12 @@
         <activity
             android:name=".Community_writing"
             android:exported="false"
+            android:label="@string/menu_community"
             android:theme="@style/Theme.Alcoholic.NoActionBar"> </activity>
         <activity
             android:name=".Community_post"
-            android:exported="false"> </activity>
+            android:exported="false"
+            android:theme="@style/Theme.Alcoholic.PostBar"> </activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
