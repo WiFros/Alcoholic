@@ -55,15 +55,6 @@ public class expandableRecipeList extends AppCompatActivity {
         temp.child.add("ccc");
         DataList.add(temp);
         temp = new myGroup("All cocktail");
-        temp.child.add("a");
-        temp.child.add("b");
-        temp.child.add("c");
-        temp.child.add("d");
-        temp.child.add("e");
-        temp.child.add("f");
-        temp.child.add("g");
-        temp.child.add("h");
-        temp.child.add("i");
         temp.child.add("j");
         temp.child.add("k");
         temp.child.add("l");

@@ -17,6 +17,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="community_writing">커뮤니티 글쓰기</string>
+    <string name="detailRecipe">this is sample recipe. Should put detail recipe from API. this is sample recipe. Should put detail recipe from API. this is sample recipe. Should put detail recipe from API.</string>
 
 
     <string-array name="fruits_array">
@@ -83,5 +84,12 @@
         <item>Watermelon</item>
         <item>Woodapple</item>
     </string-array>
+
+    <string-array name="ingredients_array">
+        <item>vodka</item>
+        <item>vodka2</item>
+        <item>vodka3</item>
+    </string-array>
+
 
 </resources>

@@ -1,13 +1,19 @@
 package com.hanul.alcoholic;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SectionIndexer;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,6 +38,48 @@ public class fastscroll_listview extends AppCompatActivity {
         List<String> fruitList = Arrays.asList(fruits);
         ListAdapter listAdapter = new ListAdapter(this, fruitList);
         listView.setAdapter(listAdapter);
+
+
+
+        //ListView button = (Button)findViewById(R.id.button);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> a_parent, View a_view, int a_position, long a_id)
+            {
+                //final fastscroll_list_item item = (fastscroll_list_item) listAdapter.getItem(a_position);
+                PopupAlert();
+            }
+        });
+
+    }
+
+
+
+    public void PopupAlert() {
+        //super.onBackPressed();
+        AlertDialog.Builder oDialog = new AlertDialog.Builder(this);
+        oDialog.setMessage("자세한 레시피")
+                .setView(R.layout.detailrecipedialog)
+                //.setPositiveButton("아니오", new DialogInterface.OnClickListener()
+                //{
+                //    @Override
+                //    public void onClick(DialogInterface dialog, int which)
+                //    {}
+                //})
+                .show();
+
+                //.setNeutralButton("예", new DialogInterface.OnClickListener()
+               //{
+               //    public void onClick(DialogInterface dialog, int which)
+               //    {
+               //        Toast.makeText(getApplicationContext(), "글쓰기 취소됨", Toast.LENGTH_SHORT).show();
+               //        finish();
+               //    }
+               //})
+                //.setCancelable(false).show();
+
     }
 }
 
