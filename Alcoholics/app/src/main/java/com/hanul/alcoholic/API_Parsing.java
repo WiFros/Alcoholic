@@ -2,6 +2,7 @@ package com.hanul.alcoholic;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.api.API_Clicked;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,8 +28,8 @@ import java.util.ArrayList;
 
 public class API_Parsing extends AppCompatActivity {
 
-    private String key = "9973533";
-    private String address = "https://www.thecocktaildb.com/api/json/v2/";
+    public static String key = "9973533";
+    public static String address = "https://www.thecocktaildb.com/api/json/v2/";
     private ListView listView;
     private Button btnData;
     private EditText editText;
@@ -110,8 +112,10 @@ public class API_Parsing extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String data = (String)parent.getItemAtPosition(position);
-                Toast.makeText(API_Parsing.this, data, Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(getApplicationContext(), API_Clicked.class);
+
+                intent.putExtra("Drink", (String) parent.getItemAtPosition(position));
+                startActivity(intent);
             }
         });
 
@@ -121,3 +125,4 @@ public class API_Parsing extends AppCompatActivity {
 
 
 }
+

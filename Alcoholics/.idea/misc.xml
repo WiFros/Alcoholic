@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/activity_main.xml" value="0.2629179331306991" />
+        <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/api_clicked.xml" value="0.23943661971830985" />
         <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/api_parsing.xml" value="0.261144883485309" />
         <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/cocktails.xml" value="0.1" />
+        <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_community_post.xml" value="0.261144883485309" />
         <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_recipe_list.xml" value="0.261144883485309" />
+        <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/parsed_recipes.xml" value="0.5411458333333333" />
+        <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/register_post.xml" value="0.261144883485309" />
         <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/search_ingredient.xml" value="0.261144883485309" />
         <entry key="..\:/Users/User/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/User/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/api_parsing.xml" value="0.12310030395136778" />
