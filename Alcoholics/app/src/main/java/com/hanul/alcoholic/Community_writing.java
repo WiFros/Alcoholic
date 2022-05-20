@@ -2,6 +2,7 @@ package com.hanul.alcoholic;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -10,16 +11,26 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.hanul.alcoholic.Registe.UserAccount;
 
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 //activity
 public class Community_writing extends AppCompatActivity {
@@ -29,12 +40,12 @@ public class Community_writing extends AppCompatActivity {
     private String writer;
     private int comment;
     private Date date;
-
+    private ValueEventListener postListener;
     private TextView textViewTitle;
     private TextView textViewContent;
 
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    private DatabaseReference databaseReference = firebaseDatabase.getReference("alcoholic");
+    private DatabaseReference databaseReference;
     Button btn_upload;
     Button btn_back;
     ImageButton btn_img;
@@ -51,26 +62,40 @@ public class Community_writing extends AppCompatActivity {
         btn_gal = (ImageButton) findViewById(R.id.imageButton_gallery);
 
         btn_upload.setOnClickListener(new View.OnClickListener(){
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "글 업로드 됨", Toast.LENGTH_SHORT).show();
-                //제목
+                //제목 입력
                 textViewTitle = findViewById(R.id.editTextTitle);
                 title = textViewTitle.getText().toString();
-                //내용
+                //내용 입력
                 textViewContent = findViewById(R.id.editTextContents);
                 contents = textViewContent.getText().toString();
-                //작성자
+                //작성자 이름 받아오기
                 FirebaseAuth mAuth = FirebaseAuth.getInstance();
                 final FirebaseUser user = mAuth.getCurrentUser();
-                //user.get
-                // firebase에 글 저장하기
-                //Post post = new Post(title,)
-                //글 올리기
-                //databaseReference.child("Post").push()
+                databaseReference = firebaseDatabase.getReference("alcoholic");
+                databaseReference.
+                        child("USerAccount").
+                        child(user.getUid()).
+                        child("nickName").
+                        get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if(!task.isSuccessful()){
+                            Toast.makeText(getApplicationContext(), "유저 데이터 읽기에 실패했습니다.", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            writer = String.valueOf(task.getResult().getValue());
+                            Toast.makeText(getApplicationContext(), writer, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
-                //databaseReference.child("alcoholic").child("Post").child(title).push().setValue(contents);
-                //글 수정
+                // firebase에 글 저장하기
+                writeNewPost(user.getUid(),writer,title,contents);
+
 
             }
         });
@@ -123,6 +148,20 @@ public class Community_writing extends AppCompatActivity {
                     }
                 })
                 .setCancelable(false).show();
+
+    }
+    private void writeNewPost(String userId,String userName, String title,String body){
+        String key = databaseReference.child("Post").push().getKey();
+        Post post = new Post(userId,userName,title,body);
+        Map<String,Object> postValue = post.toMap();
+
+        Map<String,Object> chileUpdates = new HashMap<>();
+        chileUpdates.put("/Post/"+key,postValue);
+        chileUpdates.put("/User-post/"+userId+"/"+key,postValue);
+
+        databaseReference.updateChildren(chileUpdates);
+
+
 
     }
 }
