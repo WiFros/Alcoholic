@@ -2,6 +2,7 @@ package com.hanul.alcoholic;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,6 +16,12 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,24 +60,11 @@ public class RecipeList extends Fragment{
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(),expandableRecipeList.class);
+                Intent intent = new Intent(getActivity(),fastscroll_listview.class);
                 startActivity(intent);
             }
         });
-    // View root = inflater.inflate(R.layout.fragment_recipe_list, container, false);
-//      //  LinearLayout recipeLayout = root.findViewById(R.id.recipeLayout);
-//
-        //context = container.getContext();
-//
-        //Button button = root.findViewById(R.id.cocktailBtn);
-        //button.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View view) {
-        //        Log.d("aaaaaaa", "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
-        //    }
-        //});
-//
-        //Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
-        return inflater.inflate(R.layout.fragment_recipe_list, container, false);
+
+        return view;
     }
 }

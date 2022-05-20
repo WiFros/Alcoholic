@@ -9,5 +9,12 @@
         android:id="@+id/mylist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft" />
+        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+        android:fadeScrollbars="false"
+        android:fastScrollEnabled="true"
+        android:fastScrollAlwaysVisible="true"
+        android:scrollbarSize="30dp"
+        android:scrollbars="vertical"/>
+
+
 </LinearLayout>

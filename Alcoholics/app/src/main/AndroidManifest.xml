@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    android:windowSoftInputMode="stateAlwaysHidden"
-    package="com.hanul.alcoholic">
+    package="com.hanul.alcoholic"
+    android:windowSoftInputMode="stateAlwaysHidden">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,35 +13,51 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Alcoholic">
         <activity
+            android:name=".fastscroll_listview"
+            android:exported="false" />
+        <activity
+            android:name=".fastscroll_list_item"
+            android:exported="false" />
+        <activity
             android:name=".board.list.BoardRecyclerView"
-            android:exported="false"
-            >
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".Registe.LoginActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
+
+            <!-- android:exported="true" > -->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".Registe.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Alcoholic.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".Community_writing"
             android:exported="false"
-            android:theme="@style/Theme.Alcoholic.NoActionBar"> </activity>
+            android:theme="@style/Theme.Alcoholic.NoActionBar" />
         <activity
             android:name=".Community_post"
-            android:exported="false"> </activity>
+            android:exported="false" />
+        <activity
+            android:name=".API_Parsing"
+            android:exported="false" />
+        <activity
+            android:name=".expandableRecipeList"
+            android:exported="false" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET"/>
+
 </manifest>
