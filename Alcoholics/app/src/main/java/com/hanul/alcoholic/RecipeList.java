@@ -1,19 +1,29 @@
 package com.hanul.alcoholic;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link RecipeList#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RecipeList extends Fragment {
+public class RecipeList extends Fragment{
+    public View view;
+    public Context context;
 
     public RecipeList() {
         // Required empty public constructor
@@ -36,7 +46,31 @@ public class RecipeList extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
+        View view = inflater.inflate(R.layout.fragment_recipe_list, container, false);
+        Button button = view.findViewById(R.id.cocktailbtn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(),expandableRecipeList.class);
+                startActivity(intent);
+            }
+        });
+    // View root = inflater.inflate(R.layout.fragment_recipe_list, container, false);
+//      //  LinearLayout recipeLayout = root.findViewById(R.id.recipeLayout);
+//
+        //context = container.getContext();
+//
+        //Button button = root.findViewById(R.id.cocktailBtn);
+        //button.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View view) {
+        //        Log.d("aaaaaaa", "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+        //    }
+        //});
+//
+        //Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
         return inflater.inflate(R.layout.fragment_recipe_list, container, false);
     }
 }
