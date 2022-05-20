@@ -36,18 +36,18 @@ class Post {
     private String nickname;
     private String content;
     private int comments;
-    private LocalDate date;
+    private String date;
     private int starCount; // 좋아요
     private Map<String,Boolean> stars = new HashMap<>();
 
-    Post(String name, String nickname, String content, int comments, LocalDate date){
+    Post(String name, String nickname, String content, int comments, String date){
         this.name = name;
         this.nickname = nickname;
         this.content = content;
         this.comments = comments;
         this.date = date;
     }
-    Post(String nickname, String content, int comments, LocalDate date) {
+    Post(String nickname, String content, int comments, String date) {
         this.nickname = nickname;
         this.content = content;
         this.comments = comments;
@@ -76,7 +76,7 @@ class Post {
     public int getComments() {
         return comments;
     }
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
     public void setNickname(String nickname) {
@@ -88,7 +88,7 @@ class Post {
     public void setComments(int comments) {
         this.comments = comments;
     }
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -100,7 +100,7 @@ class Post {
         result.put("body",content);
         result.put("starCount",starCount);
         result.put("stars",stars);
-
+        result.put("date",date);
         return result;
     }
 }
@@ -148,7 +148,7 @@ public class Community_main extends Fragment {
                 Bundle data = new Bundle();
                 //Post 클래스의 내용 활용하기 sample -- **** firebase 값 가져오기
                 //Bundle 통해 값 전달하기
-                Post post = new Post("nick", "sample", 0,LocalDate.now());
+                Post post = new Post("nick", "sample", 0,"111");
                 data.putString("nickname", post.getNickname());
                 data.putString("post", post.getContent());
                 data.putInt("comments", post.getComments());

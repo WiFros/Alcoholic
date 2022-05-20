@@ -27,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hanul.alcoholic.Registe.UserAccount;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
@@ -61,26 +62,15 @@ public class Community_writing extends AppCompatActivity {
         btn_img = (ImageButton) findViewById(R.id.imageButton_picture);
         btn_gal = (ImageButton) findViewById(R.id.imageButton_gallery);
 
-        btn_upload.setOnClickListener(new View.OnClickListener(){
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "글 업로드 됨", Toast.LENGTH_SHORT).show();
-                //제목 입력
-                textViewTitle = findViewById(R.id.editTextTitle);
-                title = textViewTitle.getText().toString();
-                //내용 입력
-                textViewContent = findViewById(R.id.editTextContents);
-                contents = textViewContent.getText().toString();
-                //작성자 이름 받아오기
-                FirebaseAuth mAuth = FirebaseAuth.getInstance();
-                final FirebaseUser user = mAuth.getCurrentUser();
-                databaseReference = firebaseDatabase.getReference("alcoholic");
-                databaseReference.
-                        child("USerAccount").
-                        child(user.getUid()).
-                        child("nickName").
-                        get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        //작성자 이름 받아오기
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        final FirebaseUser user = mAuth.getCurrentUser();
+        databaseReference = firebaseDatabase.getReference("alcoholic");
+        databaseReference.
+                child("USerAccount").
+                child(user.getUid()).
+                child("nickName").
+                get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DataSnapshot> task) {
                         if(!task.isSuccessful()){
@@ -93,6 +83,18 @@ public class Community_writing extends AppCompatActivity {
                     }
                 });
 
+        btn_upload.setOnClickListener(new View.OnClickListener(){
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "글 업로드 됨", Toast.LENGTH_SHORT).show();
+                //제목 입력
+                textViewTitle = findViewById(R.id.editTextTitle);
+                title = textViewTitle.getText().toString();
+                //내용 입력
+                textViewContent = findViewById(R.id.editTextContents);
+                contents = textViewContent.getText().toString();
+
                 // firebase에 글 저장하기
                 writeNewPost(user.getUid(),writer,title,contents);
 
@@ -102,7 +104,6 @@ public class Community_writing extends AppCompatActivity {
         btn_back.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-
                 onBackPressed();
             }
         });
@@ -153,6 +154,12 @@ public class Community_writing extends AppCompatActivity {
     private void writeNewPost(String userId,String userName, String title,String body){
         String key = databaseReference.child("Post").push().getKey();
         Post post = new Post(userId,userName,title,body);
+
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        Date time = new Date();
+        String timeSting = format1.format(time);
+        post.setDate(timeSting);
+
         Map<String,Object> postValue = post.toMap();
 
         Map<String,Object> chileUpdates = new HashMap<>();
