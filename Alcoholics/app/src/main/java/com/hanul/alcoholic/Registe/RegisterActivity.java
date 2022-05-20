@@ -3,8 +3,11 @@ package com.hanul.alcoholic.Registe;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,28 +50,39 @@ public class RegisterActivity extends AppCompatActivity {
                 String strPwd = mEtpwd.getText().toString();
                 String strName = mNickname.getText().toString();
 
-                //firebase auth 실행
+                // 예외처리 -- 구글 로그인으로 변경하게 되면 수정해야 함!
+                if (TextUtils.isEmpty(strEmail) || TextUtils.isEmpty(strPwd) || TextUtils.isEmpty(strName)) {
+                    AlertDialog.Builder caution = new AlertDialog.Builder(RegisterActivity.this);
+                    caution.setMessage("입력하지 않은 정보가 있습니다.");
+                    caution.setNeutralButton("확인", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {}
+                    }).show();
+                }
+                else {
+                    //firebase auth 실행
+                    mFirebaseAuth.createUserWithEmailAndPassword(strEmail,strPwd).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()){
+                                FirebaseUser firebaseUser = mFirebaseAuth.getCurrentUser();
 
-                mFirebaseAuth.createUserWithEmailAndPassword(strEmail,strPwd).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            FirebaseUser firebaseUser = mFirebaseAuth.getCurrentUser();
+                                UserAccount account = new UserAccount();
+                                account.setIdToken(firebaseUser.getUid());
+                                account.setEmailID(firebaseUser.getEmail());
+                                account.setPassword(strPwd);
+                                account.setNickName(strName);
 
-                            UserAccount account = new UserAccount();
-                            account.setIdToken(firebaseUser.getUid());
-                            account.setEmailID(firebaseUser.getEmail());
-                            account.setPassword(strPwd);
-                            account.setNickName(strName);
+                                mDatabaseRef.child("USerAccount").child(firebaseUser.getUid()).setValue(account);
 
-                            mDatabaseRef.child("USerAccount").child(firebaseUser.getUid()).setValue(account);
-
-                            Toast.makeText(RegisterActivity.this,"회원가입에 성공하셨습니다.",Toast.LENGTH_LONG).show();
-                        }else {
-                            Toast.makeText(RegisterActivity.this,"회원가입에 실패하셨습니다.",Toast.LENGTH_LONG).show();
+                                Toast.makeText(RegisterActivity.this,"회원가입에 성공하셨습니다.",Toast.LENGTH_LONG).show();
+                            }else {
+                                Toast.makeText(RegisterActivity.this,"회원가입에 실패하셨습니다.",Toast.LENGTH_LONG).show();
+                            }
                         }
-                    }
-                });
+                    });
+                }
+
             }
         });
         btnBackRegi = findViewById(R.id.btn_back_reg);
