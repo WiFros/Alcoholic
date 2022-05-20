@@ -11,23 +11,13 @@
         <entry key="..\:/Users/User/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/api_parsing.xml" value="0.12310030395136778" />
         <entry key="..\:/Users/User/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/cocktails.xml" value="0.1" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.214" />
-        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.2825" />
-        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.1875" />
-        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1875" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_launcher_background.xml" value="0.214" />
-        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_logo_cocktail.xml" value="0.2825" />
-        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_logo_foreground.xml" value="0.2825" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_menu_camera.xml" value="0.214" />
-        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_menu_community.xml" value="0.217" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.214" />
-        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_menu_info.xml" value="0.1605" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.214" />
-        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_menu_writing.xml" value="0.1" />
-        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/icon_comment.xml" value="0.2825" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/round.xml" value="0.243" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/side_nav_bar.xml" value="0.147" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/font/default_font.xml" value="0.4125" />
-        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/activity_expandable_recipe_list.xml" value="0.1" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/activity_login.xml" value="0.271286231884058" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/activity_register.xml" value="0.15670289855072464" />
@@ -36,7 +26,7 @@
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/community_main.xml" value="0.1984375" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/community_post.xml" value="0.15092592592592594" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/content_main.xml" value="0.1984375" />
-        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/fragment__alcohol_list.xml" value="0.2907764460656592" />
+        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/fragment__alcohol_list.xml" value="0.15450861195542046" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_blank.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_community_board.xml" value="0.3202020202020202" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_community_post.xml" value="0.33" />

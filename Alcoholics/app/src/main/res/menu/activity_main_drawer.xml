@@ -6,15 +6,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_cocktail"
-            android:icon="@drawable/ic_baseline_wine_bar_24"
+            android:icon="@drawable/ic_menu_cocktail"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_myCocktail"
-            android:icon="@drawable/ic_baseline_star_24"
+            android:icon="@drawable/ic_menu_my"
             android:title="@string/menu_myCocktail" />
         <item
             android:id="@+id/nav_community"
-            android:icon="@drawable/ic_menu_community"
+            android:icon="@drawable/ic_menu_com"
             android:title="@string/menu_community" />
 
 
@@ -23,11 +23,11 @@
             <menu>
                 <item
                     android:id="@+id/nav_info"
-                    android:icon="@drawable/ic_menu_info"
+                    android:icon="@drawable/ic_menu_caution"
                     android:title="@string/menu_info"  />
                 <item
                     android:id="@+id/nav_logout"
-                    android:icon="@drawable/ic_baseline_exit_to_app_24"
+                    android:icon="@drawable/ic_menu_logout"
                     android:title="@string/menu_logout" />
             </menu>
         </item>
