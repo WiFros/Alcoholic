@@ -2,11 +2,13 @@ package com.hanul.alcoholic;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,30 +23,50 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /* 리스트 뷰에 들어갈 내용 입력받기 위해 클래스 만들어둠 */
 class Post {
+    private String uid;
     private String name;
     private String nickname;
     private String content;
     private int comments;
-    private String date;
+    private LocalDate date;
+    private int starCount; // 좋아요
+    private Map<String,Boolean> stars = new HashMap<>();
 
-    Post(String name,String nickname,String content, int comments,String date){
+    Post(String name, String nickname, String content, int comments, LocalDate date){
         this.name = name;
         this.nickname = nickname;
         this.content = content;
         this.comments = comments;
         this.date = date;
     }
-    Post(String nickname, String content, int comments, String date) {
+    Post(String nickname, String content, int comments, LocalDate date) {
         this.nickname = nickname;
         this.content = content;
         this.comments = comments;
-        this.date = date;
-    }
-
+        this.date = date;}
+    Post(String uid, String nickname, String title, String body) {
+        this.uid = uid;
+        this.nickname = nickname;
+        this.name = title;
+        this.content = body;}
+    public int getStarCount() {return starCount;}
+    public void setStarCount(int starCount) {this.starCount = starCount;}
+    public Map<String, Boolean> getStars() {return stars;}
+    public void setStars(Map<String, Boolean> stars) {this.stars = stars;}
+    public String getUid() {return uid;}
+    public void setUid(String uid) {this.uid = uid;}
+    public int getStar() {return starCount;}
+    public void setStar(int star) {this.starCount = star;}
+    public String getName() {return name;}
+    public void setName(String name) {this.name = name;}
     public String getNickname() {
         return nickname;
     }
@@ -54,24 +76,32 @@ class Post {
     public int getComments() {
         return comments;
     }
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
-
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
-
     public void setContent(String content) {
         this.content = content;
     }
-
     public void setComments(int comments) {
         this.comments = comments;
     }
-
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public Map<String,Object> toMap(){
+        HashMap<String,Object> result = new HashMap<>();
+        result.put("uid",uid);
+        result.put("author",nickname);
+        result.put("title",name);
+        result.put("body",content);
+        result.put("starCount",starCount);
+        result.put("stars",stars);
+
+        return result;
     }
 }
 /* 들어가야 할 내용
@@ -83,6 +113,7 @@ public class Community_main extends Fragment {
     private Button btn_search;
     private EditText editText_search;
     private ListView listView;
+    private LocalDate now;
 
     @Nullable
     @Override
@@ -111,16 +142,17 @@ public class Community_main extends Fragment {
 
         //listView 클릭했을 때 - 클릭한 게시글로 fragment 이동
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Bundle data = new Bundle();
                 //Post 클래스의 내용 활용하기 sample -- **** firebase 값 가져오기
                 //Bundle 통해 값 전달하기
-                Post post = new Post("nick", "sample", 0, "20220509");
+                Post post = new Post("nick", "sample", 0,LocalDate.now());
                 data.putString("nickname", post.getNickname());
                 data.putString("post", post.getContent());
                 data.putInt("comments", post.getComments());
-                data.putString("date", post.getDate());
+                data.putString("date", post.getDate().toString());
 
                 //값을 넘길 fragment 선언하고 전달
                 //FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
@@ -171,7 +203,4 @@ public class Community_main extends Fragment {
         super.onDestroyView();
 
     }
-
-
-
 }
