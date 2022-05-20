@@ -8,46 +8,14 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-            android:overScrollMode="always"
-            android:scrollbars="none"
-            android:id="@+id/scroll"
+        android:overScrollMode="always"
+        android:scrollbars="none"
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-<<<<<<< Updated upstream
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout android:id="@+id/cocktail1" android:background="@drawable/card_avatar_bar"
-                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginTop="16dp" android:layout_marginBottom="16dp" android:layout_marginLeft="16dp" android:text="Martini" android:layout_gravity="center_vertical"  android:drawableLeft="@drawable/cocktailimg32px" android:drawablePadding="16dp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:drawableRight="@drawable/ic_global_arrow_right_2px" android:drawablePadding="16dp" android:layout_gravity="center_vertical" android:layout_marginRight="16dp"/>
-                </LinearLayout>
-                <LinearLayout android:id="@+id/cocktail2" android:background="@drawable/card_avatar_bar"
-                    android:layout_width="match_parent" android:layout_height="wrap_content"  >
-                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginTop="16dp" android:layout_marginBottom="16dp" android:layout_marginLeft="16dp" android:text="Manhattan" android:layout_gravity="center_vertical"  android:drawableLeft="@drawable/cocktailimg32px" android:drawablePadding="16dp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:drawableRight="@drawable/ic_global_arrow_right_2px" android:drawablePadding="16dp" android:layout_gravity="center_vertical" android:layout_marginRight="16dp"/>
-                </LinearLayout>
-
-                <LinearLayout android:id="@+id/cocktail3" android:background="@drawable/card_avatar_bar"
-                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginTop="16dp" android:layout_marginBottom="16dp" android:layout_marginLeft="16dp" android:text="Gin Tonic" android:layout_gravity="center_vertical"  android:drawableLeft="@drawable/cocktailimg32px" android:drawablePadding="16dp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:drawableRight="@drawable/ic_global_arrow_right_2px" android:drawablePadding="16dp" android:layout_gravity="center_vertical" android:layout_marginRight="16dp"/>
-                </LinearLayout>
-
-                <LinearLayout android:id="@+id/cocktail4" android:background="@drawable/card_avatar_bar"
-                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginTop="16dp" android:layout_marginBottom="16dp" android:layout_marginLeft="16dp" android:text="Magaritta" android:layout_gravity="center_vertical"  android:drawableLeft="@drawable/cocktailimg32px" android:drawablePadding="16dp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:drawableRight="@drawable/ic_global_arrow_right_2px" android:drawablePadding="16dp" android:layout_gravity="center_vertical" android:layout_marginRight="16dp"/>
-                </LinearLayout>
-
-                <LinearLayout android:id="@+id/cocktail5" android:background="@drawable/card_avatar_bar"
-                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginTop="16dp" android:layout_marginBottom="16dp" android:layout_marginLeft="16dp" android:text="Mojito" android:layout_gravity="center_vertical"  android:drawableLeft="@drawable/cocktailimg32px" android:drawablePadding="16dp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:drawableRight="@drawable/ic_global_arrow_right_2px" android:drawablePadding="16dp" android:layout_gravity="center_vertical" android:layout_marginRight="16dp"/>
-                </LinearLayout>
-=======
             android:layout_height="wrap_content">
 
             <LinearLayout android:id="@+id/cocktail1" android:background="@drawable/card_avatar_bar"
@@ -84,23 +52,16 @@
                 <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginTop="16dp" android:layout_marginBottom="16dp" android:layout_marginLeft="16dp" android:text="White Lady" android:layout_gravity="center_vertical"  android:drawableLeft="@drawable/cocktailimg32px" android:drawablePadding="16dp"/>
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:drawableRight="@drawable/ic_baseline_keyboard_arrow_right_24" android:drawablePadding="16dp" android:layout_gravity="center_vertical" android:layout_marginRight="16dp"/>
             </LinearLayout>
->>>>>>> Stashed changes
 
-                <LinearLayout android:id="@+id/cocktail6" android:background="@drawable/card_avatar_bar"
-                    android:layout_width="match_parent" android:layout_height="wrap_content" >
-                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginTop="16dp" android:layout_marginBottom="16dp" android:layout_marginLeft="16dp" android:text="White Lady" android:layout_gravity="center_vertical"  android:drawableLeft="@drawable/cocktailimg32px" android:drawablePadding="16dp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:drawableRight="@drawable/ic_global_arrow_right_2px" android:drawablePadding="16dp" android:layout_gravity="center_vertical" android:layout_marginRight="16dp"/>
-                </LinearLayout>
+            <!--this is very important when scrollview's height is greater than the hegiht of scrollview's childview-->
+            <View android:tag="empty_view" android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
-                <!--this is very important when scrollview's height is greater than the hegiht of scrollview's childview-->
-                <View android:tag="empty_view" android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-            android:id="@+id/inboxlayout"
-            android:visibility="invisible"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:id="@+id/inboxlayout"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <!--
             <TextView
                 android:layout_width="match_parent"
