@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,7 +15,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.api.API_Clicked;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,11 +37,8 @@ public class API_Parsing extends AppCompatActivity {
     private EditText editText;
     ArrayAdapter adapter;
 
-    // 영화 제목을 담을 ArrayList 변수(items) 선언
+    // 칵테일 제목을 담을 ArrayList 변수(items) 선언
     ArrayList<String> items = new ArrayList<String>();
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +52,7 @@ public class API_Parsing extends AppCompatActivity {
         listView.setAdapter(adapter);
         btnData = (Button)findViewById(R.id.btnData);
         editText=(EditText)findViewById(R.id.name);
+        Handler handler =new Handler(Looper.getMainLooper());
 
         btnData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,24 +79,32 @@ public class API_Parsing extends AppCompatActivity {
                             }
 
                             String jsonData = buffer.toString();
-
-                            // jsonData를 먼저 JSONObject 형태로 바꾼다.
-                            JSONObject obj = new JSONObject(jsonData);
-                            // obj의 JSONObject에서 "drinkList"의 JSONArray 추출
-                            JSONArray drinkList = (JSONArray) obj.get("drinks");
-
-                            for (int i = 0; i < drinkList.length(); i++) {
-                                JSONObject temp = drinkList.getJSONObject(i);
-                                String drinkNm = temp.getString("strDrink");
-                                items.add(drinkNm);
+                            if(jsonData.trim().equals("{\"drinks\":null}")){
+                                handler.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(getApplicationContext(),"칵테일을 찾을 수 없어요!",Toast.LENGTH_SHORT).show();
+                                    }
+                                },0);
                             }
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    adapter.notifyDataSetChanged();
-                                }
-                            });
+                            else {
+                                // jsonData를 먼저 JSONObject 형태로 바꾼다.
+                                JSONObject obj = new JSONObject(jsonData);
+                                // obj의 JSONObject에서 "drinkList"의 JSONArray 추출
 
+                                JSONArray drinkList = (JSONArray) obj.get("drinks");
+                                for (int i = 0; i < drinkList.length(); i++) {
+                                    JSONObject temp = drinkList.getJSONObject(i);
+                                    String drinkNm = temp.getString("strDrink");
+                                    items.add(drinkNm);
+                                }
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        adapter.notifyDataSetChanged();
+                                    }
+                                });
+                            }
                         } catch (MalformedURLException e) {
                             e.printStackTrace();
                         } catch (IOException e) {
@@ -112,17 +120,11 @@ public class API_Parsing extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(getApplicationContext(), API_Clicked.class);
+                Intent intent=new Intent(getApplicationContext(), com.example.api.API_Clicked.class);
 
                 intent.putExtra("Drink", (String) parent.getItemAtPosition(position));
                 startActivity(intent);
             }
         });
-
     }
-
-
-
-
 }
-
