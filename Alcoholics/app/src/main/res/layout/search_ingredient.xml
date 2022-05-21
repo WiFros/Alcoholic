@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="6dp"
     android:orientation="vertical">
+    <TextView
+        android:id="@+id/sampleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="sample"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:backgroundTint="@color/black"/>
 
+    <TextView
+        android:id="@+id/ingredientList"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text="Ingredients: "
+        android:layout_gravity="center"/>
     <TextView
         android:id="@+id/labelCocktail"
         android:layout_width="match_parent"
@@ -13,55 +30,95 @@
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/ingredientList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ingredients: "
-        android:layout_gravity="center"/>
 
-    <CheckBox
-        android:id="@+id/chkVodka"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Vodka"
-        android:textStyle="bold" />
 
-    <CheckBox
-        android:id="@+id/chkGin"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Gin"
-        android:textStyle="bold" />
+        android:orientation="horizontal">
+        <CheckBox
+            android:id="@+id/chkVodka"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Vodka"
+            android:textStyle="bold" />
 
-    <CheckBox
-        android:id="@+id/chkRum"
-        android:layout_width="wrap_content"
+        <CheckBox
+            android:id="@+id/chkGin"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Gin"
+            android:textStyle="bold" />
+        <CheckBox
+            android:id="@+id/chkRum"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Rum"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Rum"
-        android:textStyle="bold" />
+        android:orientation="horizontal">
 
-    <CheckBox
-        android:id="@+id/chkWhiskey"
-        android:layout_width="wrap_content"
+
+        <CheckBox
+            android:id="@+id/chkWhiskey"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Whiskey"
+            android:textStyle="bold" />
+        <CheckBox
+            android:id="@+id/chkTequila"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tequila"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/chkBrandy"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Brandy"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:backgroundTint="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Whiskey"
-        android:textStyle="bold" />
+        android:orientation="horizontal">
 
-    <CheckBox
-        android:id="@+id/chkTequila"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tequila"
-        android:textStyle="bold" />
+        <EditText
+            android:id="@+id/editText_search"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="원하는 재료를 입력하세요."
+            android:inputType="text" />
 
-    <CheckBox
-        android:id="@+id/chkBrandy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Brandy"
-        android:textStyle="bold" />
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="검색" />
 
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>

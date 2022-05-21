@@ -186,6 +186,7 @@ public class Community_main extends Fragment {
                 String search_query = editText_search.getText().toString();
                 Toast.makeText(getContext(), "button enter", Toast.LENGTH_SHORT).show();
 
+
             }
 
         });
