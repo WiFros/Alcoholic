@@ -1,4 +1,4 @@
-package com.example.api;
+package com.hanul.alcoholic;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -12,10 +12,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.hanul.alcoholic.API_Parsing;
-import com.hanul.alcoholic.MainActivity;
-import com.hanul.alcoholic.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -118,7 +114,7 @@ public class API_Clicked extends AppCompatActivity {
                     }
                 });
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

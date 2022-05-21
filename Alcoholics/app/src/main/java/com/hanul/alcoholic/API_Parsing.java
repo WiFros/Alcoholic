@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -27,6 +28,7 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class API_Parsing extends AppCompatActivity {
 
@@ -83,9 +85,10 @@ public class API_Parsing extends AppCompatActivity {
                                 handler.postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
+                                        adapter.notifyDataSetChanged();
                                         Toast.makeText(getApplicationContext(),"칵테일을 찾을 수 없어요!",Toast.LENGTH_SHORT).show();
                                     }
-                                },0);
+                                },100);
                             }
                             else {
                                 // jsonData를 먼저 JSONObject 형태로 바꾼다.
@@ -120,7 +123,7 @@ public class API_Parsing extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(getApplicationContext(), com.example.api.API_Clicked.class);
+                Intent intent=new Intent(getApplicationContext(),API_Clicked.class);
 
                 intent.putExtra("Drink", (String) parent.getItemAtPosition(position));
                 startActivity(intent);
