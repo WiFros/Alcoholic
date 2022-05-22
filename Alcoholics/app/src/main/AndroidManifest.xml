@@ -11,12 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Alcoholic">
         <activity
-            android:name=".board.list.BoardRecyclerView"
-            android:exported="false"
-            >
-
-        </activity>
-        <activity
             android:name=".Registe.LoginActivity"
             android:exported="true" >
             <intent-filter>

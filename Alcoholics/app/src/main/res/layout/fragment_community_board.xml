@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:id="@+id/frameLayout">
 
 
@@ -41,11 +40,10 @@
         </LinearLayout>
 
 
-        <ListView
-            android:id="@android:id/list"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/board_recycleView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-        </ListView>
+            android:layout_height="603dp" />
 
     </LinearLayout>
 

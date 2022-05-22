@@ -4,11 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,99 +24,34 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-/* 리스트 뷰에 들어갈 내용 입력받기 위해 클래스 만들어둠 */
-class Post {
-    private String uid;
-    private String name;
-    private String nickname;
-    private String content;
-    private int comments;
-    private String date;
-    private int starCount; // 좋아요
-    private Map<String,Boolean> stars = new HashMap<>();
-
-    Post(String name, String nickname, String content, int comments, String date){
-        this.name = name;
-        this.nickname = nickname;
-        this.content = content;
-        this.comments = comments;
-        this.date = date;
-    }
-    Post(String nickname, String content, int comments, String date) {
-        this.nickname = nickname;
-        this.content = content;
-        this.comments = comments;
-        this.date = date;}
-    Post(String uid, String nickname, String title, String body) {
-        this.uid = uid;
-        this.nickname = nickname;
-        this.name = title;
-        this.content = body;}
-    public int getStarCount() {return starCount;}
-    public void setStarCount(int starCount) {this.starCount = starCount;}
-    public Map<String, Boolean> getStars() {return stars;}
-    public void setStars(Map<String, Boolean> stars) {this.stars = stars;}
-    public String getUid() {return uid;}
-    public void setUid(String uid) {this.uid = uid;}
-    public int getStar() {return starCount;}
-    public void setStar(int star) {this.starCount = star;}
-    public String getName() {return name;}
-    public void setName(String name) {this.name = name;}
-    public String getNickname() {
-        return nickname;
-    }
-    public String getContent() {
-        return content;
-    }
-    public int getComments() {
-        return comments;
-    }
-    public String getDate() {
-        return date;
-    }
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-    public void setContent(String content) {
-        this.content = content;
-    }
-    public void setComments(int comments) {
-        this.comments = comments;
-    }
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public Map<String,Object> toMap(){
-        HashMap<String,Object> result = new HashMap<>();
-        result.put("uid",uid);
-        result.put("author",nickname);
-        result.put("title",name);
-        result.put("body",content);
-        result.put("starCount",starCount);
-        result.put("stars",stars);
-        result.put("date",date);
-        return result;
-    }
-}
 /* 들어가야 할 내용
-* 1. Firebase에서 content/nickname/timeline/comment 갯수 불러와서 setText()
-* 2. 선택한 listView 항목 - Community_post로 이동해서 fragment 띄우기
-*
-* */
+ * 1. Firebase에서 content/nickname/timeline/comment 갯수 불러와서 setText()
+ * 2. 선택한 listView 항목 - Community_post로 이동해서 fragment 띄우기
+ *
+ * */
 public class Community_main extends Fragment {
     private Button btn_search;
     private EditText editText_search;
     private ListView listView;
-    private LocalDate now;
 
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private ArrayList<Post> arrayList;
+
+    private FirebaseDatabase database;
+    private DatabaseReference databaseReference;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -135,47 +72,40 @@ public class Community_main extends Fragment {
         //fragment에서 this사용 안됨 -> Activity의 참조 획득이 가능한 getActivity() 함수 사용
         //ListView 아이템에 표시될 사용자 데이터 정의
         //***** listItems에 들어갈 내용 : 현재 임시로 적어둠 -> firebase에서 데이터 가져오기 (위에 Post 클래스 사용?)
-        String[] listItems = {"sample one", "sample two", "sample three"};
-        ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, listItems);
-        listView.setAdapter(listViewAdapter);
-        setHasOptionsMenu(true);
 
-        //listView 클릭했을 때 - 클릭한 게시글로 fragment 이동
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
+
+        recyclerView = (RecyclerView)view.findViewById(R.id.board_recycleView);//id 연결
+        recyclerView.setHasFixedSize(true);//기존 성능강화
+        layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);//유저객체 담기
+        recyclerView.scrollToPosition(0);
+        arrayList = new ArrayList<>();
+
+        database = FirebaseDatabase.getInstance(); // 디비 연걸
+        databaseReference = database.getReference("alcoholic/Post"); //디비 테이블 명 연결
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Bundle data = new Bundle();
-                //Post 클래스의 내용 활용하기 sample -- **** firebase 값 가져오기
-                //Bundle 통해 값 전달하기
-                Post post = new Post("nick", "sample", 0,"111");
-                data.putString("nickname", post.getNickname());
-                data.putString("post", post.getContent());
-                data.putInt("comments", post.getComments());
-                data.putString("date", post.getDate().toString());
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //파이어베이스 DB에 데이터를 받아옴
+                arrayList.clear(); // 기존 배열리스트가 존재하지 않게 초기화
 
-                //값을 넘길 fragment 선언하고 전달
-                //FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                //Fragment fragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.?);
-
-                //Community_post chosen_post = new Community_post();
-                //chosen_post.setArguments(data);
-                //transaction.replace(R.id.frameLayout, chosen_post);
-                //transaction.addToBackStack(null);
-                //transaction.commit();
-
-                Intent intent = new Intent(getContext().getApplicationContext(), Community_post.class);
-                intent.putExtra("nickname", data.getString("nickname"));
-                intent.putExtra("post", data.getString("post"));
-                intent.putExtra("date", data.getString("date"));
-                startActivity(intent);
-
-                //for test
-                Toast.makeText(getContext(), data.getString("post")+" success", Toast.LENGTH_SHORT).show();
-
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){ //반복문으로 데이터 리스트 추출
+                    Post post = snapshot.getValue(Post.class);
+                    arrayList.add(post); //담은 데이터를 배열 리스트에 넣고 라이클뷰로 보낼 준비
+                    System.out.println("리스트 : " + post.getDate());
+                }
+                adapter.notifyDataSetChanged();//리스트 저장 및 새로고침
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                //디비를 가져오던 중 에러 발생 시
+                Toast.makeText(getContext(), "데이터 수신 에러", Toast.LENGTH_SHORT).show();
             }
         });
 
+        adapter = new BoardAdapter(arrayList,getContext());
+        recyclerView.setAdapter(adapter); //리사이클러뷰에 어댑터 연결
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -185,7 +115,6 @@ public class Community_main extends Fragment {
                 // editText id : editText_search
                 String search_query = editText_search.getText().toString();
                 Toast.makeText(getContext(), "button enter", Toast.LENGTH_SHORT).show();
-
 
             }
 
