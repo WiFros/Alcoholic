@@ -1,3 +1,4 @@
+//칵테일 이름 검색
 package com.hanul.alcoholic;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,14 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -28,9 +27,8 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Iterator;
 
-public class API_Parsing extends AppCompatActivity {
+public class API_Search_Name extends AppCompatActivity {
 
     public static String key = "9973533";
     public static String address = "https://www.thecocktaildb.com/api/json/v2/";
@@ -123,7 +121,7 @@ public class API_Parsing extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(getApplicationContext(),API_Clicked.class);
+                Intent intent=new Intent(getApplicationContext(), API_Recipe.class);
 
                 intent.putExtra("Drink", (String) parent.getItemAtPosition(position));
                 startActivity(intent);

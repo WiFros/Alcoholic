@@ -18,9 +18,14 @@
     <TextView
         android:id="@+id/ingredientList"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:text="Ingredients: "
-        android:layout_gravity="center"/>
+        android:layout_height="73dp"
+        android:layout_gravity="center"
+        android:text="Ingredients: " />
+    <Button
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="칵테일 검색"/>
     <TextView
         android:id="@+id/labelCocktail"
         android:layout_width="match_parent"
@@ -105,6 +110,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="원하는 재료를 입력하세요."
+            android:maxLines="1"
+            android:imeOptions="actionSearch"
             android:inputType="text" />
 
         <Button

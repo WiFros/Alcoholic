@@ -1,16 +1,12 @@
+//레시피 출력 부분
 package com.hanul.alcoholic;
 
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
@@ -24,20 +20,16 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.TreeMap;
 
-public class API_Clicked extends AppCompatActivity {
+public class API_Recipe extends AppCompatActivity {
     String jsonData;
     Handler handler=new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.api_clicked);
+        setContentView(R.layout.api_recipe);
         Bundle bundle=getIntent().getExtras();
         getSupportActionBar().setTitle(bundle.getString("Drink")+" Recipe");
         String text=bundle.getString("Drink");
@@ -46,7 +38,7 @@ public class API_Clicked extends AppCompatActivity {
             @Override
             public void run() {
 
-                String urlAddress = API_Parsing.address + API_Parsing.key + "/search.php?s=" + text;
+                String urlAddress = API_Search_Name.address + API_Search_Name.key + "/search.php?s=" + text;
 
                 try {
                     URL url = new URL(urlAddress);
