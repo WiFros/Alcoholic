@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Alcoholic">
         <activity
+            android:name=".myshelf"
+            android:exported="false" />
+        <activity
             android:name=".fastscroll_listview"
             android:exported="false" />
         <activity
@@ -54,6 +57,9 @@
             android:exported="false" />
         <activity
             android:name=".API_Parsing"
+            android:exported="false" />
+        <activity
+            android:name=".Search_Ingredient"
             android:exported="false" />
         <activity
             android:name=".expandableRecipeList"

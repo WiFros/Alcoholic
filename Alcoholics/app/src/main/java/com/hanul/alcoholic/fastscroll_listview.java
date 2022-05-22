@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -39,10 +40,6 @@ public class fastscroll_listview extends AppCompatActivity {
         ListAdapter listAdapter = new ListAdapter(this, fruitList);
         listView.setAdapter(listAdapter);
 
-
-
-        //ListView button = (Button)findViewById(R.id.button);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             @Override
@@ -52,34 +49,27 @@ public class fastscroll_listview extends AppCompatActivity {
                 PopupAlert();
             }
         });
-
     }
 
 
 
     public void PopupAlert() {
         //super.onBackPressed();
+
         AlertDialog.Builder oDialog = new AlertDialog.Builder(this);
+
+
         oDialog.setMessage("자세한 레시피")
                 .setView(R.layout.detailrecipedialog)
-                //.setPositiveButton("아니오", new DialogInterface.OnClickListener()
-                //{
-                //    @Override
-                //    public void onClick(DialogInterface dialog, int which)
-                //    {}
-                //})
-                .show();
-
-                //.setNeutralButton("예", new DialogInterface.OnClickListener()
-               //{
-               //    public void onClick(DialogInterface dialog, int which)
-               //    {
-               //        Toast.makeText(getApplicationContext(), "글쓰기 취소됨", Toast.LENGTH_SHORT).show();
-               //        finish();
-               //    }
-               //})
-                //.setCancelable(false).show();
-
+                .setNeutralButton("Close", new DialogInterface.OnClickListener()
+               {
+                   public void onClick(DialogInterface dialog, int which)
+                   {
+                       //Toast.makeText(getApplicationContext(), "글쓰기 취소됨", Toast.LENGTH_SHORT).show();
+                       //finish();
+                   }
+               })
+               .setCancelable(false).show();
     }
 }
 

@@ -22,10 +22,10 @@
         android:layout_height="fill_parent"
         android:scrollbarStyle="outsideOverlay" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/detailRecipeBtn"
-        android:text="Close"
-        android:layout_gravity="center"/>
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/detailRecipeBtn"-->
+<!--        android:text="Close"-->
+<!--        android:layout_gravity="center"/>-->
 </LinearLayout>

@@ -57,10 +57,20 @@ public class RecipeList extends Fragment{
         View view = inflater.inflate(R.layout.fragment_recipe_list, container, false);
         Button button = view.findViewById(R.id.cocktailbtn);
         button.setOnClickListener(new View.OnClickListener() {
-            @Override
+
             public void onClick(View v) {
                 Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(),fastscroll_listview.class);
+                Intent intent = new Intent(getActivity(),API_Parsing.class);
+                startActivity(intent);
+            }
+        });
+
+        Button favoriteBtn = view.findViewById(R.id.favorite);
+        favoriteBtn.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(),myshelf.class);
                 startActivity(intent);
             }
         });
