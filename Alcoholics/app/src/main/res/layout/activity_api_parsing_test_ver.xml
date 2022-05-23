@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".API_Parsing">
-<!--    tools:context=".recipeList"-->
+    tools:context=".API_Parsing_TEST_Ver">
+    <!--    tools:context=".recipeList"-->
 
     <EditText
         android:id="@+id/name"
