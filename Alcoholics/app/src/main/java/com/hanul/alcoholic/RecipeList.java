@@ -55,15 +55,15 @@ public class RecipeList extends Fragment{
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_recipe_list, container, false);
-        Button button = view.findViewById(R.id.cocktailbtn);
-        button.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(),API_Parsing_TEST_Ver.class);
-                startActivity(intent);
-            }
-        });
+//        Button button = view.findViewById(R.id.cocktailbtn);
+//        button.setOnClickListener(new View.OnClickListener() {
+//
+//            public void onClick(View v) {
+//                Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(getActivity(),API_Recipe.class);
+//                startActivity(intent);
+//            }
+//        });
 
         Button favoriteBtn = view.findViewById(R.id.favorite);
         favoriteBtn.setOnClickListener(new View.OnClickListener()

@@ -22,6 +22,17 @@
             android:name=".Registe.RegisterActivity"
             android:exported="false" />
         <activity
+            android:name=".myshelf"
+            android:exported="false" />
+        <activity
+            android:name=".fastscroll_listview"
+            android:exported="false" />
+
+<!--        <activity-->
+<!--            android:name=".API_Recipe"-->
+<!--            android:exported="false" />-->
+
+        <activity
             android:name=".MainActivity"
             android:parentActivityName=".MainActivity"
             android:exported="false"

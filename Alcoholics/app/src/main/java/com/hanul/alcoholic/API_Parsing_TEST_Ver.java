@@ -49,7 +49,7 @@ public class API_Parsing_TEST_Ver extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.api_parsing);
+        setContentView(R.layout.activity_api_parsing_test_ver);
 
         context_api = this;
         listView = (ListView)findViewById(R.id.listView1);
