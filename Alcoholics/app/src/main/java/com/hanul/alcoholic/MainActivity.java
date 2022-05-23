@@ -99,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
 
+            //super.onBackPressed();
+
         //이전화면이 로그인화면이라면 종료 물어보기
 
 

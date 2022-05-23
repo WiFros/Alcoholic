@@ -74,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                             if (task.isSuccessful()){
                                 //로그인 성공
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                intent.putExtra("login", 1000);
                                 startActivity(intent);
                                 //finish(); // 현재 액티비티 파괴
                             }else {
