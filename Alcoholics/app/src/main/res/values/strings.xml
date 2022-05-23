@@ -86,11 +86,17 @@
     </string-array>
 
     <string-array name="ingredients_array">
-        <item>vodka</item>
-        <item>vodka2</item>
-        <item>vodka3</item>
+
         <item>155 Belmont</item>
         <item>1900FUKMEUP</item>
+        <item>110 in the shade</item>
+        <item>151 Florida Bushwacker</item>
+        <item>252</item>
+        <item>24k nightmare</item>
+        <item>3 Wise Men</item>
+        <item>3-Mile Long Island Iced Tea</item>
+        <item>410 Gone</item>
+        <item>50/50</item>
         <item>501 Blue</item>
         <item>57 Chevy with a White License Plate</item>
         <item>69 Special</item>
@@ -103,30 +109,146 @@
         <item>Adam</item>
         <item>AT And T</item>
         <item>ACID</item>
+        <item>A. J.</item>
+        <item>Affair</item>
+        <item>Apello</item>
+        <item>Avalon</item>
+        <item>Abilene</item>
+        <item>Almeria</item>
+        <item>Addison</item>
+        <item>Acapulco</item>
+        <item>Affinity</item>
+        <item>Applecar</item>
+        <item>Aviation</item>
+        <item>Alexander</item>
+        <item>Algonquin</item>
+        <item>Allegheny</item>
+        <item>Artillery</item>
+        <item>Afterglow</item>
+        <item>Autodaf</item>
+        <item>Afternoon</item>
+        <item>After sex</item>
+        <item>B-53</item>
+        <item>B-52</item>
+        <item>Bijou</item>
+        <item>Boxcar</item>
+        <item>Big Red</item>
+        <item>Bellini</item>
+        <item>Bramble</item>
+        <item>Balmoral</item>
+        <item>Bluebird</item>
+        <item>Blackthorn</item>
+        <item>Bob Marley</item>
+        <item>Bumble Bee</item>
+        <item>Bubble Gum</item>
+        <item>Bible Belt</item>
+        <item>Brain Fart</item>
+        <item>Bloody Mary</item>
+        <item>Blue Lagoon</item>
+        <item>Boston Sour</item>
+        <item>Brooklyn</item>
         <item>Boomerang</item>
         <item>Bora Bora</item>
         <item>Barracuda</item>
         <item>Buccaneer</item>
         <item>Brigadier</item>
         <item>Broadside</item>
+        <item>Casino</item>
+        <item>Caipirinha</item>
+        <item>Cherry Rum</item>
+        <item>Cuba Libre</item>
+        <item>Cuba Libra</item>
         <item>Cafe Savoy</item>
         <item>Cream Soda</item>
         <item>Corn n Oil</item>
         <item>Casa Blanca</item>
         <item>Clover Club</item>
+        <item>Citrus Coke</item>
+        <item>Chicago Fizz</item>
+        <item>City Slicker</item>
+        <item>Coffee-Vodka</item>
+        <item>Caipirissima</item>
+        <item>Campari Beer</item>
+        <item>Cosmopolitan</item>
+        <item>Casino Royale</item>
+        <item>Clove Cocktail</item>
+        <item>Coffee Liqueur</item>
+        <item>Chocolate Milk</item>
+        <item>Coke and Drops</item>
+        <item>Corpse Reviver</item>
+        <item>Chocolate Drink</item>
+        <item>Creme de Menthe</item>
+        <item>Derby</item>
+        <item>Diesel</item>
+        <item>Daiquiri</item>
+        <item>Danbooka</item>
         <item>Dragonfly</item>
         <item>Downshift</item>
         <item>Dry Rob Roy</item>
         <item>Dry Martini</item>
+        <item>Dirty Nipple</item>
+        <item>Dirty Martini</item>
+        <item>Darkwood Sling</item>
+        <item>Dark Caipirinha</item>
+        <item>Duchamps Punch</item>
+        <item>Dark and Stormy</item>
+        <item>Damned if you do</item>
+        <item>Dubonnet Cocktail</item>
+        <item>Drinking Chocolate</item>
+        <item>Death in the Afternoon</item>
         <item>Egg Cream</item>
         <item>Egg Nog #4</item>
         <item>English Highball</item>
         <item>Espresso Martini</item>
+        <item>Espresso Rumtini</item>
+        <item>Egg Nog - Healthy</item>
+        <item>English Rose Cocktail</item>
+        <item>Elderflower Caipirinha</item>
+        <item>Egg-Nog - Classic Cooked</item>
+        <item>Empelln Cocinas Fat-Washed Mezcal</item>
+        <item>Fros</item>
+        <item>Frapp</item>
+        <item>Foxy Lady</item>
         <item>French 75</item>
         <item>Frisco Sour</item>
         <item>Fruit Shake</item>
         <item>Figgy Thyme</item>
         <item>Fruit Cooler</item>
+        <item>Freddy Kruger</item>
+        <item>Fuzzy Asshole</item>
+        <item>Funk and Soul</item>
+        <item>French Martini</item>
+        <item>French Negroni</item>
+        <item>Flying Dutchman</item>
+        <item>Frozen Daiquiri</item>
+        <item>Fruit Flip-Flop</item>
+        <item>Fahrenheit 5000</item>
+        <item>Flying Scotchman</item>
+        <item>French Connection</item>
+        <item>Flaming Dr. Pepper</item>
+        <item>Flanders Flake-Out</item>
+        <item>Flaming Lamborghini</item>
+        <item>Frozen Mint Daiquiri</item>
+        <item>Frozen Pineapple Daiquiri</item>
+        <item>Gin Sling</item>
+        <item>Gin Smash</item>
+        <item>Gin Toddy</item>
+        <item>Godfather</item>
+        <item>Godmother</item>
+        <item>Gagliardo</item>
+        <item>Gluehwein</item>
+        <item>Greyhound</item>
+        <item>Gin Tonic</item>
+        <item>Gin Lemon</item>
+        <item>Gin Cooler</item>
+        <item>Gin Squirt</item>
+        <item>Grand Blue</item>
+        <item>Gin Rickey</item>
+        <item>Gin Swizzle</item>
+        <item>Grass Skirt</item>
+        <item>Grim Reaper</item>
+        <item>Grasshopper</item>
+        <item>Grizzly Bear</item>
         <item>GG</item>
         <item>Gimlet</item>
         <item>Gin Fizz</item>
@@ -139,46 +261,273 @@
         <item>Herbal flame</item>
         <item>Horses Neck</item>
         <item>Happy Skipper</item>
+        <item>Hunters Moon</item>
+        <item>Havana Cocktail</item>
+        <item>Holloween Punch</item>
+        <item>Hot Creamy Bush</item>
+        <item>Homemade Kahlua</item>
+        <item>Halloween Punch</item>
+        <item>Harvey Wallbanger</item>
+        <item>Hawaiian Cocktail</item>
+        <item>Hemingway Special</item>
+        <item>Highland Fling Cocktail</item>
+        <item>Hot Chocolate to Die for</item>
         <item>Ipamena</item>
         <item>Ice Pick</item>
         <item>Iced Coffee</item>
+        <item>Irish Cream</item>
+        <item>Irish Spring</item>
+        <item>Irish Coffee</item>
+        <item>Imperial Fizz</item>
+        <item>Irish Russian</item>
+        <item>Imperial Cocktail</item>
+        <item>Iced Coffee Fillip</item>
+        <item>Irish Curdling Cow</item>
+        <item>Jitterbug</item>
+        <item>Jam Donut</item>
+        <item>Jelly Bean</item>
+        <item>Jackhammer</item>
+        <item>Jello shots</item>
+        <item>John Collins</item>
+        <item>Jamaica Kiss</item>
         <item>Japanese Fizz</item>
         <item>Just a Moonmint</item>
         <item>Jamaican Coffee</item>
         <item>Jewel Of The Nile</item>
+        <item>Jack Rose Cocktail</item>
+        <item>Jacks Vanilla Coke</item>
+        <item>Kir</item>
+        <item>Karsk</item>
+        <item>Kamikaze</item>
+        <item>Kir Royale</item>
+        <item>Kurant Tea</item>
         <item>Kiwi Lemon</item>
         <item>Kioki Coffee</item>
         <item>Kiwi Martini</item>
+        <item>Kool-Aid Shot</item>
+        <item>Kiss me Quick</item>
+        <item>Kool First Aid</item>
+        <item>Kentucky B And B</item>
+        <item>Kentucky Colonel</item>
+        <item>Kool-Aid Slammer</item>
+        <item>Kiwi Papaya Smoothie</item>
+        <item>Kill the cold Smoothie</item>
+        <item>Limeade</item>
+        <item>Lunch Box</item>
+        <item>Lemon Shot</item>
+        <item>Long vodka</item>
+        <item>Lemon Drop</item>
+        <item>Loch Lomond</item>
+        <item>London Town</item>
+        <item>Lassi Khara</item>
+        <item>Lassi Raita</item>
+        <item>Lemouroudji</item>
+        <item>Lord And Lady</item>
+        <item>Lassi - Sweet</item>
+        <item>Lassi - Mango</item>
+        <item>Limona Corona</item>
+        <item>Lady Love Fizz</item>
+        <item>Long Island Tea</item>
+        <item>Lone Tree Cooler</item>
+        <item>Lone Tree Cocktail</item>
+        <item>Lazy Coconut Paloma</item>
         <item>Long Island Iced Tea</item>
         <item>Lemon Elderflower Spritzer</item>
         <item>Lassi - A South Indian Drink</item>
         <item>Melya</item>
         <item>Mojito</item>
         <item>Mimosa</item>
+        <item>Mai Tai</item>
+        <item>Martini</item>
+        <item>Margarita</item>
+        <item>Manhattan</item>
+        <item>Michelada</item>
+        <item>Miami Vice</item>
+        <item>Mudslinger</item>
+        <item>Moranguito</item>
+        <item>Mint Julep</item>
+        <item>Martinez 2</item>
+        <item>Masala Chai</item>
+        <item>Mulled Wine</item>
+        <item>Moscow Mule</item>
+        <item>Mocha-Berry</item>
+        <item>Munich Mule</item>
+        <item>Mojito Extra</item>
+        <item>Monkey Gland</item>
+        <item>Mango Mojito</item>
+        <item>Monkey Wrench</item>
+        <item>Midnight Manx</item>
+        <item>Mothers Milk</item>
+        <item>Midnight Mint</item>
+        <item>Negroni</item>
+        <item>New York Sour</item>
+        <item>Nutty Irishman</item>
+        <item>National Aquarium</item>
         <item>New York Lemonade</item>
         <item>Nuked Hot Chocolate</item>
         <item>Orgasm</item>
         <item>Old Pal</item>
         <item>Orangeade</item>
+        <item>Orange Whip</item>
+        <item>Orange Oasis</item>
+        <item>Orange Crush</item>
+        <item>Old Fashioned</item>
+        <item>Oreo Mudslide</item>
+        <item>Orange Push-up</item>
+        <item>Oatmeal Cookie</item>
+        <item>Orange Rosemary Collins</item>
+        <item>Orange Scented Hot Chocolate</item>
+        <item>Owens Grandmothers Revenge</item>
+        <item>Paloma</item>
+        <item>Pink Gin</item>
+        <item>Paradise</item>
+        <item>Pink Lady</item>
+        <item>Pegu Club</item>
+        <item>Pink Moon</item>
+        <item>Pisco Sour</item>
+        <item>Porto flip</item>
+        <item>Penicillin</item>
+        <item>Pina Colada</item>
+        <item>Pink Penocha</item>
+        <item>Pure Passion</item>
+        <item>Popped cherry</item>
+        <item>Poppy Cocktail</item>
+        <item>Port Wine Flip</item>
+        <item>Planters Punch</item>
+        <item>Pineapple Paloma</item>
+        <item>Pornstar Martini</item>
+        <item>Planter Punch</item>
+        <item>Port And Starboard</item>
+        <item>Port Wine Cocktail</item>
+        <item>Pysch Vitamin Light</item>
         <item>Pink Panty Pulldowns</item>
         <item>Passion Fruit Martini</item>
         <item>Pineapple Gingerale Smoothie</item>
         <item>Quentin</item>
         <item>Queen Bee</item>
+        <item>Quick F**K</item>
+        <item>Quick-sand</item>
+        <item>Queen Charlotte</item>
+        <item>Queen Elizabeth</item>
+        <item>Quakers Cocktail</item>
+        <item>Quarter Deck Cocktail</item>
+        <item>Rose</item>
+        <item>Radler</item>
+        <item>Rum Sour</item>
+        <item>Rum Toddy</item>
+        <item>Rum Punch</item>
+        <item>Royal Fizz</item>
+        <item>Rum Cooler</item>
+        <item>Rusty Nail</item>
+        <item>Rum Runner</item>
+        <item>Rum Cobbler</item>
+        <item>Red Snapper</item>
+        <item>Royal Flush</item>
+        <item>Royal Bitch</item>
+        <item>Ruby Tuesday</item>
+        <item>Rail Splitter</item>
+        <item>Rosemary Blue</item>
+        <item>Royal Gin Fizz</item>
+        <item>Rum Milk Punch</item>
+        <item>Ramos Gin Fizz</item>
+        <item>Raspberry Julep</item>
+        <item>Rum Screwdriver</item>
+        <item>Raspberry Cooler</item>
+        <item>Rum Old-fashioned</item>
         <item>Russian Spring Punch</item>
         <item>Radioactive Long Island Iced Tea</item>
         <item>Smut</item>
         <item>Spritz</item>
+        <item>Sazerac</item>
+        <item>Scooter</item>
+        <item>Sidecar</item>
+        <item>Sangria</item>
+        <item>Stinger</item>
+        <item>Snowday</item>
+        <item>Snowball</item>
+        <item>Shot-gun</item>
+        <item>Spice 75</item>
+        <item>Salty Dog</item>
+        <item>Stone Sour</item>
+        <item>Sea breeze</item>
+        <item>Scotch Sour</item>
+        <item>Screwdriver</item>
+        <item>Sherry Flip</item>
+        <item>Sweet Tooth</item>
+        <item>Sol Y Sombra</item>
+        <item>Shark Attack</item>
+        <item>Sherry Eggnog</item>
+        <item>Sweet Bananas</item>
+        <item>Sweet Sangria</item>
+        <item>San Francisco</item>
+        <item>Space Odyssey</item>
+        <item>Thriller</item>
+        <item>Tia-Maria</item>
+        <item>Tipperary</item>
+        <item>The Galah</item>
+        <item>Turkeyball</item>
+        <item>Tom Collins</item>
+        <item>Tomato Tang</item>
+        <item>Thai Coffee</item>
+        <item>Texas Sling</item>
+        <item>Tequila Fizz</item>
+        <item>Tequila Sour</item>
+        <item>Talos Coffee</item>
+        <item>Tennesee Mud</item>
+        <item>Turf Cocktail</item>
+        <item>Thai Iced Tea</item>
+        <item>The Last Word</item>
+        <item>The Laverstoke</item>
+        <item>Tuxedo Cocktail</item>
+        <item>Tequila Sunrise</item>
+        <item>Tequila Slammer</item>
+        <item>The Philosopher</item>
+        <item>Thai Iced Coffee</item>
+        <item>Tequila Surprise</item>
         <item>The Jimmy Conway</item>
         <item>Texas Rattlesnake</item>
         <item>Victor</item>
         <item>Vesper</item>
+        <item>Vesuvio</item>
+        <item>Veteran</item>
+        <item>Vampiro</item>
+        <item>Van Vleet</item>
+        <item>Vodka Fizz</item>
+        <item>Vodka Slime</item>
+        <item>Vodka Lemon</item>
+        <item>Vodka Tonic</item>
+        <item>Vodka Martini</item>
+        <item>Vodka Russian</item>
+        <item>Vermouth Cassis</item>
+        <item>Victory Collins</item>
+        <item>Vodka And Tonic</item>
+        <item>Valencia Cocktail</item>
+        <item>Whisky Mac</item>
+        <item>Wine Punch</item>
+        <item>White Lady</item>
+        <item>Wine Cooler</item>
+        <item>Winter Rita</item>
+        <item>Whiskey Sour</item>
+        <item>White Russian</item>
+        <item>Winter Paloma</item>
+        <item>Whitecap Margarita</item>
         <item>White Wine Sangria</item>
         <item>Waikiki Beachcomber</item>
         <item>Yellow Bird</item>
         <item>Yoghurt Cooler</item>
         <item>Zenmeister</item>
         <item>Zipperhead</item>
+        <item>Zorro</item>
+        <item>Zinger</item>
+        <item>Zoksel</item>
+        <item>Zombie</item>
+        <item>Zambeer</item>
+        <item>Zorbatini</item>
+        <item>Zima Blaster</item>
+        <item>Zizi Coin-coin</item>
+        <item>Zippys Revenge</item>
+        <item>Zimadori Zinger</item>
+        <item>Ziemes Martini Apfelsaft</item>
 
     </string-array>
 
