@@ -26,6 +26,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.EventListener;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,10 +49,9 @@ public class Community_post extends AppCompatActivity {
     private Button btn_report;
     private ImageButton btn_back;
     private EditText reply;
-
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference;
-    private Post post;
+    private final HashMap<String ,Object> data = new HashMap<>();
     @Nullable
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,39 +60,38 @@ public class Community_post extends AppCompatActivity {
         Intent intent = getIntent();
         String key  = intent.getExtras().getString("key");
         //firebase 경로 지정
-        databaseReference = firebaseDatabase.getReference("alcoholic/Post/");
-        Query query = databaseReference.orderByChild("key").equalTo(key);
-        //bundle에 값이 있다면 각 key값 불러서 setText()
-        //**** firebase에서 가져온 값으로 수정해야 함
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+
+        databaseReference = firebaseDatabase.getReference("alcoholic/Post");
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Post dbPost = snapshot.getValue(Post.class);
-                get_nickname = dbPost.getAuthor();
-                get_timeline = dbPost.getDate();
-                get_post = dbPost.getBody();
-                System.out.println("Test : "+get_nickname);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //파이어베이스 DB에 데이터를 받아옴
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){ //반복문으로 데이터 리스트 추출
+                    Post post = snapshot.getValue(Post.class);
+                    if(post.getKey().toString().equals(key)){
+                        nickname = findViewById(R.id.nickname);
+                        nickname.setText(post.getAuthor());
+
+                        timeline = findViewById(R.id.timeline);
+                        timeline.setText(post.getDate());
+
+                        content = findViewById(R.id.post);
+                        content.setText(post.getBody());
+
+                        //replylist - firebase에서 값 가져오기
+                        get_reply_list = "";
+                        reply_list = findViewById(R.id.reply_list);
+                        reply_list.setText(get_reply_list);
+                    }
+                }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+                //디비를 가져오던 중 에러 발생 시
                 Toast.makeText(getApplicationContext(), "데이터 수신 에러", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-        nickname = findViewById(R.id.nickname);
-        nickname.setText(get_nickname);
-
-        timeline = findViewById(R.id.timeline);
-        timeline.setText(get_timeline);
-
-        content = findViewById(R.id.post);
-        content.setText(get_post);
-
-        //replylist - firebase에서 값 가져오기
-        get_reply_list = "";
-        reply_list = findViewById(R.id.reply_list);
-        reply_list.setText(get_reply_list);
+        System.out.println("테스트2 : "+String.valueOf(data.get("author")));
 
         btn_enter = findViewById(R.id.enter);
         reply = findViewById(R.id.reply_input);
@@ -133,3 +132,7 @@ public class Community_post extends AppCompatActivity {
     }
 
 }
+
+
+
+

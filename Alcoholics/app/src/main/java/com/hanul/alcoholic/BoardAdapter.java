@@ -52,7 +52,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.CustomViewHo
                 intent.putExtra("key",arrayList.get(customViewHolder.getAdapterPosition()).getKey());
                 context.startActivity(intent);
 
-                Toast.makeText(context, arrayList.get(customViewHolder.getAdapterPosition()).getKey() + "게시물 입니다.", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, arrayList.get(customViewHolder.getAdapterPosition()).getKey() + "게시물 입니다.", Toast.LENGTH_SHORT).show();
 
             }
         });
