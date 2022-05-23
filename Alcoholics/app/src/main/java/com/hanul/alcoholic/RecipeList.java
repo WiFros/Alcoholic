@@ -75,6 +75,17 @@ public class RecipeList extends Fragment{
             }
         });
 
+        Button cocktailList = view.findViewById(R.id.cocktailListbtn);
+        cocktailList.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Show all cocktail List", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(),fastscroll_listview.class);
+                startActivity(intent);
+            }
+        });
+
+
         return view;
     }
 }

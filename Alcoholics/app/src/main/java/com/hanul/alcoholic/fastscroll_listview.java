@@ -34,10 +34,10 @@ public class fastscroll_listview extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(R.id.fastScrollListVIew);
         listView.setFastScrollEnabled(true);
-        String[] fruits = getResources().getStringArray(R.array.fruits_array);
+        String[] cocktails = getResources().getStringArray(R.array.ingredients_array);
 
-        List<String> fruitList = Arrays.asList(fruits);
-        ListAdapter listAdapter = new ListAdapter(this, fruitList);
+        List<String> cocktailsList = Arrays.asList(cocktails);
+        ListAdapter listAdapter = new ListAdapter(this, cocktailsList);
         listView.setAdapter(listAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener()

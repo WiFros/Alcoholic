@@ -65,6 +65,12 @@
                 android:text="my shelf Button"
                 android:id="@+id/favorite"/>
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All cocktail List"
+                android:id="@+id/cocktailListbtn"/>
+
             <!--this is very important when scrollview's height is greater than the hegiht of scrollview's childview-->
             <View android:tag="empty_view" android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -74,11 +80,6 @@
         android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <!--
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" android:text="@string/recipe1"/>
-                -->
 
     </FrameLayout>
 </LinearLayout>
