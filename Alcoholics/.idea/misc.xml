@@ -3,10 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/activity_api_parsing_test_ver.xml" value="0.5536458333333333" />
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/activity_expandable_recipe_list.xml" value="0.2" />
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/activity_fastscroll_list_item.xml" value="0.5536458333333333" />
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/activity_fastscroll_listview.xml" value="0.5536458333333333" />
-        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/activity_myshelf.xml" value="0.25" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/activity_myshelf.xml" value="0.2074074074074074" />
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/api_parsing.xml" value="0.17806484295845998" />
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/child_row.xml" value="0.2692502532928065" />
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/cocktails.xml" value="0.17708333333333334" />
@@ -17,7 +18,7 @@
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_community_post.xml" value="0.33" />
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_gallery.xml" value="0.25226449275362317" />
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_home.xml" value="0.25226449275362317" />
-        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_recipe_list.xml" value="0.17708333333333334" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_recipe_list.xml" value="0.5" />
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/parent_row.xml" value="0.2692502532928065" />
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/menu/activity_main_drawer.xml" value="0.22708333333333333" />
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/menu/main.xml" value="0.22708333333333333" />

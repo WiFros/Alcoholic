@@ -60,7 +60,7 @@ public class RecipeList extends Fragment{
 
             public void onClick(View v) {
                 Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(),API_Parsing.class);
+                Intent intent = new Intent(getActivity(),API_Parsing_TEST_Ver.class);
                 startActivity(intent);
             }
         });

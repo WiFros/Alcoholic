@@ -15,7 +15,6 @@ import android.widget.ListView;
 import android.widget.SectionIndexer;
 import android.widget.Toast;
 
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,7 +26,6 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -35,7 +33,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-public class API_Parsing extends AppCompatActivity {
+public class API_Parsing_TEST_Ver extends AppCompatActivity {
 
     private String key = "9973533";
     private String address = "https://www.thecocktaildb.com/api/json/v2/";
@@ -133,11 +131,25 @@ public class API_Parsing extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String data = (String)parent.getItemAtPosition(position);
-                Toast.makeText(API_Parsing.this, data, Toast.LENGTH_SHORT).show();
+                Toast.makeText(API_Parsing_TEST_Ver.this, data, Toast.LENGTH_SHORT).show();
                 newFavorite = Collections.singletonList(data);
+                Log.d("BBBBBBBB",data);
                 CheckedTextView check = (CheckedTextView)view;
                 check.setChecked(!check.isChecked());
+                Log.d("CCCCCCCCCCC","CCCCCCCCCCCCCCC");
+
+                if(check.isChecked())
+                {
+                    try{
+                        ((myshelf)myshelf.context_favorite).AddtoFavorite();
+                    }catch(NullPointerException e){
+                        Log.d("##############", "NULLLPOINTEXCEPTION");
+                    }
+
                 }
+
+
+            }
         });
     }
 

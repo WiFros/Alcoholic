@@ -16,10 +16,17 @@
         android:background="@color/colorSecondaryVariant"
         android:text="My shelf" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AddList"
+        android:id="@+id/addBtn"/>
+
     <ListView
         android:id="@+id/myshelflistview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scrollbarStyle="outsideOverlay" />
+
 
 </LinearLayout>
