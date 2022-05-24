@@ -2,18 +2,23 @@ package com.hanul.alcoholic;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.fragment.DialogFragmentNavigatorDestinationBuilder;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SectionIndexer;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -26,18 +31,22 @@ import java.util.Locale;
 import java.util.Set;
 
 public class fastscroll_listview extends AppCompatActivity {
-
+    ArrayList<String> items = new ArrayList<String>();
+    TextView textview;
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fastscroll_listview);
+        context = this;
 
-        ListView listView = (ListView) findViewById(R.id.fastScrollListVIew);
+        ListView listView = (ListView) findViewById(R.id.fastScrollListView);
         listView.setFastScrollEnabled(true);
         String[] cocktails = getResources().getStringArray(R.array.ingredients_array);
 
         List<String> cocktailsList = Arrays.asList(cocktails);
         ListAdapter listAdapter = new ListAdapter(this, cocktailsList);
+
         listView.setAdapter(listAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
@@ -45,11 +54,15 @@ public class fastscroll_listview extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> a_parent, View a_view, int a_position, long a_id)
             {
+                Log.d("22222222222222", "ListAdapter: 2222222222222222");
+
                 //final fastscroll_list_item item = (fastscroll_list_item) listAdapter.getItem(a_position);
                 PopupAlert();
             }
         });
     }
+
+
 
 
 
@@ -105,6 +118,7 @@ class ListAdapter extends ArrayAdapter<String> implements SectionIndexer {
         sections = new String[sectionList.size()];
 
         sectionList.toArray(sections);
+
     }
 
     public int getPositionForSection(int section) {
@@ -120,4 +134,29 @@ class ListAdapter extends ArrayAdapter<String> implements SectionIndexer {
     public Object[] getSections() {
         return sections;
     }
+
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View listView = convertView;
+
+        View v = convertView;
+        if (v == null) {
+            LayoutInflater vi = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            v = vi.inflate(R.layout.activity_fastscroll_list_item, null);
+        }
+
+        // ImageView 인스턴스
+        ImageView imageView = (ImageView)v.findViewById(R.id.imageView);
+
+        // 리스트뷰의 아이템에 이미지를 변경한다.
+        imageView.setImageResource(R.drawable.cocktailimg32px);
+
+
+        //TextView textView = (TextView)v.findViewById(R.id.textView);
+        //textView.setText(fruits.get(position));
+
+        final String text = fruits.get(position);
+
+        return v;
+    }
+
 }
