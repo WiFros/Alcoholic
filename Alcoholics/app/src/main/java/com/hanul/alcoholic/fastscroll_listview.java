@@ -16,10 +16,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SectionIndexer;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,11 +44,15 @@ public class fastscroll_listview extends AppCompatActivity {
         context = this;
 
         ListView listView = (ListView) findViewById(R.id.fastScrollListView);
+
+        LinearLayout listitemView = (LinearLayout) findViewById(R.id.list_item_view);
+        //TextView listitemtext = (TextView) findViewById(R.id.list_item);
+
         listView.setFastScrollEnabled(true);
         String[] cocktails = getResources().getStringArray(R.array.ingredients_array);
 
         List<String> cocktailsList = Arrays.asList(cocktails);
-        ListAdapter listAdapter = new ListAdapter(this, cocktailsList);
+        ListAdapter listAdapter = new ListAdapter(this, listitemView ,cocktailsList);
 
         listView.setAdapter(listAdapter);
 
@@ -92,7 +99,7 @@ class ListAdapter extends ArrayAdapter<String> implements SectionIndexer {
     String[] sections;
     List<String> fruits;
 
-    public ListAdapter(Context context, List<String> fruitList) {
+    public ListAdapter(Context context, View convertView, List<String> fruitList) {
         super(context, R.layout.activity_fastscroll_list_item, fruitList);
 
         this.fruits = fruitList;
@@ -106,7 +113,6 @@ class ListAdapter extends ArrayAdapter<String> implements SectionIndexer {
             // HashMap will prevent duplicates
             mapIndex.put(ch, x);
         }
-
         Set<String> sectionLetters = mapIndex.keySet();
 
         // create a list from the set to sort
@@ -136,6 +142,7 @@ class ListAdapter extends ArrayAdapter<String> implements SectionIndexer {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
+
         View listView = convertView;
 
         View v = convertView;
@@ -143,18 +150,23 @@ class ListAdapter extends ArrayAdapter<String> implements SectionIndexer {
             LayoutInflater vi = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = vi.inflate(R.layout.activity_fastscroll_list_item, null);
         }
+        else
+        {
+            Log.d("###########", "getView: "+v.toString());
+        }
 
         // ImageView 인스턴스
         ImageView imageView = (ImageView)v.findViewById(R.id.imageView);
 
         // 리스트뷰의 아이템에 이미지를 변경한다.
-        imageView.setImageResource(R.drawable.cocktailimg32px);
+        // 이곳을 파싱한 이미지로 변경해서 채우면 된다.
+        imageView.setImageResource(R.drawable.ic_baseline_arrow_back_24);
 
 
-        //TextView textView = (TextView)v.findViewById(R.id.textView);
-        //textView.setText(fruits.get(position));
+        TextView textView = (TextView)v.findViewById(R.id.list_item);
+        textView.setText(fruits.get(position));
 
-        final String text = fruits.get(position);
+        //final String text = fruits.get(position);
 
         return v;
     }
