@@ -5,27 +5,48 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_cocktail">
 
+    <!--메인 / 남는 페이지 -->
     <fragment
         android:id="@+id/nav_cocktail"
         android:name="com.hanul.alcoholic.RecipeList"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment__alcohol_list" />
 
+    <!--즐겨찾기 기능 -->
+    <!--        android:name="com.hanul.alcoholic.ui.gallery.GalleryFragment"-->
     <fragment
         android:id="@+id/nav_myCocktail"
-        android:name="com.hanul.alcoholic.ui.gallery.GalleryFragment"
+        android:name="com.hanul.alcoholic.Favorite"
         android:label="@string/menu_myCocktail"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_favorite" />
+
+    <!--칵테일 리스트 기능 -->
+    <!--Activity로 되어있어서 추가 불가? -->
+    <fragment
+        android:id="@+id/nav_cocktailList"
+        android:name="com.hanul.alcoholic.ui.gallery.GalleryFragment"
+        android:label="@string/menu_cocktailList"
+        tools:layout="@layout/fragment_favorite" />
+
+    <!--레시피 검색 기능 -->
+    <!--Activity로 되어있어서 추가 불가? -->
+    <fragment
+        android:id="@+id/nav_cocktaiSearch"
+        android:name="com.hanul.alcoholic.ui.gallery.GalleryFragment"
+        android:label="@string/menu_cocktailSearch"
+        tools:layout="@layout/fragment_favorite" />
 
     <fragment
         android:id="@+id/nav_community"
         android:name="com.hanul.alcoholic.Community_main"
         android:label="@string/menu_community"
         tools:layout="@layout/fragment_community_board" />
+
     <fragment
         android:id="@+id/nav_logout"
         android:name="com.hanul.alcoholic.ui.gallery.GalleryFragment"
         android:label="@string/menu_logout" />
+
     <fragment
         android:id="@+id/nav_info"
         android:name="com.hanul.alcoholic.ui.home.HomeFragment"
