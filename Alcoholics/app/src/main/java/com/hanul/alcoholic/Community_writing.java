@@ -97,10 +97,9 @@ public class Community_writing extends AppCompatActivity {
 
                 // firebase에 글 저장하기
                 writeNewPost(user.getUid(),writer,title,contents);
-
-
             }
         });
+
         btn_back.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -168,8 +167,5 @@ public class Community_writing extends AppCompatActivity {
         chileUpdates.put("/User-post/"+userId+"/"+key,postValue);
 
         databaseReference.updateChildren(chileUpdates);
-
-
-
     }
 }

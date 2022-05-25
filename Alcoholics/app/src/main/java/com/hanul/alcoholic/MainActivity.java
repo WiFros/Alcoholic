@@ -7,8 +7,11 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -23,11 +26,23 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.hanul.alcoholic.Registe.LoginActivity;
 import com.hanul.alcoholic.databinding.ActivityMainBinding;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity {
-    private FirebaseAuth mFirebaseAuth;
+    private TextView userHeaderName;
+    private TextView userHeaderEmail;
+    private String writer;
+    private String email;
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference;
+
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
@@ -40,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         setSupportActionBar(binding.appBarMain.toolbar);
 
         drawer = binding.drawerLayout;
@@ -51,14 +65,17 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_cocktail, R.id.nav_myCocktail, R.id.nav_cocktailList,R.id.nav_cocktaiSearch, R.id.nav_community, R.id.nav_logout, R.id.nav_info)
                 .setOpenableLayout(drawer)
                 .build();
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
            @Override
             public void onDestinationChanged(@NonNull NavController controller,
                                              @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                if(destination.getId() == R.id.nav_logout) {
+
+               if(destination.getId() == R.id.nav_logout) {
                     //LOGOUT인 경우
                     AlertDialog.Builder oDialog = new AlertDialog.Builder(MainActivity.this);
                     oDialog.setMessage("로그아웃 하시겠습니까?")
@@ -88,6 +105,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //유저이름 불러오기
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        final FirebaseUser user = mAuth.getCurrentUser();
+        databaseReference = firebaseDatabase.getReference("alcoholic");
+        databaseReference.
+                child("USerAccount").
+                child(user.getUid()).
+                child("nickName").
+                get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if(!task.isSuccessful()){
+                            Toast.makeText(getApplicationContext(), "유저 데이터 읽기에 실패했습니다.", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            writer = String.valueOf(task.getResult().getValue());
+                            email = String.valueOf(user.getEmail());
+
+                            userHeaderName = findViewById(R.id.menuheader_user_name);
+                            userHeaderName.setText(writer);
+                            userHeaderEmail = findViewById(R.id.menuheader_user_email);
+                            userHeaderEmail.setText(email);
+                        }
+                    }
+                });
 
     }
 

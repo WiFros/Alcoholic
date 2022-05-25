@@ -96,18 +96,21 @@ public class Community_post extends AppCompatActivity {
         btn_enter = findViewById(R.id.enter);
         reply = findViewById(R.id.reply_input);
 
+        //댓글입력
         btn_enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String txt;
                 txt = reply.getText().toString();
                 Toast.makeText(getApplicationContext(), txt + "댓글을 입력했습니다.", Toast.LENGTH_SHORT).show();
-                //firebase에 댓글 내용 업데이트하기?
 
-                //reply 리스트에 올린 내용 업데이트하고, 텍스트 비우기
+                writeNewComment();
+
 
             }
         });
+
+        //신고기능
         btn_report = findViewById(R.id.btn_report);
         btn_report.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,6 +121,7 @@ public class Community_post extends AppCompatActivity {
             }
         });
 
+        //뒤로가기
         btn_back = findViewById(R.id.btn_back);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,6 +133,9 @@ public class Community_post extends AppCompatActivity {
 
 
 
+    }
+
+    private void writeNewComment(String nowPost,String body,String ) {
     }
 
 }

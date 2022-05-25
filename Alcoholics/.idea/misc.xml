@@ -79,10 +79,14 @@
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/item.xml" value="0.1" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/nav_header_main.xml" value="0.1468721668177697" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/register_post.xml" value="0.1" />
-        <entry key="app/src/main/res/drawable/ic_menu_camera.xml" value="0.442" />
+        <entry key="app/src/main/res/drawable/ic_menu_camera.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_menu_gallery.xml" value="0.398" />
-        <entry key="app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.398" />
-        <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.398" />
+        <entry key="app/src/main/res/drawable/ic_menu_info.xml" value="0.1445" />
+        <entry key="app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_menu_writing.xml" value="0.1445" />
+        <entry key="app/src/main/res/drawable/icon_comment.xml" value="0.1445" />
+        <entry key="app/src/main/res/drawable/round.xml" value="0.1445" />
+        <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.20205078125000003" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.26260986328125" />
