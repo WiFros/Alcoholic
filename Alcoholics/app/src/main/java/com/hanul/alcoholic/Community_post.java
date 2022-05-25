@@ -2,6 +2,7 @@ package com.hanul.alcoholic;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,7 +39,8 @@ public class Community_post extends AppCompatActivity {
     private TextView nickname;
     private TextView timeline;
     private TextView content;
-    private TextView reply_list;
+    private TextView reply_area;
+    //댓글 띄울 recycle view id : reply_recycleView
 
     private String get_nickname;
     private String get_timeline;
@@ -80,8 +82,11 @@ public class Community_post extends AppCompatActivity {
 
                         //replylist - firebase에서 값 가져오기
                         get_reply_list = "";
-                        reply_list = findViewById(R.id.reply_list);
-                        reply_list.setText(get_reply_list);
+                        reply_area = findViewById(R.id.reply_area);
+                        if (!get_reply_list.isEmpty()) {
+                            //댓글이 하나라도 있으면 안보이게
+                            reply_area.setVisibility(View.INVISIBLE);
+                        }
                     }
                 }
             }
@@ -103,8 +108,15 @@ public class Community_post extends AppCompatActivity {
                 String txt;
                 txt = reply.getText().toString();
                 Toast.makeText(getApplicationContext(), txt + "댓글을 입력했습니다.", Toast.LENGTH_SHORT).show();
+<<<<<<< Updated upstream
                 //writeNewComment();
                 //
+=======
+
+                //writeNewComment();
+
+
+>>>>>>> Stashed changes
             }
         });
 
@@ -133,6 +145,11 @@ public class Community_post extends AppCompatActivity {
 
     }
 
+<<<<<<< Updated upstream
+=======
+    //private void writeNewComment(String nowPost,String body,String ) {
+    //}
+>>>>>>> Stashed changes
 
 }
 

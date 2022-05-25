@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_cocktail, R.id.nav_myCocktail, R.id.nav_cocktailList,R.id.nav_cocktaiSearch, R.id.nav_community, R.id.nav_logout, R.id.nav_info)
+                R.id.nav_cocktail, R.id.nav_myCocktail, R.id.nav_community, R.id.nav_logout, R.id.nav_info)
                 .setOpenableLayout(drawer)
                 .build();
 
@@ -139,6 +139,24 @@ public class MainActivity extends AppCompatActivity {
             drawer.closeDrawers();
         }else{
             super.onBackPressed();
+            /*AlertDialog.Builder oDialog = new AlertDialog.Builder(MainActivity.this);
+            oDialog.setMessage("종료하시겠습니까?")
+                    .setPositiveButton("아니오", new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which)
+                        {
+                        }
+                    })
+                    .setNeutralButton("예", new DialogInterface.OnClickListener()
+                    {
+                        public void onClick(DialogInterface dialog, int which)
+                        {
+                            finish();
+
+                        }
+                    })
+                    .setCancelable(false).show();*/
         }
 
             //super.onBackPressed();

@@ -1,5 +1,6 @@
 package com.hanul.alcoholic;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -8,7 +9,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -20,6 +23,8 @@ import java.util.ArrayList;
  */
 public class Favorite extends Fragment {
     ArrayList<String> favorited = new ArrayList<String>();
+    public static Context context_favorite;
+    ArrayAdapter adapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -52,32 +57,38 @@ public class Favorite extends Fragment {
         return fragment;
     }
 
-    @Override
+  /*  @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-    }
+    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        View view = inflater.inflate(R.layout.fragment_recipe_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_favorite, container, false);
+        context_favorite = getContext();
+        adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_single_choice, favorited) ;
 
-        Button favoriteBtn = view.findViewById(R.id.favorite);
+        ListView listView = view.findViewById(R.id.myshelflistview);
+        listView.setAdapter(adapter);
+        Button favoriteBtn = view.findViewById(R.id.addBtn);
         favoriteBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), myshelf.class);
-                startActivity(intent);
+                //Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
+                //Intent intent = new Intent(getActivity(), myshelf.class);
+                //startActivity(intent);
                 Toast.makeText(getContext(),"add favorite", Toast.LENGTH_SHORT).show();
                 favorited.add("ABC");
-                //adapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
 
             }
         });
         return view;
+
+
     }
 }

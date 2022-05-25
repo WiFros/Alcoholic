@@ -27,6 +27,7 @@
         <entry key="..\:/Users/User/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/api_parsing.xml" value="0.12310030395136778" />
         <entry key="..\:/Users/User/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/cocktails.xml" value="0.1" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.214" />
+        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/button.xml" value="0.148" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_launcher_background.xml" value="0.214" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1" />
@@ -36,9 +37,14 @@
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/round.xml" value="0.243" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/drawable/side_nav_bar.xml" value="0.147" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/font/default_font.xml" value="0.4125" />
-        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/activity_login.xml" value="0.271286231884058" />
+        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/activity_myshelf.xml" value="0.18009118541033434" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/activity_register.xml" value="0.5" />
+        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/api_ingredient.xml" value="0.34375" />
+        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/api_recipe.xml" value="0.34375" />
+        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/api_search_ingredient.xml" value="0.34375" />
+        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/api_search_name.xml" value="0.34375" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/cocktails.xml" value="0.25271739130434784" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/community_main.xml" value="0.1984375" />
@@ -48,13 +54,15 @@
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_blank.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_community_board.xml" value="0.33" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_community_post.xml" value="0.33" />
+        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_favorite.xml" value="0.17798913043478262" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_gallery.xml" value="0.1984375" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_recipe_list.xml" value="0.1" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/fragment_slideshow.xml" value="0.1984375" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/item.xml" value="0.25271739130434784" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/nav_header_main.xml" value="0.25" />
-        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/recycle_item.xml" value="0.5" />
+        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/recycle_item.xml" value="0.25" />
+        <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/recycleview_main.xml" value="0.23369565217391305" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/register_post.xml" value="0.34692028985507245" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
         <entry key="..\:/Users/skale/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/menu/main.xml" value="0.1984375" />
@@ -79,14 +87,10 @@
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/item.xml" value="0.1" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/nav_header_main.xml" value="0.1468721668177697" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/register_post.xml" value="0.1" />
-        <entry key="app/src/main/res/drawable/ic_menu_camera.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_menu_camera.xml" value="0.442" />
         <entry key="app/src/main/res/drawable/ic_menu_gallery.xml" value="0.398" />
-        <entry key="app/src/main/res/drawable/ic_menu_info.xml" value="0.1445" />
-        <entry key="app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.1" />
-        <entry key="app/src/main/res/drawable/ic_menu_writing.xml" value="0.1445" />
-        <entry key="app/src/main/res/drawable/icon_comment.xml" value="0.1445" />
-        <entry key="app/src/main/res/drawable/round.xml" value="0.1445" />
-        <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.398" />
+        <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.398" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.20205078125000003" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.26260986328125" />

@@ -115,12 +115,17 @@
             app:layout_constraintTop_toBottomOf="@+id/post" />
 
         <TextView
-            android:id="@+id/reply_list"
+            android:id="@+id/reply_area"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:hint="아직 댓글이 없어요. 가장 먼저 댓글을 남겨보세요."
             android:textSize="14sp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/reply_recycleView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
 
 
     </LinearLayout>
