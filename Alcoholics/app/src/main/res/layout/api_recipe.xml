@@ -35,13 +35,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Recipe"
+                android:text="칵테일 레시피"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
 
         </androidx.appcompat.widget.Toolbar>
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="62dp">
@@ -83,7 +82,7 @@
         <!-- 게시글 크기 우선 200dp, 나중에 wrap_content? -->
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="270dp"
             android:id="@+id/detailRecipeImg"
             android:src="@drawable/cocktailimg32px"/>
 
@@ -129,7 +128,6 @@
             android:layout_margin="5dp"
             android:textSize="15sp"
             />
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

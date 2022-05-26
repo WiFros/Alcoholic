@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Recipe"
+                android:text="이름으로 칵테일 검색"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 

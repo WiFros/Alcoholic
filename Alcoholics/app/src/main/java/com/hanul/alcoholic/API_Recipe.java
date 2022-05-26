@@ -140,7 +140,7 @@ public class API_Recipe extends AppCompatActivity {
                             else
                                 ingrStr+=hashMap.get("strIngredient"+i)+"\n";
                         }
-                        ingredient.setText(ingrStr);
+                        ingredient.setText(ingrStr.trim());
                     }
                 });
                 try {
