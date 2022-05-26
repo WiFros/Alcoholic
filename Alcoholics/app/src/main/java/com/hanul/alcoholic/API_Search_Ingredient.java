@@ -38,7 +38,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+public class API_Search_Ingredient extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
 
     public static String key = "9973533";
