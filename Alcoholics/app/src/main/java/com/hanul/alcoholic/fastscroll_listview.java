@@ -170,5 +170,4 @@ class ListAdapter extends ArrayAdapter<String> implements SectionIndexer {
 
         return v;
     }
-
 }

@@ -42,7 +42,12 @@ public class API_Ingredient extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.api_ingredient);
         Bundle bundle = getIntent().getExtras();
-        String ing = bundle.getString("Ingredient");
+        String ing ="";
+        try{
+            ing = bundle.getString("Ingredient");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
         listView = (ListView) findViewById(R.id.listView1);
         // adapter 스타일 선언 및 items 적용
@@ -50,11 +55,12 @@ public class API_Ingredient extends AppCompatActivity {
         // listView에 adapter 적용
         listView.setAdapter(adapter);
         Handler handler = new Handler(Looper.getMainLooper());
+        String finalIng = ing;
         new Thread(new Runnable() {
             @Override
             public void run() {
                 items.clear();
-                String urlAddress = address + key + "/filter.php?i=" + removeComma(ing);
+                String urlAddress = address + key + "/filter.php?i=" + removeComma(finalIng);
 
                 try {
                     URL url = new URL(urlAddress);
