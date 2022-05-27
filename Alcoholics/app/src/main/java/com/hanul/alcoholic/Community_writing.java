@@ -52,8 +52,8 @@ public class Community_writing extends AppCompatActivity {
     private DatabaseReference databaseReference;
     Button btn_upload;
     Button btn_back;
-    ImageButton btn_img;
-    ImageButton btn_gal;
+    //ImageButton btn_img;
+    //ImageButton btn_gal;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,8 +62,8 @@ public class Community_writing extends AppCompatActivity {
         //버튼 클릭시 화면에서 입력한 내용 받아와서 파이어베이스에 올리기
         btn_upload = (Button) findViewById(R.id.button_upload);
         btn_back = (Button) findViewById(R.id.button_back);
-        btn_img = (ImageButton) findViewById(R.id.imageButton_picture);
-        btn_gal = (ImageButton) findViewById(R.id.imageButton_gallery);
+        //btn_img = (ImageButton) findViewById(R.id.imageButton_picture);
+        //btn_gal = (ImageButton) findViewById(R.id.imageButton_gallery);
 
         //작성자 이름 받아오기
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -124,6 +124,7 @@ public class Community_writing extends AppCompatActivity {
                 onBackPressed();
             }
         });
+/*
 
         btn_gal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,6 +143,7 @@ public class Community_writing extends AppCompatActivity {
                 //이미지 선택 후 실행될 이벤트 구현해야 함..
             }
         });
+*/
 
 
 
@@ -161,7 +163,7 @@ public class Community_writing extends AppCompatActivity {
                 {
                     public void onClick(DialogInterface dialog, int which)
                     {
-                        Toast.makeText(getApplicationContext(), "글쓰기 취소됨", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "글쓰기 취소됨", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 })
