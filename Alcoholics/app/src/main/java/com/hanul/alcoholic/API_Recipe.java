@@ -45,14 +45,30 @@ public class API_Recipe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.api_recipe);
         Bundle bundle = getIntent().getExtras();
-        getSupportActionBar().setTitle(bundle.getString("Drink") + " Recipe");
-        String text = bundle.getString("Drink");
 
+        try{
+            getSupportActionBar().setTitle(bundle.getString("Drink") + " Recipe");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        //getSupportActionBar().setTitle(bundle.getString("Drink") + " Recipe");
+        String text = "";
+
+        try{
+            text = bundle.getString("Drink");
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+
+        String finalText = text;
         new Thread(new Runnable() {
             @Override
             public void run() {
 
-                String urlAddress = API_Ingredient.address + API_Ingredient.key + "/search.php?s=" + text;
+                String urlAddress = API_Ingredient.address + API_Ingredient.key + "/search.php?s=" + finalText;
 
                 try {
                     URL url = new URL(urlAddress);

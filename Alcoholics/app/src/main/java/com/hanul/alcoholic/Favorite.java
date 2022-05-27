@@ -66,18 +66,18 @@ public class Favorite extends Fragment {
     {
         View view = inflater.inflate(R.layout.fragment_recipe_list, container, false);
 
-        Button favoriteBtn = view.findViewById(R.id.favorite);
-        favoriteBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), myshelf.class);
-                startActivity(intent);
-                Toast.makeText(getContext(),"add favorite", Toast.LENGTH_SHORT).show();
-                favorited.add("ABC");
-                //adapter.notifyDataSetChanged();
+//        Button favoriteBtn = view.findViewById(R.id.favorite);
+//        favoriteBtn.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(getActivity(), myshelf.class);
+//                startActivity(intent);
+//                Toast.makeText(getContext(),"add favorite", Toast.LENGTH_SHORT).show();
+//                favorited.add("ABC");
+//                //adapter.notifyDataSetChanged();
 
-            }
-        });
+//            }
+//        });
         return view;
     }
 }
