@@ -44,8 +44,11 @@ public class API_Recipe extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.api_recipe);
+        
+        // bundle == null 에러 발생
         Bundle bundle = getIntent().getExtras();
-
+        
+//        getSupportActionBar().setTitle(bundle.getString("Drink") + " Recipe");
         try{
             getSupportActionBar().setTitle(bundle.getString("Drink") + " Recipe");
         }catch(Exception e){

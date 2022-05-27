@@ -47,21 +47,23 @@ public class fastscroll_listview extends AppCompatActivity {
 
         LinearLayout listitemView = (LinearLayout) findViewById(R.id.list_item_view);
         //TextView listitemtext = (TextView) findViewById(R.id.list_item);
+        Log.d("11111111111111", "ListAdapter: 1111111111111111");
 
         listView.setFastScrollEnabled(true);
         String[] cocktails = getResources().getStringArray(R.array.ingredients_array);
 
         List<String> cocktailsList = Arrays.asList(cocktails);
-        ListAdapter listAdapter = new ListAdapter(this, listitemView ,cocktailsList);
+        ListAdapter listAdapter = new ListAdapter(this ,cocktailsList);
 
         listView.setAdapter(listAdapter);
+        Log.d("22222222222222", "ListAdapter: 2222222222222222");
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             @Override
             public void onItemClick(AdapterView<?> a_parent, View a_view, int a_position, long a_id)
             {
-                Log.d("22222222222222", "ListAdapter: 2222222222222222");
+                Log.d("000000000000000", "ListAdapter: 000000000000000000");
 
                 //final fastscroll_list_item item = (fastscroll_list_item) listAdapter.getItem(a_position);
                 PopupAlert();
@@ -93,81 +95,126 @@ public class fastscroll_listview extends AppCompatActivity {
     }
 }
 
+
 class ListAdapter extends ArrayAdapter<String> implements SectionIndexer {
 
-    HashMap<String, Integer> mapIndex;
     String[] sections;
     List<String> fruits;
+    List<String> sectionLetters=new ArrayList<String>();
 
-    public ListAdapter(Context context, View convertView, List<String> fruitList) {
-        super(context, R.layout.activity_fastscroll_list_item, fruitList);
-
+    public ListAdapter(Context context, List<String> fruitList) {
+        super(context, android.R.layout.simple_list_item_1, fruitList);
         this.fruits = fruitList;
-        mapIndex = new LinkedHashMap<String, Integer>();
 
         for (int x = 0; x < fruits.size(); x++) {
             String fruit = fruits.get(x);
-            String ch = fruit.substring(0, 1);
+            String ch = fruit.charAt(0)+"";
             ch = ch.toUpperCase(Locale.US);
 
-            // HashMap will prevent duplicates
-            mapIndex.put(ch, x);
+            sectionLetters.add(ch);
         }
-        Set<String> sectionLetters = mapIndex.keySet();
 
-        // create a list from the set to sort
         ArrayList<String> sectionList = new ArrayList<String>(sectionLetters);
-
-        Log.d("sectionList", sectionList.toString());
-        Collections.sort(sectionList);
 
         sections = new String[sectionList.size()];
 
         sectionList.toArray(sections);
-
     }
 
     public int getPositionForSection(int section) {
-        Log.d("section", "" + section);
-        return mapIndex.get(sections[section]);
+
+        Log.e("sushildlh", "" + section);
+        return section;
     }
 
     public int getSectionForPosition(int position) {
-        Log.d("position", "" + position);
-        return 0;
+
+        Log.d("sushildlh", "" + position);
+        return position;
     }
 
     public Object[] getSections() {
         return sections;
     }
-
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        View listView = convertView;
-
-        View v = convertView;
-        if (v == null) {
-            LayoutInflater vi = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = vi.inflate(R.layout.activity_fastscroll_list_item, null);
-        }
-        else
-        {
-            Log.d("###########", "getView: "+v.toString());
-        }
-
-        // ImageView 인스턴스
-        ImageView imageView = (ImageView)v.findViewById(R.id.imageView);
-
-        // 리스트뷰의 아이템에 이미지를 변경한다.
-        // 이곳을 파싱한 이미지로 변경해서 채우면 된다.
-        imageView.setImageResource(R.drawable.ic_baseline_arrow_back_24);
-
-
-        TextView textView = (TextView)v.findViewById(R.id.list_item);
-        textView.setText(fruits.get(position));
-
-        //final String text = fruits.get(position);
-
-        return v;
-    }
 }
+
+
+////////////////////////
+//class ListAdapter extends ArrayAdapter<String> implements SectionIndexer {
+//
+//    HashMap<String, Integer> mapIndex;
+//    String[] sections;
+//    List<String> fruits;
+//
+//    public ListAdapter(Context context, View convertView, List<String> fruitList) {
+//        super(context, R.layout.activity_fastscroll_listview, fruitList);
+//
+//        this.fruits = fruitList;
+//        mapIndex = new LinkedHashMap<String, Integer>();
+//
+//        for (int x = 0; x < fruits.size(); x++) {
+//            String fruit = fruits.get(x);
+//            String ch = fruit.substring(0, 1);
+//            ch = ch.toUpperCase(Locale.US);
+//
+//            // HashMap will prevent duplicates
+//            mapIndex.put(ch, x);
+//        }
+//        Set<String> sectionLetters = mapIndex.keySet();
+//
+//        // create a list from the set to sort
+//        ArrayList<String> sectionList = new ArrayList<String>(sectionLetters);
+//
+//        Log.d("sectionList", sectionList.toString());
+//        Collections.sort(sectionList);
+//
+//        sections = new String[sectionList.size()];
+//        sectionList.toArray(sections);
+//    }
+//
+//    public int getPositionForSection(int section) {
+//        Log.d("section", "" + section);
+//        return mapIndex.get(sections[section]);
+//    }
+//
+//    public int getSectionForPosition(int position) {
+//        Log.d("position", "" + position);
+//        return 0;
+//    }
+//
+//    public Object[] getSections() {
+//        return sections;
+//    }
+//
+////    public View getView(int position, View convertView, ViewGroup parent) {
+////        Log.d("666666666666666", "ListAdapter: 6666666666666666666");
+////
+////        View listView = convertView;
+////
+////        View v = convertView;
+////        if (v == null) {
+////            LayoutInflater vi = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+////            v = vi.inflate(R.layout.activity_fastscroll_list_item, null);
+////        }
+////        else
+////        {
+////            Log.d("###########", "getView: "+v.toString());
+////        }
+////
+//////         ImageView 인스턴스
+//////        ImageView imageView = (ImageView)v.findViewById(R.id.imageView);
+////
+//////         리스트뷰의 아이템에 이미지를 변경한다.
+//////         이곳을 파싱한 이미지로 변경해서 채우면 된다.
+//////        imageView.setImageResource(R.drawable.ic_baseline_arrow_back_24);
+////
+////
+//////        TextView textView = (TextView)v.findViewById(R.id.list_item);
+//////        textView.setText(fruits.get(position));
+////
+////        //final String text = fruits.get(position);
+////        Log.d("77777777777777777777", "ListAdapter: 77777777777777777777");
+////
+////        return v;
+////    }
+//}
