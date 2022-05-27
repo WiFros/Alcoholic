@@ -1,6 +1,8 @@
 package com.hanul.alcoholic;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Comment {
     private String uid; // 고유키
@@ -16,6 +18,25 @@ public class Comment {
     private ArrayList<String> ToReplys; // 답글 리스트
 
     Comment(){}
+
+    Comment(
+            String uid,
+            String boardId,
+            String body,
+            String author,
+            String date,
+            String parantId,
+            String root,
+            boolean mode){
+        this.uid = uid;
+        this.boardId = boardId;
+        this.body = body;
+        this.author = author;
+        this.date = date;
+        this.parantId = parantId;
+        this.root = root;
+        this.mode = mode;
+    }
 
     public String getUid() {return uid;}
     public void setUid(String uid) {this.uid = uid;}
@@ -51,4 +72,16 @@ public class Comment {
     public ArrayList<String> getToReplys() {return ToReplys;}
 
     public void setToReplys(ArrayList<String> toReplys) {ToReplys = toReplys;}
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("uid", uid);
+        result.put("boardId",boardId);
+        result.put("body", body);
+        result.put("author", author);
+        result.put("date", date);
+        result.put("parantId", parantId);
+        result.put("root",root);
+        result.put("mode",mode);
+        return result;
+    }
 }

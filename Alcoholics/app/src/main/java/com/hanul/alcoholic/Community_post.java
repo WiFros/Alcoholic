@@ -26,7 +26,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.EventListener;
 import java.util.HashMap;
 import java.util.Map;
@@ -40,6 +42,7 @@ public class Community_post extends AppCompatActivity {
     private TextView timeline;
     private TextView content;
     private TextView reply_area;
+
     //댓글 띄울 recycle view id : reply_recycleView
 
     private String get_nickname;
@@ -50,6 +53,7 @@ public class Community_post extends AppCompatActivity {
     private Button btn_enter;
     private Button btn_report;
     private ImageButton btn_back;
+    private String key;
     private EditText reply;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference;
@@ -60,7 +64,7 @@ public class Community_post extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_community_post);
         Intent intent = getIntent();
-        String key  = intent.getExtras().getString("key");
+        key  = intent.getExtras().getString("key");//post 의 키
         //firebase 경로 지정
 
         databaseReference = firebaseDatabase.getReference("alcoholic/Post");
@@ -73,6 +77,7 @@ public class Community_post extends AppCompatActivity {
                     if(post.getKey().toString().equals(key)){
                         nickname = findViewById(R.id.nickname);
                         nickname.setText(post.getAuthor());
+                        get_nickname = post.getAuthor();
 
                         timeline = findViewById(R.id.timeline);
                         timeline.setText(post.getDate());
@@ -81,6 +86,7 @@ public class Community_post extends AppCompatActivity {
                         content.setText(post.getBody());
 
                         //replylist - firebase에서 값 가져오기
+
                         get_reply_list = "";
                         reply_area = findViewById(R.id.reply_area);
                         if (!get_reply_list.isEmpty()) {
@@ -109,8 +115,7 @@ public class Community_post extends AppCompatActivity {
                 txt = reply.getText().toString();
                 Toast.makeText(getApplicationContext(), txt + "댓글을 입력했습니다.", Toast.LENGTH_SHORT).show();
 
-
-                //writeNewComment();
+                writeNewComment(key,txt,false);
 
 
             }
@@ -142,8 +147,24 @@ public class Community_post extends AppCompatActivity {
     }
 
 
-    //private void writeNewComment(String nowPost,String body,String ) {
-    //}
+    private void writeNewComment(String nowPost,String body,boolean mode) {
+        databaseReference = firebaseDatabase.getReference("alcoholic");
+        String comment_key = databaseReference.child("Post").child("Comment").push().getKey();
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        Date time = new Date();
+        String timeSting = format1.format(time);
+
+        Comment comment = new Comment(comment_key,key,body,get_nickname,timeSting,comment_key,comment_key,false);
+
+        Map<String,Object> commentValue = comment.toMap();
+        Map<String,Object> chileUpdates = new HashMap<>();
+        //맵핑된 해시 테이블 오브젝트를 firebase에 업데이트
+        chileUpdates.put("Post/"+key+"/Comment/"+comment_key,commentValue);
+        chileUpdates.put("Post-comment/"+key+"/"+comment_key,commentValue);
+
+        databaseReference.updateChildren(chileUpdates);
+
+    }
 
 
 }

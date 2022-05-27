@@ -1,10 +1,11 @@
 package com.hanul.alcoholic;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 /* 리스트 뷰에 들어갈 내용 입력받기 위해 클래스 만들어둠 */
-public class Post {
+public class Post extends Comment{
     private String key;
     private String uid;
     private String title;
@@ -13,7 +14,7 @@ public class Post {
     private int commentCount;
     private String date;
     private int starCount; // 좋아요
-    private Map<String, Boolean> comment = new HashMap<>();
+    private Comment comment = new Comment();
     private String profile;
 
     Post() {
@@ -53,10 +54,10 @@ public class Post {
     public void setStarCount(int starCount) {
         this.starCount = starCount;
     }
-    public Map<String, Boolean> getComment() {
+    public Comment getComment() {
         return comment;
     }
-    public void setComment(Map<String, Boolean> comment) {
+    public void setComment(Comment comment) {
         this.comment = comment;
     }
     public String getUid() {
@@ -115,7 +116,7 @@ public class Post {
         result.put("stars", comment);
         result.put("date", date);
         result.put("profile", profile);
-        result.put("comment",comment);
+        result.put("Comment",comment);
         return result;
     }
 }
