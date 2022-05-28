@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class API_Search_Name extends AppCompatActivity {
     public static String address = "https://www.thecocktaildb.com/api/json/v2/";
     private ListView listView;
     private Button btnData;
+    private ImageButton backbtn;
     private EditText editText;
     ArrayAdapter adapter;
 
@@ -43,7 +45,8 @@ public class API_Search_Name extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.api_search_name);
+
 
         listView = (ListView)findViewById(R.id.listView1);
         // adapter 스타일 선언 및 items 적용
@@ -52,6 +55,15 @@ public class API_Search_Name extends AppCompatActivity {
         listView.setAdapter(adapter);
         btnData = (Button)findViewById(R.id.btnData);
         editText=(EditText)findViewById(R.id.name);
+
+        backbtn = (ImageButton)findViewById(R.id.btn_back);
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         Handler handler =new Handler(Looper.getMainLooper());
 
         btnData.setOnClickListener(new View.OnClickListener() {

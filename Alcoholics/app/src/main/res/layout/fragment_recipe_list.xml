@@ -22,31 +22,20 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Read API Button"
-                android:id="@+id/api_btn"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Search name API Button"
+                android:text="@string/SearchNameButton"
                 android:id="@+id/search_name_btn"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Read API_Ingredient Button"
-                android:id="@+id/api_ingredient_btn"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Search ingredient API Button"
+                android:text="@string/SearchIngredientButton"
                 android:id="@+id/search_ingredient_btn"/>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="All cocktail List"
-                android:id="@+id/cocktailListbtn"/>
+<!--            <Button-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/SearchIngredientButton"-->
+<!--                android:id="@+id/cocktailListbtn"/>-->
 
             <!--this is very important when scrollview's height is greater than the hegiht of scrollview's childview-->
             <View android:tag="empty_view" android:layout_width="match_parent"

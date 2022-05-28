@@ -56,15 +56,7 @@ public class RecipeList extends Fragment{
 
         View view = inflater.inflate(R.layout.fragment_recipe_list, container, false);
 
-        Button recipe_button = view.findViewById(R.id.api_btn);
-        recipe_button.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(),API_Recipe.class);
-                startActivity(intent);
-            }
-        });
 
         //search API name java에서 adapter null Error 발생
         Button nameSearchBtn = view.findViewById(R.id.search_name_btn);
@@ -77,15 +69,7 @@ public class RecipeList extends Fragment{
             }
         });
 
-        Button ingredientBtn = view.findViewById(R.id.api_ingredient_btn);
-        ingredientBtn.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(),API_Ingredient.class);
-                startActivity(intent);
-            }
-        });
+
 
         Button ingredientSearchBtn = view.findViewById(R.id.search_ingredient_btn);
         ingredientSearchBtn.setOnClickListener(new View.OnClickListener()
@@ -98,15 +82,15 @@ public class RecipeList extends Fragment{
         });
 
 
-        Button cocktailList = view.findViewById(R.id.cocktailListbtn);
-        cocktailList.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Show all cocktail List", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(),fastscroll_listview.class);
-                startActivity(intent);
-            }
-        });
+//        Button cocktailList = view.findViewById(R.id.cocktailListbtn);
+//        cocktailList.setOnClickListener(new View.OnClickListener()
+//        {
+//            public void onClick(View v) {
+//                Toast.makeText(getContext(), "Show all cocktail List", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(getActivity(),fastscroll_listview.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
         return view;

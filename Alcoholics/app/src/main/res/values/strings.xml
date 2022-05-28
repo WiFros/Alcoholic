@@ -20,7 +20,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="community_writing">커뮤니티 글쓰기</string>
     <string name="detailRecipe">this is sample recipe. Should put detail recipe from API. this is sample recipe. Should put detail recipe from API. this is sample recipe. Should put detail recipe from API.</string>
-
+    <string name="SearchNameButton">칵테일 이름 검색</string>
+    <string name="SearchIngredientButton">칵테일 재료 검색</string>
+    <string name="cocktailListButton">칵테일 리스트</string>
 
     <string-array name="fruits_array">
         <item>Apples</item>

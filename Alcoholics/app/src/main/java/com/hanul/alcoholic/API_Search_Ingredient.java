@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,6 +46,7 @@ public class API_Search_Ingredient extends AppCompatActivity implements Compound
     public static String address = "https://www.thecocktaildb.com/api/json/v2/";
     private ListView listView;
     private Button ibutton,sbutton;
+    private ImageButton backbtn;
     private EditText editText;
     ArrayAdapter adapter;
 
@@ -71,6 +73,13 @@ public class API_Search_Ingredient extends AppCompatActivity implements Compound
         listView.setAdapter(adapter);
         ibutton=(Button)findViewById(R.id.btn_search);
         sbutton=(Button)findViewById(R.id.search);
+        backbtn=(ImageButton) findViewById(R.id.btn_back);
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         vodka_checkbox = (CheckBox)findViewById(R.id.chkVodka);
         gin_checkbox = (CheckBox)findViewById(R.id.chkGin);
