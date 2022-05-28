@@ -43,7 +43,8 @@
         </androidx.appcompat.widget.Toolbar>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="62dp">
+            android:layout_height="62dp"
+            android:layout_margin="6dp">
 
             <TextView
                 android:id="@+id/nickname"
@@ -68,23 +69,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="MissingConstraints" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="3px"
-                android:background="#000000"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/timeline" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:background="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timeline" />
         <!-- 게시글 올리는 자리 -->
         <!-- 게시글 크기 우선 200dp, 나중에 wrap_content? -->
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="270dp"
             android:id="@+id/detailRecipeImg"
-            android:src="@drawable/cocktailimg32px"/>
+            android:src="@drawable/ic_baseline_image_search"/>
 
         <View
             android:layout_width="match_parent"
@@ -112,7 +112,8 @@
         <TextView
             android:id="@+id/ingredient"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="3px"

@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/postContent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +45,8 @@
             android:id="@+id/sampleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="sample"/>
+            android:layout_margin="5dp"
+            android:text="▼ 선택한 재료들"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="5px"
@@ -55,20 +56,25 @@
             android:id="@+id/ingredientList"
             android:layout_width="match_parent"
             android:layout_height="73dp"
+            android:layout_margin="5dp"
             android:layout_gravity="center"
             android:text="Ingredients: " />
         <Button
             android:id="@+id/search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:text="칵테일 검색"
+            android:textSize="18sp"
             />
         <TextView
             android:id="@+id/labelCocktail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/primary"
+            android:background="@color/ic_logo_background"
             android:text="칵테일 베이스 (기주)"
+            android:padding="5dp"
+            android:textSize="18sp"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
 
@@ -77,6 +83,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:orientation="horizontal">
             <CheckBox
                 android:id="@+id/chkVodka"
@@ -105,6 +112,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:orientation="horizontal">
 
 
@@ -143,8 +151,9 @@
 
             <EditText
                 android:id="@+id/editText_search"
-                android:layout_width="330dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="6"
                 android:ems="10"
                 android:hint="원하는 재료를 입력하세요."
                 android:maxLines="1"
@@ -155,6 +164,7 @@
                 android:id="@+id/btn_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:text="검색" />
 
         </LinearLayout>

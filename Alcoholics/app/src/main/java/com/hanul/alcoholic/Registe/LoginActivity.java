@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                     }).show();
                 }
 
-                else if (!strEmail.contains("@") || !strEmail.contains(".com")) {
+                else if (!strEmail.contains("@") || !strEmail.contains(".")) {
                     //Toast.makeText(getApplicationContext(), "err!", Toast.LENGTH_SHORT).show();
                     AlertDialog.Builder caution = new AlertDialog.Builder(LoginActivity.this);
                     caution.setMessage("올바르지 않은 아이디 형식입니다.");
