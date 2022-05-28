@@ -74,12 +74,17 @@ public class LoginActivity extends AppCompatActivity {
                             if (task.isSuccessful()){
                                 //로그인 성공
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                intent.putExtra("login", 1000);
                                 startActivity(intent);
-                                //finish(); // 현재 액티비티 파괴
+                                finish(); // 현재 액티비티 파괴
                             }else {
                                 // 로그인 실패
-                                Toast.makeText(LoginActivity.this,"로그인에 실패하셨습니다.",Toast.LENGTH_LONG).show();
+                                //Toast.makeText(LoginActivity.this,"로그인에 실패하셨습니다.",Toast.LENGTH_LONG).show();
+                                AlertDialog.Builder caution = new AlertDialog.Builder(LoginActivity.this);
+                                caution.setMessage("아이디 또는 비밀번호를 확인하세요.");
+                                caution.setNeutralButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {}
+                                }).show();
                             }
                         }
                     });

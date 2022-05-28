@@ -58,7 +58,19 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="62dp">
+            android:layout_height="62dp"
+            android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="작성자 : "
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/timeline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/nickname"
@@ -68,8 +80,11 @@
                 android:text="Sample nickname"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/timeline"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/textView6"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.523" />
 
             <TextView
                 android:id="@+id/timeline"
@@ -115,12 +130,18 @@
             app:layout_constraintTop_toBottomOf="@+id/post" />
 
         <TextView
-            android:id="@+id/reply_list"
+            android:id="@+id/reply_area"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:hint="아직 댓글이 없어요. 가장 먼저 댓글을 남겨보세요."
             android:textSize="14sp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/reply_recycleView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            />
 
 
     </LinearLayout>

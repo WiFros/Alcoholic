@@ -1,36 +1,37 @@
 package com.hanul.alcoholic;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 /* 리스트 뷰에 들어갈 내용 입력받기 위해 클래스 만들어둠 */
-public class Post {
+public class Post extends Comment{
     private String key;
     private String uid;
     private String title;
     private String author;
     private String body;
-    private int comments;
+    private int commentCount;
     private String date;
     private int starCount; // 좋아요
-    private Map<String, Boolean> stars = new HashMap<>();
+    private Comment comment = new Comment();
     private String profile;
 
     Post() {
     }
 
-    Post(String name, String author, String body, int comments, String date) {
+    Post(String name, String author, String body, int commentCount, String date) {
         this.title = name;
         this.author = author;
         this.body = body;
-        this.comments = comments;
+        this.commentCount = commentCount;
         this.date = date;
     }
 
-    Post(String author, String body, int comments, String date) {
+    Post(String author, String body, int commentCount, String date) {
         this.author = author;
         this.body = body;
-        this.comments = comments;
+        this.commentCount = commentCount;
         this.date = date;
     }
 
@@ -53,11 +54,11 @@ public class Post {
     public void setStarCount(int starCount) {
         this.starCount = starCount;
     }
-    public Map<String, Boolean> getStars() {
-        return stars;
+    public Comment getComment() {
+        return comment;
     }
-    public void setStars(Map<String, Boolean> stars) {
-        this.stars = stars;
+    public void setComment(Comment comment) {
+        this.comment = comment;
     }
     public String getUid() {
         return uid;
@@ -83,8 +84,8 @@ public class Post {
     public String getBody() {
         return body;
     }
-    public int getComments() {
-        return comments;
+    public int getCommentCount() {
+        return commentCount;
     }
     public String getDate() {
         return date;
@@ -95,8 +96,8 @@ public class Post {
     public void setBody(String body) {
         this.body = body;
     }
-    public void setComments(int comments) {
-        this.comments = comments;
+    public void setCommentCount(int commentCount) {
+        this.commentCount = commentCount;
     }
     public void setDate(String date) {
         this.date = date;
@@ -112,9 +113,10 @@ public class Post {
         result.put("title", title);
         result.put("body", body);
         result.put("starCount", starCount);
-        result.put("stars", stars);
+        result.put("stars", comment);
         result.put("date", date);
         result.put("profile", profile);
+        result.put("Comment",comment);
         return result;
     }
 }

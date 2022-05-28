@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -25,6 +27,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hanul.alcoholic.Registe.LoginActivity;
 import com.hanul.alcoholic.Registe.UserAccount;
 
 import java.text.SimpleDateFormat;
@@ -49,8 +52,8 @@ public class Community_writing extends AppCompatActivity {
     private DatabaseReference databaseReference;
     Button btn_upload;
     Button btn_back;
-    ImageButton btn_img;
-    ImageButton btn_gal;
+    //ImageButton btn_img;
+    //ImageButton btn_gal;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,8 +62,8 @@ public class Community_writing extends AppCompatActivity {
         //버튼 클릭시 화면에서 입력한 내용 받아와서 파이어베이스에 올리기
         btn_upload = (Button) findViewById(R.id.button_upload);
         btn_back = (Button) findViewById(R.id.button_back);
-        btn_img = (ImageButton) findViewById(R.id.imageButton_picture);
-        btn_gal = (ImageButton) findViewById(R.id.imageButton_gallery);
+        //btn_img = (ImageButton) findViewById(R.id.imageButton_picture);
+        //btn_gal = (ImageButton) findViewById(R.id.imageButton_gallery);
 
         //작성자 이름 받아오기
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -78,7 +81,7 @@ public class Community_writing extends AppCompatActivity {
                         }
                         else {
                             writer = String.valueOf(task.getResult().getValue());
-                            Toast.makeText(getApplicationContext(), writer, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(), writer, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -87,26 +90,41 @@ public class Community_writing extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "글 업로드 됨", Toast.LENGTH_SHORT).show();
+
+
+                //Toast.makeText(getApplicationContext(), "글 업로드 됨", Toast.LENGTH_SHORT).show();
                 //제목 입력
                 textViewTitle = findViewById(R.id.editTextTitle);
                 title = textViewTitle.getText().toString();
                 //내용 입력
                 textViewContent = findViewById(R.id.editTextContents);
                 contents = textViewContent.getText().toString();
-
+                //제목이나 글 안썼을 경우 예외처리
+                if (TextUtils.isEmpty(title) || TextUtils.isEmpty(contents)) {
+                    android.app.AlertDialog.Builder caution = new android.app.AlertDialog.Builder(Community_writing.this);
+                    caution.setMessage("제목이나 내용을 확인하세요.");
+                    caution.setNeutralButton("확인", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {}
+                    }).show();
+                }
+                else {
+                    writeNewPost(user.getUid(),writer,title,contents);
+                    finish();
+                }
                 // firebase에 글 저장하기
-                writeNewPost(user.getUid(),writer,title,contents);
 
 
             }
         });
+
         btn_back.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
         });
+/*
 
         btn_gal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +143,7 @@ public class Community_writing extends AppCompatActivity {
                 //이미지 선택 후 실행될 이벤트 구현해야 함..
             }
         });
+*/
 
 
 
@@ -144,7 +163,7 @@ public class Community_writing extends AppCompatActivity {
                 {
                     public void onClick(DialogInterface dialog, int which)
                     {
-                        Toast.makeText(getApplicationContext(), "글쓰기 취소됨", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "글쓰기 취소됨", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 })
@@ -168,8 +187,5 @@ public class Community_writing extends AppCompatActivity {
         chileUpdates.put("/User-post/"+userId+"/"+key,postValue);
 
         databaseReference.updateChildren(chileUpdates);
-
-
-
     }
 }

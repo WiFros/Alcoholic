@@ -1,6 +1,8 @@
 package com.hanul.alcoholic;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -8,11 +10,16 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.hanul.alcoholic.MainActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +33,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -37,41 +43,20 @@ import java.util.TreeMap;
 
 public class API_Recipe extends AppCompatActivity {
     String jsonData;
-    Handler handler = new Handler();
-    LinkedHashMap<String, String> hashMap = new LinkedHashMap<>();
-
+    Handler handler=new Handler();
+    ImageView image;
+    LinkedHashMap<String,String> hashMap=new LinkedHashMap<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.api_recipe);
-        
-        // bundle == null 에러 발생
-        Bundle bundle = getIntent().getExtras();
-        
-//        getSupportActionBar().setTitle(bundle.getString("Drink") + " Recipe");
-        try{
-            getSupportActionBar().setTitle(bundle.getString("Drink") + " Recipe");
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-
-        //getSupportActionBar().setTitle(bundle.getString("Drink") + " Recipe");
-        String text = "";
-
-        try{
-            text = bundle.getString("Drink");
-        }catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-
-
-        String finalText = text;
+        Bundle bundle=getIntent().getExtras();
+        String text=bundle.getString("Drink");
         new Thread(new Runnable() {
             @Override
             public void run() {
 
-                String urlAddress = API_Ingredient.address + API_Ingredient.key + "/search.php?s=" + finalText;
+                String urlAddress = API_Search_Name.address + API_Search_Name.key + "/search.php?s=" + text;
 
                 try {
                     URL url = new URL(urlAddress);
@@ -96,25 +81,27 @@ public class API_Recipe extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
+
                 String[] strIngredient = new String[15];
                 String[] strMeasure = new String[15];
+
 
                 try {
                     JSONArray jarray = new JSONObject(jsonData).getJSONArray("drinks");
                     for (int i = 0; i < 1; i++) {
                         JSONObject jObject = jarray.getJSONObject(i);
-                        hashMap.put("strDrink", jObject.optString("strDrink"));
-                        hashMap.put("strTags", jObject.optString("strTags"));
-                        hashMap.put("strCategory", jObject.optString("strCategory"));
-                        hashMap.put("strAlcoholic", jObject.optString("strAlcoholic"));
-                        hashMap.put("strGlass", jObject.optString("strGlass"));
-                        hashMap.put("strInstructions", jObject.optString("strInstructions"));
-                        hashMap.put("strDrinkThumb", jObject.optString("strDrinkThumb"));
-                        for (int j = 1; j <= strIngredient.length; j++) {
-                            hashMap.put("strIngredient" + j, jObject.optString("strIngredient" + j));
+                        hashMap.put("strDrink",jObject.optString("strDrink"));
+                        hashMap.put("strTags",jObject.optString("strTags"));
+                        hashMap.put("strCategory",jObject.optString("strCategory"));
+                        hashMap.put("strAlcoholic",jObject.optString("strAlcoholic"));
+                        hashMap.put("strGlass",jObject.optString("strGlass"));
+                        hashMap.put("strInstructions",jObject.optString("strInstructions"));
+                        hashMap.put("strDrinkThumb",jObject.optString("strDrinkThumb"));
+                        for(int j=1;j<=strIngredient.length;j++){
+                            hashMap.put("strIngredient"+j,jObject.optString("strIngredient"+j));
                         }
-                        for (int j = 1; j <= strMeasure.length; j++) {
-                            hashMap.put("strMeasure" + j, jObject.optString("strMeasure" + j));
+                        for(int j=1;j<=strMeasure.length;j++){
+                            hashMap.put("strMeasure"+j,jObject.optString("strMeasure"+j));
                         }
                     }
                 } catch (JSONException e) {
@@ -124,10 +111,36 @@ public class API_Recipe extends AppCompatActivity {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        TextView textView = (TextView) findViewById(R.id.text);
-                        for (Iterator linkitr = hashMap.values().iterator(); linkitr.hasNext(); ) {
-                            textView.append(linkitr.next() + "\n");
+                        String infoStr=new String();
+                        String ingrStr=new String();
+                        TextView name = (TextView) findViewById(R.id.nickname);
+                        TextView info = (TextView) findViewById(R.id.timeline);
+                        TextView glass = (TextView) findViewById(R.id.reply_area);
+                        TextView ingredient = (TextView) findViewById(R.id.ingredient);
+                        TextView recipe = (TextView) findViewById(R.id.post);
+
+                        name.setText(hashMap.get("strDrink"));
+
+                        infoStr+=hashMap.get("strCategory")+" / "+hashMap.get("strAlcoholic");
+                        if(!hashMap.get("strTags").trim().equals("null"))
+                            infoStr=hashMap.get("strTags")+" / "+infoStr;
+                        info.setText(infoStr);
+
+                        image=(ImageView)findViewById(R.id.detailRecipeImg);
+                        new DownloadFilesTask().execute(hashMap.get("strDrinkThumb"));
+
+                        glass.setText(hashMap.get("strGlass"));
+
+                        recipe.setText(hashMap.get("strInstructions")+" 뿅☆");
+
+                        for(int i=1;i<=15;i++){
+                            if(hashMap.get("strIngredient"+i).trim().equals("null")) break;
+                            else if(!hashMap.get("strMeasure"+i).trim().equals("null"))
+                                ingrStr+=hashMap.get("strIngredient"+i)+" "+hashMap.get("strMeasure"+i)+"\n";
+                            else
+                                ingrStr+=hashMap.get("strIngredient"+i)+"\n";
                         }
+                        ingredient.setText(ingrStr.trim());
                     }
                 });
                 try {
@@ -135,7 +148,7 @@ public class API_Recipe extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Button button = findViewById(R.id.back);
+                ImageButton button = findViewById(R.id.btn_back);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -185,6 +198,34 @@ public class API_Recipe extends AppCompatActivity {
             hashMap.put("strInstructions", jstr.optString("translatedText"));
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+    private class DownloadFilesTask extends AsyncTask<String,Void, Bitmap> {
+        @Override
+        protected Bitmap doInBackground(String... strings) {
+            Bitmap bmp = null;
+            try {
+                String img_url = strings[0]; //url of the image
+                URL url = new URL(img_url);
+                bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return bmp;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            // doInBackground 에서 받아온 total 값 사용 장소
+            image.setImageBitmap(result);
         }
     }
 }

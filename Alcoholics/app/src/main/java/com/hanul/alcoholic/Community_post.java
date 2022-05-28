@@ -2,6 +2,7 @@ package com.hanul.alcoholic;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,7 +26,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.EventListener;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +41,9 @@ public class Community_post extends AppCompatActivity {
     private TextView nickname;
     private TextView timeline;
     private TextView content;
-    private TextView reply_list;
+    private TextView reply_area;
+
+    //댓글 띄울 recycle view id : reply_recycleView
 
     private String get_nickname;
     private String get_timeline;
@@ -48,6 +53,7 @@ public class Community_post extends AppCompatActivity {
     private Button btn_enter;
     private Button btn_report;
     private ImageButton btn_back;
+    private String key;
     private EditText reply;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference;
@@ -58,7 +64,7 @@ public class Community_post extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_community_post);
         Intent intent = getIntent();
-        String key  = intent.getExtras().getString("key");
+        key  = intent.getExtras().getString("key");//post 의 키
         //firebase 경로 지정
 
         databaseReference = firebaseDatabase.getReference("alcoholic/Post");
@@ -71,6 +77,7 @@ public class Community_post extends AppCompatActivity {
                     if(post.getKey().toString().equals(key)){
                         nickname = findViewById(R.id.nickname);
                         nickname.setText(post.getAuthor());
+                        get_nickname = post.getAuthor();
 
                         timeline = findViewById(R.id.timeline);
                         timeline.setText(post.getDate());
@@ -79,9 +86,13 @@ public class Community_post extends AppCompatActivity {
                         content.setText(post.getBody());
 
                         //replylist - firebase에서 값 가져오기
+
                         get_reply_list = "";
-                        reply_list = findViewById(R.id.reply_list);
-                        reply_list.setText(get_reply_list);
+                        reply_area = findViewById(R.id.reply_area);
+                        if (!get_reply_list.isEmpty()) {
+                            //댓글이 하나라도 있으면 안보이게
+                            reply_area.setVisibility(View.INVISIBLE);
+                        }
                     }
                 }
             }
@@ -96,18 +107,21 @@ public class Community_post extends AppCompatActivity {
         btn_enter = findViewById(R.id.enter);
         reply = findViewById(R.id.reply_input);
 
+        //댓글입력
         btn_enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String txt;
                 txt = reply.getText().toString();
                 Toast.makeText(getApplicationContext(), txt + "댓글을 입력했습니다.", Toast.LENGTH_SHORT).show();
-                //firebase에 댓글 내용 업데이트하기?
 
-                //reply 리스트에 올린 내용 업데이트하고, 텍스트 비우기
+                writeNewComment(key,txt,false);
+
 
             }
         });
+
+        //신고기능
         btn_report = findViewById(R.id.btn_report);
         btn_report.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,6 +132,7 @@ public class Community_post extends AppCompatActivity {
             }
         });
 
+        //뒤로가기
         btn_back = findViewById(R.id.btn_back);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,6 +145,27 @@ public class Community_post extends AppCompatActivity {
 
 
     }
+
+
+    private void writeNewComment(String nowPost,String body,boolean mode) {
+        databaseReference = firebaseDatabase.getReference("alcoholic");
+        String comment_key = databaseReference.child("Post").child("Comment").push().getKey();
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        Date time = new Date();
+        String timeSting = format1.format(time);
+
+        Comment comment = new Comment(comment_key,key,body,get_nickname,timeSting,comment_key,comment_key,false);
+
+        Map<String,Object> commentValue = comment.toMap();
+        Map<String,Object> chileUpdates = new HashMap<>();
+        //맵핑된 해시 테이블 오브젝트를 firebase에 업데이트
+        chileUpdates.put("Post/"+key+"/Comment/"+comment_key,commentValue);
+        chileUpdates.put("Post-comment/"+key+"/"+comment_key,commentValue);
+
+        databaseReference.updateChildren(chileUpdates);
+
+    }
+
 
 }
 

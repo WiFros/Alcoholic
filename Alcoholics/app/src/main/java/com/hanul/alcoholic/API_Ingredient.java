@@ -1,4 +1,3 @@
-//검색된 재료를 바탕으로 칵테일 검색
 package com.hanul.alcoholic;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,11 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -26,6 +29,7 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class API_Ingredient extends AppCompatActivity {
 
@@ -114,7 +118,7 @@ public class API_Ingredient extends AppCompatActivity {
                 }
             }
         }).start();
-        Button button = findViewById(R.id.back1);
+        ImageButton button = findViewById(R.id.btn_back);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -130,7 +134,7 @@ public class API_Ingredient extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(getApplicationContext(), API_Recipe.class);
+                Intent intent=new Intent(getApplicationContext(),API_Recipe.class);
                 intent.putExtra("Drink", (String) parent.getItemAtPosition(position));
                 startActivity(intent);
             }
