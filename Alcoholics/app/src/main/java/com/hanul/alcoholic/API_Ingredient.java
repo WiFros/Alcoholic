@@ -32,10 +32,11 @@ public class API_Ingredient extends AppCompatActivity {
     public static String key = "9973533";
     public static String address = "https://www.thecocktaildb.com/api/json/v2/";
     private ListView listView;
-    ArrayAdapter adapter;
+    ListArrayAdapter adapter;
 
     // 칵테일 제목을 담을 ArrayList 변수(items) 선언
     ArrayList<String> items = new ArrayList<String>();
+    ArrayList<String> itemList = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +50,11 @@ public class API_Ingredient extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        //ListArrayAdapter listArrayAdapter = new ListArrayAdapter(this, R.id.listView1, itemli)
         listView = (ListView) findViewById(R.id.listView1);
+        listView.setFastScrollEnabled(true);
+
         // adapter 스타일 선언 및 items 적용
-        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, items);
-        // listView에 adapter 적용
-        listView.setAdapter(adapter);
         Handler handler = new Handler(Looper.getMainLooper());
         String finalIng = ing;
         new Thread(new Runnable() {
@@ -95,6 +96,7 @@ public class API_Ingredient extends AppCompatActivity {
                             JSONObject temp = drinkList.getJSONObject(i);
                             String drinkNm = temp.getString("strDrink");
                             items.add(drinkNm);
+                            itemList.add(drinkNm);
                         }
                         runOnUiThread(new Runnable() {
                             @Override
@@ -119,6 +121,11 @@ public class API_Ingredient extends AppCompatActivity {
                 finish();
             }
         });
+
+        adapter = new ListArrayAdapter(this, android.R.layout.simple_list_item_1, itemList);
+        // listView에 adapter 적용
+        listView.setAdapter(adapter);
+
         // 리스트뷰의 아이템 클릭 이벤트 > 토스트 메시지 띄우기
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -136,3 +143,5 @@ public class API_Ingredient extends AppCompatActivity {
         return str;
     }
 }
+
+

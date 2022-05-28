@@ -37,6 +37,9 @@
         <activity
             android:name=".API_Search_Name"
             android:exported="false" />
+        <activity
+            android:name=".API_Search_Ingredient"
+            android:exported="false" />
 
         <activity
             android:name=".MainActivity"

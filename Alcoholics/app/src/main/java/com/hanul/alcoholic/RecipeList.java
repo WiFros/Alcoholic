@@ -55,28 +55,30 @@ public class RecipeList extends Fragment{
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_recipe_list, container, false);
-//        Button button = view.findViewById(R.id.api_btn);
-//        button.setOnClickListener(new View.OnClickListener() {
-//
-//            public void onClick(View v) {
-//                Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(getActivity(),API_Recipe.class);
-//                startActivity(intent);
-//            }
-//        });
 
-        //Button apiRecipeBtn = view.findViewById(R.id.api_recipe_btn);
-        //apiRecipeBtn.setOnClickListener(new View.OnClickListener()
-        //{
-        //    public void onClick(View v) {
-        //        Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
-        //        Intent intent = new Intent(getActivity(),API_Search_Name.class);
-        //        startActivity(intent);
-        //    }
-        //});
+        Button recipe_button = view.findViewById(R.id.api_btn);
+        recipe_button.setOnClickListener(new View.OnClickListener() {
 
-        Button favoriteBtn = view.findViewById(R.id.api_ingredient_btn);
-        favoriteBtn.setOnClickListener(new View.OnClickListener()
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(),API_Recipe.class);
+                startActivity(intent);
+            }
+        });
+
+        //search API name java에서 adapter null Error 발생
+        Button nameSearchBtn = view.findViewById(R.id.search_name_btn);
+        nameSearchBtn.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(),API_Search_Name.class);
+                startActivity(intent);
+            }
+        });
+
+        Button ingredientBtn = view.findViewById(R.id.api_ingredient_btn);
+        ingredientBtn.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v) {
                 Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
@@ -84,6 +86,17 @@ public class RecipeList extends Fragment{
                 startActivity(intent);
             }
         });
+
+        Button ingredientSearchBtn = view.findViewById(R.id.search_ingredient_btn);
+        ingredientSearchBtn.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(),API_Search_Ingredient.class);
+                startActivity(intent);
+            }
+        });
+
 
         Button cocktailList = view.findViewById(R.id.cocktailListbtn);
         cocktailList.setOnClickListener(new View.OnClickListener()
