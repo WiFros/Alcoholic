@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /* 리스트 뷰에 들어갈 내용 입력받기 위해 클래스 만들어둠 */
-public class Post extends Comment{
+public class Post extends Comment {
     private String key;
     private String uid;
     private String title;

@@ -138,7 +138,9 @@
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.14673913043478262" />
         <entry key="app/src/main/res/layout/item.xml" value="0.14673913043478262" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.14673913043478262" />
+        <entry key="app/src/main/res/layout/recycle_comment_item.xml" value="0.2803951367781155" />
         <entry key="app/src/main/res/layout/recycle_item.xml" value="0.17300724637681159" />
+        <entry key="app/src/main/res/layout/recycleview_comment.xml" value="0.2803951367781155" />
         <entry key="app/src/main/res/layout/recycleview_main.xml" value="0.17300724637681159" />
         <entry key="app/src/main/res/layout/register_post.xml" value="0.17300724637681159" />
         <entry key="app/src/main/res/layout/search_ingredient.xml" value="0.2796296296296296" />

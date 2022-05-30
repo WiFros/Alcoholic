@@ -16,15 +16,21 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.core.Context;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -46,9 +52,7 @@ public class Community_post extends AppCompatActivity {
     //댓글 띄울 recycle view id : reply_recycleView
 
     private String get_nickname;
-    private String get_timeline;
-    private String get_post;
-    private String get_reply_list;
+    private String comment_author;
 
     private Button btn_enter;
     private Button btn_report;
@@ -57,6 +61,12 @@ public class Community_post extends AppCompatActivity {
     private EditText reply;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference;
+
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private ArrayList<Comment> arrayList;
+
     private final HashMap<String ,Object> data = new HashMap<>();
     @Nullable
     @Override
@@ -67,10 +77,18 @@ public class Community_post extends AppCompatActivity {
         key  = intent.getExtras().getString("key");//post 의 키
         //firebase 경로 지정
 
+        recyclerView = (RecyclerView) findViewById(R.id.comment_recycleView);//id 연결
+        recyclerView.setHasFixedSize(true);//기존 성능강화
+        layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);//유저객체 담기
+        recyclerView.scrollToPosition(0);
+        arrayList = new ArrayList<>();
+
         databaseReference = firebaseDatabase.getReference("alcoholic/Post");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                arrayList.clear();
                 //파이어베이스 DB에 데이터를 받아옴
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){ //반복문으로 데이터 리스트 추출
                     Post post = snapshot.getValue(Post.class);
@@ -86,10 +104,17 @@ public class Community_post extends AppCompatActivity {
                         content.setText(post.getBody());
 
                         //replylist - firebase에서 값 가져오기
+                        //Comment comment = snapshot.child(key).child("Comment").getValue(Comment.class);
+                        for(DataSnapshot commentSnapshot : dataSnapshot.child(key).child("Comment").getChildren()){
+                            Comment comment = commentSnapshot.getValue(Comment.class);
+                            //Toast.makeText(getApplicationContext(),comment.getBody() , Toast.LENGTH_SHORT).show();
+                            arrayList.add(comment);
+                        }
+                        adapter.notifyDataSetChanged();
+                        //Toast.makeText(getApplicationContext(),snapshot.child(key).child("Comment") , Toast.LENGTH_SHORT).show();
 
-                        get_reply_list = "";
                         reply_area = findViewById(R.id.reply_area);
-                        if (!get_reply_list.isEmpty()) {
+                        if (!arrayList.isEmpty()) {
                             //댓글이 하나라도 있으면 안보이게
                             reply_area.setVisibility(View.INVISIBLE);
                         }
@@ -102,6 +127,10 @@ public class Community_post extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "데이터 수신 에러", Toast.LENGTH_SHORT).show();
             }
         });
+        adapter = new CommentAdapter(arrayList,getApplicationContext());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
         System.out.println("테스트2 : "+String.valueOf(data.get("author")));
 
         btn_enter = findViewById(R.id.enter);
@@ -153,8 +182,25 @@ public class Community_post extends AppCompatActivity {
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date time = new Date();
         String timeSting = format1.format(time);
-
-        Comment comment = new Comment(comment_key,key,body,get_nickname,timeSting,comment_key,comment_key,false);
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        final FirebaseUser user = mAuth.getCurrentUser();
+        databaseReference = firebaseDatabase.getReference("alcoholic");
+        databaseReference.
+                child("USerAccount").
+                child(user.getUid()).
+                child("nickName").
+                get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if(!task.isSuccessful()){
+                            Toast.makeText(getApplicationContext(), "유저 데이터 읽기에 실패했습니다.", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            comment_author = String.valueOf(task.getResult().getValue());
+                        }
+                    }
+                });
+        Comment comment = new Comment(comment_key,key,body,comment_author,timeSting,comment_key,comment_key,mode);
 
         Map<String,Object> commentValue = comment.toMap();
         Map<String,Object> chileUpdates = new HashMap<>();

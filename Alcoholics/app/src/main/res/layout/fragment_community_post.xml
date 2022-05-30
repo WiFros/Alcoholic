@@ -11,7 +11,7 @@
         android:id="@+id/postContent"
         android:layout_width="match_parent"
 
-        android:layout_height="500dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -136,12 +136,12 @@
             android:layout_margin="5dp"
             android:hint="아직 댓글이 없어요. 가장 먼저 댓글을 남겨보세요."
             android:textSize="14sp" />
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/reply_recycleView"
+            android:id="@+id/comment_recycleView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            />
+            android:layout_margin="5dp" />
 
 
     </LinearLayout>
