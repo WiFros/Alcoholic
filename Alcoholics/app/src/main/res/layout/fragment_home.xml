@@ -8,16 +8,6 @@
     android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:text="술쟁이 정보"
-        android:textSize="25sp"
-        />
     <View
         android:layout_width="match_parent"
         android:layout_height="3px"
@@ -91,7 +81,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/bg_login" />
+        app:srcCompat="@drawable/ic_bg_team" />
 
 
 </LinearLayout>
