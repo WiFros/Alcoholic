@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="5dp"
     android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
 
@@ -22,133 +23,75 @@
         android:layout_height="3px"
         android:layout_marginTop="11dp"
         android:background="#000000" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="@drawable/background_info"
+        android:padding="10dp"
+        android:text="이름 : 박정영\n학번 : 201735834\n\n이메일 : bjy123bjy@gmail.com"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.033"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.333" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="170dp"
-            android:layout_height="120dp"
-            android:layout_margin="2dp"
-            android:layout_weight="1"
-            android:background="@drawable/background_info"
-            android:padding="10dp"
-            android:text="이름 : 박정영\n학번 : 201735834\n\n이메일 : bjy123bjy@gmail.com"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.033"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.333" />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="@drawable/background_info"
+        android:padding="10dp"
+        android:text="이름 : 박재준\n학번 : 201735833\n\n이메일 : 3636qq@gachon.ac.kr"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.333" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="146dp"
-            android:layout_height="127dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.094"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.078"
-            app:srcCompat="@drawable/ic_baseline_face_m" />
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="@drawable/background_info"
+        android:padding="10dp"
+        android:text="이름 : 이승철\n학번 : 201735860\n\n이메일 : lsc5429@gachon.ac.kr"
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="170dp"
-            android:layout_height="120dp"
-            android:layout_margin="2dp"
-            android:layout_weight="1"
-            android:background="@drawable/background_info"
-            android:padding="10dp"
-            android:text="이름 : 박재준\n학번 : 201735833\n\n이메일 : 3636qq@gachon.ac.kr"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.97"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.333" />
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.891" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="146dp"
-            android:layout_height="127dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.901"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.077"
-            app:srcCompat="@drawable/ic_baseline_face_m" />
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="@drawable/background_info"
+        android:padding="10dp"
+        android:text="이름 : 이정하\n학번 : 201935108\n\n이메일 : jha2ee99@gmail.com"
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="170dp"
-            android:layout_height="120dp"
-            android:layout_margin="2dp"
-            android:layout_weight="1"
-            android:background="@drawable/background_info"
-            android:padding="10dp"
-            android:text="이름 : 이승철\n학번 : 201735860\n\n이메일 : lsc5429@gachon.ac.kr"
-
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.041"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.891" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="146dp"
-            android:layout_height="127dp"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.094"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.639"
-            app:srcCompat="@drawable/ic_baseline_face_m" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="170dp"
-            android:layout_height="120dp"
-            android:layout_margin="2dp"
-            android:layout_weight="1"
-            android:background="@drawable/background_info"
-            android:padding="10dp"
-            android:text="이름 : 이정하\n학번 : 201935108\n\n이메일 : jha2ee99@gmail.com"
-
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.991"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.888" />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="146dp"
-            android:layout_height="127dp"
-
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.901"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.637"
-            app:srcCompat="@drawable/ic_baseline_face_4_f" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.991"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.888" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/bg_login" />
 
 
 </LinearLayout>

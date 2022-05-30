@@ -63,7 +63,7 @@ public class RecipeList extends Fragment{
         nameSearchBtn.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(),API_Search_Name.class);
                 startActivity(intent);
             }
@@ -75,7 +75,7 @@ public class RecipeList extends Fragment{
         ingredientSearchBtn.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(),API_Search_Ingredient.class);
                 startActivity(intent);
             }

@@ -18,6 +18,13 @@
                 android:layout_height="wrap_content"
                 android:text="작성자"
                 android:layout_margin="10dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:backgroundTint="#787C93"
+                android:text="삭제" />
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,6 +53,11 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:layout_marginTop="11dp"
+        android:background="#000000" />
 
 
     </LinearLayout>
