@@ -84,6 +84,25 @@ public class Community_post extends AppCompatActivity {
         recyclerView.scrollToPosition(0);
         arrayList = new ArrayList<>();
 
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        final FirebaseUser user = mAuth.getCurrentUser();
+        databaseReference = firebaseDatabase.getReference("alcoholic");
+        databaseReference.
+                child("USerAccount").
+                child(user.getUid()).
+                child("nickName").
+                get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if(!task.isSuccessful()){
+                            Toast.makeText(getApplicationContext(), "유저 데이터 읽기에 실패했습니다.", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            comment_author = String.valueOf(task.getResult().getValue());
+                        }
+                    }
+                });
+
         databaseReference = firebaseDatabase.getReference("alcoholic/Post");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -137,6 +156,7 @@ public class Community_post extends AppCompatActivity {
         reply = findViewById(R.id.reply_input);
 
         //댓글입력
+
         btn_enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -180,26 +200,9 @@ public class Community_post extends AppCompatActivity {
         databaseReference = firebaseDatabase.getReference("alcoholic");
         String comment_key = databaseReference.child("Post").child("Comment").push().getKey();
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
         Date time = new Date();
         String timeSting = format1.format(time);
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        final FirebaseUser user = mAuth.getCurrentUser();
-        databaseReference = firebaseDatabase.getReference("alcoholic");
-        databaseReference.
-                child("USerAccount").
-                child(user.getUid()).
-                child("nickName").
-                get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                        if(!task.isSuccessful()){
-                            Toast.makeText(getApplicationContext(), "유저 데이터 읽기에 실패했습니다.", Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            comment_author = String.valueOf(task.getResult().getValue());
-                        }
-                    }
-                });
         Comment comment = new Comment(comment_key,key,body,comment_author,timeSting,comment_key,comment_key,mode);
 
         Map<String,Object> commentValue = comment.toMap();
