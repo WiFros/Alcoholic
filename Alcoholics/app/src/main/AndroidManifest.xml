@@ -21,10 +21,7 @@
         <activity
             android:name=".Registe.RegisterActivity"
             android:exported="false" />
-        <activity
-            android:name=".myshelf"
-            android:exported="false"
-            android:theme="@style/Theme.Alcoholic.NoActionBar"/>
+
         <activity
             android:name=".fastscroll_listview"
             android:exported="false" />

@@ -60,18 +60,12 @@ public class Favorite extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-//        Button favoriteBtn = view.findViewById(R.id.favorite);
-//        favoriteBtn.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                Toast.makeText(getContext(), "Read all Recipe", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(getActivity(), myshelf.class);
-//                startActivity(intent);
-//                Toast.makeText(getContext(),"add favorite", Toast.LENGTH_SHORT).show();
-//                favorited.add("ABC");
-//                //adapter.notifyDataSetChanged();
 
-//            }
-//        });
+        Intent intent = new Intent(getActivity(), API_Recipe.class);
+        startActivity(intent);
+
+        // Firebase에서 Nickname 받아서 리스트 뷰에 추가
+        favorited.add("");
         return view;
     }
 }
