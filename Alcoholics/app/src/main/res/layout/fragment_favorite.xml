@@ -21,10 +21,10 @@
 <!--        android:text="AddList"-->
 <!--        android:id="@+id/addBtn"/>-->
 
-    <ListView
-        android:id="@+id/myshelflistview"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:scrollbarStyle="outsideOverlay" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/favorite_recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp" />
 
 </LinearLayout>

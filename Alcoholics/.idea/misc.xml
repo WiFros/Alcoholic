@@ -32,7 +32,7 @@
         <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/api_clicked.xml" value="0.23943661971830985" />
         <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/api_ingredient.xml" value="0.3120471014492754" />
         <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/api_parsing.xml" value="0.261144883485309" />
-        <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/api_recipe.xml" value="0.33" />
+        <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/api_recipe.xml" value="0.5411458333333333" />
         <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/api_search_ingredient.xml" value="0.5" />
         <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/api_search_name.xml" value="0.5411458333333333" />
         <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/cocktails.xml" value="0.1" />
@@ -130,6 +130,7 @@
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/item.xml" value="0.1" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/nav_header_main.xml" value="0.1468721668177697" />
         <entry key="..\:/android studio/TP/Alcoholic/Alcoholics/app/src/main/res/layout/register_post.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_image_search.xml" value="0.1145" />
         <entry key="app/src/main/res/drawable/ic_menu_camera.xml" value="0.442" />
         <entry key="app/src/main/res/drawable/ic_menu_gallery.xml" value="0.398" />
         <entry key="app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.398" />
@@ -137,6 +138,7 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.20205078125000003" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.26260986328125" />
+        <entry key="app/src/main/res/layout/api_recipe.xml" value="0.2803951367781155" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.165" />
         <entry key="app/src/main/res/layout/cocktails.xml" value="0.21195652173913043" />
         <entry key="app/src/main/res/layout/community_main.xml" value="0.21195652173913043" />
@@ -144,6 +146,7 @@
         <entry key="app/src/main/res/layout/fragment__alcohol_list.xml" value="0.17300724637681159" />
         <entry key="app/src/main/res/layout/fragment_community_board.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/layout/fragment_community_post.xml" value="0.30735161822775137" />
+        <entry key="app/src/main/res/layout/fragment_favorite.xml" value="0.2803951367781155" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.14673913043478262" />
         <entry key="app/src/main/res/layout/fragment_recipe_list.xml" value="0.17300724637681159" />
@@ -151,8 +154,11 @@
         <entry key="app/src/main/res/layout/item.xml" value="0.14673913043478262" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.14673913043478262" />
         <entry key="app/src/main/res/layout/recycle_comment_item.xml" value="0.2803951367781155" />
+        <entry key="app/src/main/res/layout/recycle_favorite_item.xml" value="0.2803951367781155" />
         <entry key="app/src/main/res/layout/recycle_item.xml" value="0.17300724637681159" />
+        <entry key="app/src/main/res/layout/recycleview_Favorite.xml" value="0.2803951367781155" />
         <entry key="app/src/main/res/layout/recycleview_comment.xml" value="0.2803951367781155" />
+        <entry key="app/src/main/res/layout/recycleview_favorite.xml" value="0.2803951367781155" />
         <entry key="app/src/main/res/layout/recycleview_main.xml" value="0.17300724637681159" />
         <entry key="app/src/main/res/layout/register_post.xml" value="0.17300724637681159" />
         <entry key="app/src/main/res/layout/search_ingredient.xml" value="0.2796296296296296" />
