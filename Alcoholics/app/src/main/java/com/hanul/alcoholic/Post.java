@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /* 리스트 뷰에 들어갈 내용 입력받기 위해 클래스 만들어둠 */
-public class Post extends Comment {
+public class Post {
     private String key;
     private String uid;
     private String title;
@@ -14,7 +14,7 @@ public class Post extends Comment {
     private int commentCount;
     private String date;
     private int starCount; // 좋아요
-    private Comment comment = new Comment();
+    private Comment comment;
     private String profile;
 
     Post() {
@@ -66,12 +66,6 @@ public class Post extends Comment {
     public void setUid(String uid) {
         this.uid = uid;
     }
-    public int getStar() {
-        return starCount;
-    }
-    public void setStar(int star) {
-        this.starCount = star;
-    }
     public String getTitle() {
         return title;
     }
@@ -112,10 +106,7 @@ public class Post extends Comment {
         result.put("author", author);
         result.put("title", title);
         result.put("body", body);
-        result.put("starCount", starCount);
-        result.put("stars", comment);
         result.put("date", date);
-        result.put("profile", profile);
         result.put("Comment",comment);
         return result;
     }

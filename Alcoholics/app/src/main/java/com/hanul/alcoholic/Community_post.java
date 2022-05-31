@@ -56,6 +56,7 @@ public class Community_post extends AppCompatActivity {
 
     private Button btn_enter;
     private Button btn_report;
+    private Button btn_comment_del;
     private ImageButton btn_back;
     private Button btn_del;
     private String key;
@@ -67,6 +68,7 @@ public class Community_post extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<Comment> arrayList;
+    private ArrayList<Comment> currentUserComment;
 
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     final FirebaseUser user = mAuth.getCurrentUser();
@@ -87,6 +89,7 @@ public class Community_post extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);//유저객체 담기
         recyclerView.scrollToPosition(0);
         arrayList = new ArrayList<>();
+        currentUserComment = new ArrayList<>();
 
         databaseReference = firebaseDatabase.getReference("alcoholic");
         databaseReference.
@@ -132,6 +135,7 @@ public class Community_post extends AppCompatActivity {
                             btn_del.setVisibility(View.VISIBLE); // 같으면
                             btn_del.setEnabled(true);
                         }
+
                         //replylist - firebase에서 값 가져오기
                         //Comment comment = snapshot.child(key).child("Comment").getValue(Comment.class);
                         for(DataSnapshot commentSnapshot : dataSnapshot.child(key).child("Comment").getChildren()){
@@ -170,7 +174,6 @@ public class Community_post extends AppCompatActivity {
         reply = findViewById(R.id.reply_input);
 
         //댓글입력
-
         btn_enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -180,6 +183,7 @@ public class Community_post extends AppCompatActivity {
                 writeNewComment(key,txt,false);
             }
         });
+        //댓글 삭제 (좀...비효율적)
 
         //신고기능
         btn_report = findViewById(R.id.btn_report);
@@ -201,13 +205,16 @@ public class Community_post extends AppCompatActivity {
 
             }
         });
-
+        //게시글 삭제기능
         btn_del = findViewById(R.id.btn_delete);
+        databaseReference = firebaseDatabase.getReference("alcoholic/Post/"+key);
+
         btn_del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                databaseReference = firebaseDatabase.getReference("alcoholic/Post"+key);
                 databaseReference.removeValue();
+                Toast.makeText(getApplicationContext(),"게시글이 삭제되었습니다", Toast.LENGTH_SHORT).show();
+                onBackPressed();
             }
         });
 
@@ -221,7 +228,7 @@ public class Community_post extends AppCompatActivity {
 
         Date time = new Date();
         String timeSting = format1.format(time);
-        Comment comment = new Comment(comment_key,key,body,currentUser,timeSting,comment_key,comment_key,mode);
+        Comment comment = new Comment(comment_key,key,body,currentUser,timeSting,comment_key,comment_key);
 
         Map<String,Object> commentValue = comment.toMap();
         Map<String,Object> chileUpdates = new HashMap<>();
