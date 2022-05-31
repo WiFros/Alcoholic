@@ -7,7 +7,8 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_report">버그 제보 및 신고</string>
 
-    <string name="menu_home">맛있는 칵테일</string>
+    <string name="menu_searchN">칵테일 이름 검색</string>
+    <string name="menu_searchI">칵테일 재료 검색</string>
     <string name="menu_myCocktail">나만의 술</string>
     <string name="menu_cocktailList">백과사전</string>
     <string name="menu_cocktailSearch">레시피 검색</string>

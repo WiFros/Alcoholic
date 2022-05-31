@@ -8,9 +8,15 @@
     <!--메인 / 남는 페이지 -->
     <fragment
         android:id="@+id/nav_cocktail"
-        android:name="com.hanul.alcoholic.RecipeList"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment__alcohol_list" />
+        android:name="com.hanul.alcoholic.API_Search_Name"
+        android:label="@string/menu_searchN"
+        tools:layout="@layout/api_search_name" />
+
+    <fragment
+        android:id="@+id/nav_cocktail2"
+        android:name="com.hanul.alcoholic.API_Search_Ingredient"
+        android:label="@string/menu_searchI"
+        tools:layout="@layout/api_search_ingredient" />
 
     <!--즐겨찾기 기능 -->
     <!--        android:name="com.hanul.alcoholic.ui.gallery.GalleryFragment"-->

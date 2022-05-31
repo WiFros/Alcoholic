@@ -1,13 +1,18 @@
 package com.hanul.alcoholic;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -39,7 +44,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class API_Search_Ingredient extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+public class API_Search_Ingredient extends Fragment implements CompoundButton.OnCheckedChangeListener {
 
 
     public static String key = "9973533";
@@ -61,33 +66,26 @@ public class API_Search_Ingredient extends AppCompatActivity implements Compound
     // 칵테일 제목을 담을 ArrayList 변수(items) 선언
     ArrayList<String> items = new ArrayList<String>();
     String result = "";
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.api_search_ingredient);
 
-        listView = (ListView)findViewById(R.id.data);
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.api_search_ingredient, container, false);
+        listView = (ListView)view.findViewById(R.id.data);
         // adapter 스타일 선언 및 items 적용
-        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, items);
+        adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, items);
         // listView에 adapter 적용
         listView.setAdapter(adapter);
-        ibutton=(Button)findViewById(R.id.btn_search);
-        sbutton=(Button)findViewById(R.id.search);
-        backbtn=(ImageButton) findViewById(R.id.btn_back);
-        backbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        ibutton=(Button)view.findViewById(R.id.btn_search);
+        sbutton=(Button)view.findViewById(R.id.search);
 
-        vodka_checkbox = (CheckBox)findViewById(R.id.chkVodka);
-        gin_checkbox = (CheckBox)findViewById(R.id.chkGin);
-        rum_checkbox = (CheckBox)findViewById(R.id.chkRum);
-        whiskey_checkbox = (CheckBox)findViewById(R.id.chkWhiskey);
-        tequila_checkbox = (CheckBox)findViewById(R.id.chkTequila);
-        brandy_checkbox = (CheckBox)findViewById(R.id.chkBrandy);
-        resultTV = (TextView)findViewById(R.id.ingredientList);
+        vodka_checkbox = (CheckBox)view.findViewById(R.id.chkVodka);
+        gin_checkbox = (CheckBox)view.findViewById(R.id.chkGin);
+        rum_checkbox = (CheckBox)view.findViewById(R.id.chkRum);
+        whiskey_checkbox = (CheckBox)view.findViewById(R.id.chkWhiskey);
+        tequila_checkbox = (CheckBox)view.findViewById(R.id.chkTequila);
+        brandy_checkbox = (CheckBox)view.findViewById(R.id.chkBrandy);
+        resultTV = (TextView)view.findViewById(R.id.ingredientList);
 
         vodka_checkbox.setOnCheckedChangeListener(this);
         gin_checkbox.setOnCheckedChangeListener(this);
@@ -96,7 +94,7 @@ public class API_Search_Ingredient extends AppCompatActivity implements Compound
         tequila_checkbox.setOnCheckedChangeListener(this);
         brandy_checkbox.setOnCheckedChangeListener(this);
 
-        editText=(EditText)findViewById(R.id.editText_search);
+        editText=(EditText)view.findViewById(R.id.editText_search);
         Handler handler =new Handler(Looper.getMainLooper());
 
 
@@ -136,13 +134,18 @@ public class API_Search_Ingredient extends AppCompatActivity implements Compound
         sbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), API_Ingredient.class);
-                intent.putExtra("Ingredient",result);
+                Intent intent = new Intent(getContext().getApplicationContext(), API_Ingredient.class);
+                intent.putExtra("Ingredient", result);
                 startActivity(intent);
             }
         });
-
+        return view;
     }
+
+
+
+
+
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         if(vodka_checkbox.isChecked()&& !result.contains("Vodka,")) result += "Vodka,";
