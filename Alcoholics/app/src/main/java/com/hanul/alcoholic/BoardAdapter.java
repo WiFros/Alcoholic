@@ -50,10 +50,8 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.CustomViewHo
                 Context context = view.getContext();
                 Intent intent = new Intent(view.getContext(),Community_post.class);
                 intent.putExtra("key",arrayList.get(customViewHolder.getAdapterPosition()).getKey());
+
                 context.startActivity(intent);
-
-                //Toast.makeText(context, arrayList.get(customViewHolder.getAdapterPosition()).getKey() + "게시물 입니다.", Toast.LENGTH_SHORT).show();
-
             }
         });
     }

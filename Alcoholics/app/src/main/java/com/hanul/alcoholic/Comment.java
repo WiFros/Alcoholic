@@ -17,7 +17,7 @@ public class Comment {
     private boolean mode; // 댓글읠 답글 : true 일반 댓글 : false
     private ArrayList<String> ToReplys; // 답글 리스트
 
-    Comment(){}
+    Comment(){} // 제일 중요
 
     Comment(
             String uid,

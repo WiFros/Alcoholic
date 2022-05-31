@@ -52,11 +52,12 @@ public class Community_post extends AppCompatActivity {
     //댓글 띄울 recycle view id : reply_recycleView
 
     private String get_nickname;
-    private String comment_author;
+    private String currentUser;
 
     private Button btn_enter;
     private Button btn_report;
     private ImageButton btn_back;
+    private Button btn_del;
     private String key;
     private EditText reply;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
@@ -66,6 +67,9 @@ public class Community_post extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<Comment> arrayList;
+
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    final FirebaseUser user = mAuth.getCurrentUser();
 
     private final HashMap<String ,Object> data = new HashMap<>();
     @Nullable
@@ -84,8 +88,6 @@ public class Community_post extends AppCompatActivity {
         recyclerView.scrollToPosition(0);
         arrayList = new ArrayList<>();
 
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        final FirebaseUser user = mAuth.getCurrentUser();
         databaseReference = firebaseDatabase.getReference("alcoholic");
         databaseReference.
                 child("USerAccount").
@@ -98,7 +100,7 @@ public class Community_post extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "유저 데이터 읽기에 실패했습니다.", Toast.LENGTH_SHORT).show();
                         }
                         else {
-                            comment_author = String.valueOf(task.getResult().getValue());
+                            currentUser = String.valueOf(task.getResult().getValue());
                         }
                     }
                 });
@@ -122,16 +124,28 @@ public class Community_post extends AppCompatActivity {
                         content = findViewById(R.id.post);
                         content.setText(post.getBody());
 
+                        btn_del = findViewById(R.id.btn_delete);
+                        if (!user.getUid().equals(post.getUid())) {//현재유저랑 글쓴이가 다르면
+                            btn_del.setVisibility(View.INVISIBLE);
+                            btn_del.setEnabled(false);
+                        } else {
+                            btn_del.setVisibility(View.VISIBLE); // 같으면
+                            btn_del.setEnabled(true);
+                        }
                         //replylist - firebase에서 값 가져오기
                         //Comment comment = snapshot.child(key).child("Comment").getValue(Comment.class);
                         for(DataSnapshot commentSnapshot : dataSnapshot.child(key).child("Comment").getChildren()){
-                            Comment comment = commentSnapshot.getValue(Comment.class);
-                            //Toast.makeText(getApplicationContext(),comment.getBody() , Toast.LENGTH_SHORT).show();
-                            arrayList.add(comment);
+                            if(commentSnapshot.hasChildren()) {
+                                Comment comment = commentSnapshot.getValue(Comment.class);
+                                //Toast.makeText(getApplicationContext(),comment.getBody() , Toast.LENGTH_SHORT).show();
+                                arrayList.add(comment);
+                            }
+                            else {
+                                break;
+                            }
                         }
                         adapter.notifyDataSetChanged();
                         //Toast.makeText(getApplicationContext(),snapshot.child(key).child("Comment") , Toast.LENGTH_SHORT).show();
-
                         reply_area = findViewById(R.id.reply_area);
                         if (!arrayList.isEmpty()) {
                             //댓글이 하나라도 있으면 안보이게
@@ -163,10 +177,7 @@ public class Community_post extends AppCompatActivity {
                 String txt;
                 txt = reply.getText().toString();
                 Toast.makeText(getApplicationContext(), txt + "댓글을 입력했습니다.", Toast.LENGTH_SHORT).show();
-
                 writeNewComment(key,txt,false);
-
-
             }
         });
 
@@ -191,10 +202,17 @@ public class Community_post extends AppCompatActivity {
             }
         });
 
+        btn_del = findViewById(R.id.btn_delete);
+        btn_del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                databaseReference = firebaseDatabase.getReference("alcoholic/Post"+key);
+                databaseReference.removeValue();
+            }
+        });
 
 
     }
-
 
     private void writeNewComment(String nowPost,String body,boolean mode) {
         databaseReference = firebaseDatabase.getReference("alcoholic");
@@ -203,7 +221,7 @@ public class Community_post extends AppCompatActivity {
 
         Date time = new Date();
         String timeSting = format1.format(time);
-        Comment comment = new Comment(comment_key,key,body,comment_author,timeSting,comment_key,comment_key,mode);
+        Comment comment = new Comment(comment_key,key,body,currentUser,timeSting,comment_key,comment_key,mode);
 
         Map<String,Object> commentValue = comment.toMap();
         Map<String,Object> chileUpdates = new HashMap<>();
@@ -212,12 +230,5 @@ public class Community_post extends AppCompatActivity {
         chileUpdates.put("Post-comment/"+key+"/"+comment_key,commentValue);
 
         databaseReference.updateChildren(chileUpdates);
-
     }
-
-
 }
-
-
-
-
