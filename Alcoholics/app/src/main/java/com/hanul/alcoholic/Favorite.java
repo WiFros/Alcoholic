@@ -61,8 +61,8 @@ public class Favorite extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        Intent intent = new Intent(getActivity(), API_Recipe.class);
-        startActivity(intent);
+        //Intent intent = new Intent(getActivity(), API_Recipe.class);
+        //startActivity(intent);
 
         // Firebase에서 Nickname 받아서 리스트 뷰에 추가
         favorited.add("");
