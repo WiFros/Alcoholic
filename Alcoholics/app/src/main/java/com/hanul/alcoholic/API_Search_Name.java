@@ -1,13 +1,17 @@
 //칵테일 이름 검색
 package com.hanul.alcoholic;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -29,7 +33,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class API_Search_Name extends AppCompatActivity {
+public class API_Search_Name extends Fragment {
 
     public static String key = "9973533";
     public static String address = "https://www.thecocktaildb.com/api/json/v2/";
@@ -40,29 +44,22 @@ public class API_Search_Name extends AppCompatActivity {
     ArrayAdapter adapter;
 
     // 칵테일 제목을 담을 ArrayList 변수(items) 선언
-    ArrayList<String> items = new ArrayList<String>();
+    ArrayList<String> items = new ArrayList<>();
 
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.api_search_name);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.api_search_name, container, false);
 
-
-        listView = (ListView)findViewById(R.id.listView1);
+        listView = (ListView)view.findViewById(R.id.listView1);
         // adapter 스타일 선언 및 items 적용
-        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, items);
+        adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, items);
         // listView에 adapter 적용
         listView.setAdapter(adapter);
-        btnData = (Button)findViewById(R.id.btnData);
-        editText=(EditText)findViewById(R.id.name);
+        btnData = (Button)view.findViewById(R.id.btnData);
+        editText=(EditText)view.findViewById(R.id.name);
 
-        backbtn = (ImageButton)findViewById(R.id.btn_back);
-        backbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
 
         Handler handler =new Handler(Looper.getMainLooper());
 
@@ -96,7 +93,7 @@ public class API_Search_Name extends AppCompatActivity {
                                     @Override
                                     public void run() {
                                         adapter.notifyDataSetChanged();
-                                        Toast.makeText(getApplicationContext(),"칵테일을 찾을 수 없어요!",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getContext(),"칵테일을 찾을 수 없어요!",Toast.LENGTH_SHORT).show();
                                     }
                                 },100);
                             }
@@ -111,7 +108,7 @@ public class API_Search_Name extends AppCompatActivity {
                                     String drinkNm = temp.getString("strDrink");
                                     items.add(drinkNm);
                                 }
-                                runOnUiThread(new Runnable() {
+                                getActivity().runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
                                         adapter.notifyDataSetChanged();
@@ -133,11 +130,14 @@ public class API_Search_Name extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(getApplicationContext(), API_Recipe.class);
+                Intent intent=new Intent(getContext(), API_Recipe.class);
 
                 intent.putExtra("Drink", (String) parent.getItemAtPosition(position));
                 startActivity(intent);
             }
         });
+        return view;
     }
+
+
 }

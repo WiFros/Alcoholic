@@ -28,24 +28,15 @@
         <activity
             android:name=".fastscroll_listview"
             android:exported="false" />
-
-        <activity
-            android:name=".API_Recipe"
-            android:exported="false"
-            android:theme="@style/Theme.Alcoholic.NoActionBar"/>
         <activity
             android:name=".API_Ingredient"
             android:exported="false"
             android:theme="@style/Theme.Alcoholic.NoActionBar"/>
         <activity
-            android:name=".API_Search_Name"
+            android:name=".API_Recipe"
             android:exported="false"
             android:theme="@style/Theme.Alcoholic.NoActionBar"/>
-        <activity
-            android:name=".API_Search_Ingredient"
-            android:exported="false"
-            android:theme="@style/Theme.Alcoholic.NoActionBar"
-            />
+
 
         <activity
             android:name=".MainActivity"
