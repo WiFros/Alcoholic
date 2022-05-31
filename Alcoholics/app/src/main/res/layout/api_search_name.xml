@@ -33,6 +33,9 @@
             android:id="@+id/btnData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
             android:text="데이터 불러오기"
             android:textAllCaps="false"
             android:textSize="18sp"/>

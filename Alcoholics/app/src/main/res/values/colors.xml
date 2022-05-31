@@ -12,4 +12,30 @@
     <color name="colorOnPrimary">#FFFFFFFF</color>
     <color name="colorSecondary">#EF87AA</color>
     <color name="colorSecondaryVariant">#056CF2</color>
+
+
+    <color name="primary_blue1">#0c285e</color>
+    <color name="primary_blue2">#174E86</color>
+    <color name="primary_blue3">#2d92d1</color>
+    <color name="primary_blue4">#74c9e8</color>
+    <color name="primary_blue5">#97e4f4</color>
+
+    <color name="primary_pink1">#5e0c27</color>
+    <color name="primary_pink2">#87153b</color>
+    <color name="primary_pink3">#d12e64</color>
+    <color name="primary_pink4">#e8749a</color>
+    <color name="primary_pink5">#f497b6</color>
+
+    <color name="warm_black">#1A1A1D</color>
+    <color name="deep_grey">#2E2E2E</color>
+    <color name="grey">#454545</color>
+    <color name="light_grey">#8A8A8A</color>
+    <color name="deep_marsala">#663635</color>
+    <color name="marsala">#DA746F</color>
+    <color name="rose_water">#E1999F</color>
+    <color name="dusty_rose">#DEB3AD</color>
+    <color name="ivory">#F9F1F0</color>
+    <color name="warm_white">#FFFAFE</color>
+    <color name="red_point">#D6304C</color>
+
 </resources>
