@@ -122,12 +122,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/post" />
+
         <TextView
             android:id="@+id/post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:textSize="15sp"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/favoriteBtn"
+            android:text="즐겨찾기에 더하기"
+            android:layout_gravity="center"
             />
     </LinearLayout>
 

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,6 +46,9 @@ public class API_Recipe extends AppCompatActivity {
     String jsonData;
     Handler handler=new Handler();
     ImageView image;
+    private Button favoriteBtn;
+
+    ArrayList<String> favoriteInfo = new ArrayList<String>();
     LinkedHashMap<String,String> hashMap=new LinkedHashMap<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,6 +161,17 @@ public class API_Recipe extends AppCompatActivity {
                 });
             }
         }).start();
+
+        // 선택한 레시피의 nickname 즐겨찾기 리스트에 저장
+        TextView cocktailName = findViewById(R.id.nickname);
+        favoriteBtn = (Button)findViewById(R.id.favoriteBtn);
+        favoriteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(API_Recipe.this, String.valueOf(cocktailName.getText()), Toast.LENGTH_SHORT).show();
+                favoriteInfo.add(String.valueOf(cocktailName.getText()));
+            }
+        });
     }
 
     public void getTranslation() {
