@@ -144,17 +144,6 @@ public class API_Ingredient extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        // 선택한 레시피의 nickname 즐겨찾기 리스트에 저장
-        TextView cocktailName = findViewById(R.id.nickname);
-        favoriteBtn = (Button)findViewById(R.id.favoriteBtn);
-        favoriteBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(API_Ingredient.this, String.valueOf(cocktailName.getText()), Toast.LENGTH_LONG).show();
-                favoriteInfo.add(String.valueOf(cocktailName.getText()));
-            }
-        });
     }
 
     static String removeComma(String str) {
