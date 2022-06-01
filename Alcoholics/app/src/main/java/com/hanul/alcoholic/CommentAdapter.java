@@ -76,7 +76,6 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CustomVi
                         {
                             public void onClick(DialogInterface dialog, int which)
                             {
-
                                 Toast.makeText(context.getApplicationContext(), "댓글이 삭제되었습니다", Toast.LENGTH_SHORT).show();
                                 pos = holder.getAbsoluteAdapterPosition();
                                 databaseReference = firebaseDatabase.getReference("alcoholic/Post/"+arrayList.get(pos).getBoardId()+"/Comment/"+arrayList.get(pos).getUid());

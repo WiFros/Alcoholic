@@ -207,6 +207,7 @@ public class Community_post extends AppCompatActivity {
 
             }
         });
+
         //게시글 삭제기능
         btn_del = findViewById(R.id.btn_delete);
         databaseReference = firebaseDatabase.getReference("alcoholic/Post/"+key);

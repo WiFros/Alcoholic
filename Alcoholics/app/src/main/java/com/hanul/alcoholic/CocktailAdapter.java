@@ -28,6 +28,7 @@ public class CocktailAdapter extends RecyclerView.Adapter<CocktailAdapter.Custom
     private int pos;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference;
+    private RecyclerView.Adapter adapter;
 
     public CocktailAdapter(ArrayList<Cocktail> arrayList, Context context) {
         this.arrayList = arrayList;
@@ -58,6 +59,7 @@ public class CocktailAdapter extends RecyclerView.Adapter<CocktailAdapter.Custom
             @Override
             public void onClick(View view) { // 아이템 클릭했을때
                 databaseReference.removeValue();
+                adapter.notifyDataSetChanged();
             }
         });
     }
