@@ -14,35 +14,44 @@
             <ImageView
                 android:id="@+id/im_favorite_profile"
                 android:src="@drawable/ic_baseline_image_search"
-            android:layout_width="70dp"
+                android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_margin="10dp"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="10dp">
+                android:layout_width="252dp"
+                android:layout_height="68dp"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/cm_cock"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="이름"
-                    android:textSize="12sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <Button
+                android:id="@+id/favorite_delete"
+                android:layout_width="42dp"
+                android:layout_height="match_parent"
+                android:text="X">
+
+            </Button>
+
         </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="3px"
         android:layout_marginTop="11dp"
-        android:background="#80616161" />
+        android:background="#80616161"
+        />
 
 
     </LinearLayout>
