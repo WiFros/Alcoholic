@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -42,10 +44,20 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CustomVi
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         String current = arrayList.get(position).getUid();
-        databaseReference = firebaseDatabase.getReference("Post/"+arrayList.get(position).getBoardId()+"/Comment/"+current);
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        final FirebaseUser user = mAuth.getCurrentUser();
+
+        databaseReference = firebaseDatabase.getReference("alcoholic/Post/"+arrayList.get(position).getBoardId()+"/Comment/"+current);
         holder.cm_author.setText(arrayList.get(position).getAuthor());
         holder.cm_body.setText(arrayList.get(position).getBody());
         holder.cm_date.setText(arrayList.get(position).getDate());
+        if (!user.getUid().equals(arrayList.get(position).getAuthorId())) {//현재유저랑 글쓴이가 다르면
+            holder.btn_del.setVisibility(View.INVISIBLE);
+            holder.btn_del.setEnabled(false);
+        } else {
+            holder.btn_del.setVisibility(View.VISIBLE); // 같으면
+            holder.btn_del.setEnabled(true);
+        }
         pos = holder.getAbsoluteAdapterPosition();
         final CustomViewHolder customViewHolder = (CustomViewHolder) holder;
         holder.btn_del.setOnClickListener(new View.OnClickListener() {

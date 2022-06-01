@@ -228,7 +228,7 @@ public class Community_post extends AppCompatActivity {
 
         Date time = new Date();
         String timeSting = format1.format(time);
-        Comment comment = new Comment(comment_key,key,body,currentUser,timeSting,comment_key,comment_key);
+        Comment comment = new Comment(comment_key,key,body,currentUser,timeSting,comment_key,comment_key,user.getUid());
 
         Map<String,Object> commentValue = comment.toMap();
         Map<String,Object> chileUpdates = new HashMap<>();
