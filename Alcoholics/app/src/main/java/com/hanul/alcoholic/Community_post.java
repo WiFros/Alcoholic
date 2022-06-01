@@ -166,7 +166,6 @@ public class Community_post extends AppCompatActivity {
         adapter = new CommentAdapter(arrayList,getApplicationContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-
         System.out.println("테스트2 : "+String.valueOf(data.get("author")));
 
         btn_enter = findViewById(R.id.enter);

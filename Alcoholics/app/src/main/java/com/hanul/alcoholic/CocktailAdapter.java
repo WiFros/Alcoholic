@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.logging.Handler;
 
 public class CocktailAdapter extends RecyclerView.Adapter<CocktailAdapter.CustomViewHolder> {
 
@@ -47,17 +48,16 @@ public class CocktailAdapter extends RecyclerView.Adapter<CocktailAdapter.Custom
         String current = arrayList.get(position).getStrDrink();
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         final FirebaseUser user = mAuth.getCurrentUser();
-
-        databaseReference = firebaseDatabase.
-                getReference("alcoholic/Favorite/"+user.getUid()+"/"+arrayList.get(position).getStrDrink());
         holder.tv_cockname.setText(arrayList.get(position).getStrDrink());
 
         Glide.with(holder.itemView).load(arrayList.get(position).getStrDrinkThumb()).into(holder.im_profile);
-        pos = holder.getAbsoluteAdapterPosition();
         final CustomViewHolder customViewHolder = (CustomViewHolder) holder;
         holder.btn_del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { // 아이템 클릭했을때
+                pos = holder.getAbsoluteAdapterPosition();
+                databaseReference = firebaseDatabase.
+                        getReference("alcoholic/Favorite/"+user.getUid()+"/"+arrayList.get(pos).getStrDrink());
                 databaseReference.removeValue();
             }
         });
