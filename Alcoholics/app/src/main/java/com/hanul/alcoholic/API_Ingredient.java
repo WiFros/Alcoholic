@@ -92,6 +92,7 @@ public class API_Ingredient extends AppCompatActivity {
                             public void run() {
                                 adapter.notifyDataSetChanged();
                                 Toast.makeText(getApplicationContext(), "칵테일을 찾을 수 없어요!", Toast.LENGTH_SHORT).show();
+                                onBackPressed();
                             }
                         }, 100);
                     }
