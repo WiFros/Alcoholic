@@ -50,8 +50,7 @@ public class API_Search_Ingredient extends Fragment implements CompoundButton.On
     public static String key = "9973533";
     public static String address = "https://www.thecocktaildb.com/api/json/v2/";
     private ListView listView;
-    private Button ibutton,sbutton;
-    private ImageButton backbtn;
+    private Button ibutton,sbutton,cbutton;
     private EditText editText;
     ArrayAdapter adapter;
 
@@ -78,6 +77,7 @@ public class API_Search_Ingredient extends Fragment implements CompoundButton.On
         listView.setAdapter(adapter);
         ibutton=(Button)view.findViewById(R.id.btn_search);
         sbutton=(Button)view.findViewById(R.id.search);
+        cbutton=(Button)view.findViewById(R.id.strclear);
 
         vodka_checkbox = (CheckBox)view.findViewById(R.id.chkVodka);
         gin_checkbox = (CheckBox)view.findViewById(R.id.chkGin);
@@ -137,6 +137,19 @@ public class API_Search_Ingredient extends Fragment implements CompoundButton.On
                 Intent intent = new Intent(getContext().getApplicationContext(), API_Ingredient.class);
                 intent.putExtra("Ingredient", result);
                 startActivity(intent);
+            }
+        });
+        cbutton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                result="";
+                resultTV.setText(result);
+                vodka_checkbox.setChecked(false);
+                gin_checkbox.setChecked(false);
+                rum_checkbox.setChecked(false);
+                whiskey_checkbox.setChecked(false);
+                tequila_checkbox.setChecked(false);
+                brandy_checkbox.setChecked(false);
             }
         });
         return view;
