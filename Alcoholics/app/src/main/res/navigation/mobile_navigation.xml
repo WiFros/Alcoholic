@@ -29,8 +29,8 @@
     <fragment
         android:id="@+id/nav_Dictionary"
         android:name="com.hanul.alcoholic.fastscroll_listview"
-        android:label="@string/menu_myCocktail"
-        tools:layout="@layout/fragment_favorite" />
+        android:label="@string/menu_cocktailList"
+        tools:layout="@layout/activity_fastscroll_listview" />
 
 
     <!--레시피 검색 기능 -->
