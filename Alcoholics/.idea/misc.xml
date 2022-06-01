@@ -3,6 +3,36 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/background_info.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/button.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_baseline_checklist_24.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_baseline_face_4_f.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_baseline_face_m.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_baseline_fiber_new_24.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_baseline_image_search.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.2865" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_baseline_wine_bar_24.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_bg_login.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_bg_team.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_launcher_sample2_foreground.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_launcher_sample_foreground.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_logo_foreground.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_menu_community.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_menu_info.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/ic_menu_writing.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/icon_comment.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/round.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/drawable/side_nav_bar.xml" value="0.2505" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/activity_fastscroll_list_item.xml" value="0.23867753623188406" />
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/activity_fastscroll_listview.xml" value="0.2798913043478261" />
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/activity_login.xml" value="0.129981884057971" />
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/activity_main.xml" value="0.33" />
@@ -23,7 +53,7 @@
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/recycleview_favorite.xml" value="0.1037037037037037" />
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/recycleview_main.xml" value="0.3359375" />
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/layout/register_post.xml" value="0.30625" />
-        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/menu/activity_main_drawer.xml" value="0.33076923076923076" />
+        <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/menu/activity_main_drawer.xml" value="0.67" />
         <entry key="..\:/Git/Alcoholic/Alcoholics/app/src/main/res/menu/main.xml" value="0.2657407407407407" />
         <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/activity_api_parsing_test_ver.xml" value="0.5411458333333333" />
         <entry key="..\:/Users/LSC/Documents/GitHub/Alcoholic/Alcoholics/app/src/main/res/layout/activity_fastscroll_list_item.xml" value="0.5411458333333333" />
