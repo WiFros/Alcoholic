@@ -196,8 +196,8 @@ public class API_Recipe extends AppCompatActivity {
 
     public void getTranslation() {
 
-        String clientId = "U_Dd1KHm7UGaCX0NaujC";
-        String clientSecret = "lR7msiIDfd";
+        String clientId = "VFcHILW7PKggGd9sO9Et";
+        String clientSecret = "c634pRyxvp";
 
         try {
             String apiURL = "https://openapi.naver.com/v1/papago/n2mt";
