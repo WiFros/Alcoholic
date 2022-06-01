@@ -44,7 +44,6 @@ public class CocktailAdapter extends RecyclerView.Adapter<CocktailAdapter.Custom
 
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
-        String current = arrayList.get(position).getStrDrink();
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         final FirebaseUser user = mAuth.getCurrentUser();
 
