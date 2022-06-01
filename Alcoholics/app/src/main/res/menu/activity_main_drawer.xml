@@ -20,6 +20,12 @@
             android:icon="@drawable/ic_baseline_star_24"
             android:title="@string/menu_myCocktail" />
 
+        <!-- 백과사전 기능 -->
+        <item
+            android:id="@+id/nav_Dictionary"
+            android:icon="@drawable/ic_baseline_wine_bar_24"
+            android:title="@string/menu_cocktailList" />
+
         <!-- 레시피 검색 -->
 
         <item
