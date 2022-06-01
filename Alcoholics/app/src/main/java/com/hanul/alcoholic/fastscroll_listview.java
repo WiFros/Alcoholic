@@ -1,8 +1,11 @@
 package com.hanul.alcoholic;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintSet;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.DialogFragmentNavigatorDestinationBuilder;
 
 import android.content.Context;
@@ -34,22 +37,51 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-public class fastscroll_listview extends AppCompatActivity {
+public class fastscroll_listview extends Fragment {
     ArrayList<String> items = new ArrayList<String>();
     Context context;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fastscroll_listview);
-        context = this;
+//    @Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_fastscroll_listview);
+//        context = this;
+//
+//        ListView listView = (ListView) findViewById(R.id.fastScrollListView);
+//
+//        listView.setFastScrollEnabled(true);
+//        String[] cocktails = getResources().getStringArray(R.array.ingredients_array);
+//
+//        List<String> cocktailsList = Arrays.asList(cocktails);
+//        ListAdapter listAdapter = new ListAdapter(this ,cocktailsList);
+//
+//        listView.setAdapter(listAdapter);
+//
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+//        {
+//            @Override
+//            public void onItemClick(AdapterView<?> a_parent, View a_view, int a_position, long a_id)
+//            {
+//                //final fastscroll_list_item item = (fastscroll_list_item) listAdapter.getItem(a_position);
+//                PopupAlert();
+//            }
+//        });
+//    }
 
-        ListView listView = (ListView) findViewById(R.id.fastScrollListView);
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_fastscroll_listview, container, false);
+//        setContentView(R.layout.activity_fastscroll_listview);
+//        context = this;
+
+        ListView listView = (ListView) view.findViewById(R.id.fastScrollListView);
+        context = container.getContext();
 
         listView.setFastScrollEnabled(true);
         String[] cocktails = getResources().getStringArray(R.array.ingredients_array);
 
         List<String> cocktailsList = Arrays.asList(cocktails);
-        ListAdapter listAdapter = new ListAdapter(this ,cocktailsList);
+        ListAdapter listAdapter = new ListAdapter(context ,cocktailsList);
 
         listView.setAdapter(listAdapter);
 
@@ -62,14 +94,24 @@ public class fastscroll_listview extends AppCompatActivity {
                 PopupAlert();
             }
         });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getContext(), API_Recipe.class);
+
+                intent.putExtra("Drink", (String) parent.getItemAtPosition(position));
+                startActivity(intent);
+            }
+        });
+
+        return view;
     }
-
-
 
     public void PopupAlert() {
         //super.onBackPressed();
 
-        AlertDialog.Builder oDialog = new AlertDialog.Builder(this);
+        AlertDialog.Builder oDialog = new AlertDialog.Builder(context);
 
 
         oDialog.setMessage("자세한 레시피")
