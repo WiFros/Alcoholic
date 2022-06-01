@@ -95,6 +95,16 @@ public class fastscroll_listview extends Fragment {
             }
         });
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getContext(), API_Recipe.class);
+
+                intent.putExtra("Drink", (String) parent.getItemAtPosition(position));
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 
