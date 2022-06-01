@@ -111,7 +111,6 @@ public class Favorite extends Fragment {
         adapter = new CocktailAdapter(arrayList,getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-
         return view;
     }
 }
