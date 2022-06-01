@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -139,12 +140,12 @@ public class API_Recipe extends AppCompatActivity {
                             infoStr=hashMap.get("strTags")+" / "+infoStr;
                         info.setText(infoStr);
 
-                        image=(ImageView)findViewById(R.id.detailRecipeImg);
-                        new DownloadFilesTask().execute(hashMap.get("strDrinkThumb").toString());
+                        ImageView imageView= findViewById(R.id.detailRecipeImg);
+                        Glide.with(getApplicationContext()).load(hashMap.get("strDrinkThumb")).into(imageView);
 
                         glass.setText(hashMap.get("strGlass").toString());
 
-                        recipe.setText(hashMap.get("strInstructions")+" 뿅☆");
+                        recipe.setText(hashMap.get("strInstructions")+" 뿅★");
 
                         for(int i=1;i<=15;i++){
                             if(hashMap.get("strIngredient"+i).toString().trim().equals("null")) break;
@@ -232,34 +233,6 @@ public class API_Recipe extends AppCompatActivity {
             hashMap.put("strInstructions", jstr.optString("translatedText"));
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-    private class DownloadFilesTask extends AsyncTask<String,Void, Bitmap> {
-        @Override
-        protected Bitmap doInBackground(String... strings) {
-            Bitmap bmp = null;
-            try {
-                String img_url = strings[0]; //url of the image
-                URL url = new URL(img_url);
-                bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return bmp;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-
-        @Override
-        protected void onPostExecute(Bitmap result) {
-            // doInBackground 에서 받아온 total 값 사용 장소
-            image.setImageBitmap(result);
         }
     }
 }
