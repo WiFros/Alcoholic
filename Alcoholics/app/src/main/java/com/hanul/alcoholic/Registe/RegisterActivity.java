@@ -74,8 +74,8 @@ public class RegisterActivity extends AppCompatActivity {
                                 account.setNickName(strName);
 
                                 mDatabaseRef.child("USerAccount").child(firebaseUser.getUid()).setValue(account);
-
                                 Toast.makeText(RegisterActivity.this,"회원가입에 성공하셨습니다.",Toast.LENGTH_LONG).show();
+                                onBackPressed();
                             }else {
                                 Toast.makeText(RegisterActivity.this,"회원가입에 실패하셨습니다.",Toast.LENGTH_LONG).show();
                             }

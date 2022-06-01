@@ -1,5 +1,6 @@
 package com.hanul.alcoholic;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,6 +15,7 @@ import android.widget.*;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import android.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -31,6 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.core.Context;
+import com.hanul.alcoholic.Registe.LoginActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -150,11 +153,7 @@ public class Community_post extends AppCompatActivity {
                         }
                         adapter.notifyDataSetChanged();
                         //Toast.makeText(getApplicationContext(),snapshot.child(key).child("Comment") , Toast.LENGTH_SHORT).show();
-                        reply_area = findViewById(R.id.reply_area);
-                        if (!arrayList.isEmpty()) {
-                            //댓글이 하나라도 있으면 안보이게
-                            reply_area.setVisibility(View.INVISIBLE);
-                        }
+
                     }
                 }
             }
@@ -179,8 +178,12 @@ public class Community_post extends AppCompatActivity {
             public void onClick(View view) {
                 String txt;
                 txt = reply.getText().toString();
-                Toast.makeText(getApplicationContext(), txt + "댓글을 입력했습니다.", Toast.LENGTH_SHORT).show();
-                writeNewComment(key,txt,false);
+                if (!TextUtils.isEmpty(txt)) {
+                    Toast.makeText(getApplicationContext(), "댓글을 입력했습니다.", Toast.LENGTH_SHORT).show();
+                    writeNewComment(key,txt,false);
+                    reply.setText("");
+                }
+
             }
         });
         //댓글 삭제 (좀...비효율적)
@@ -211,9 +214,25 @@ public class Community_post extends AppCompatActivity {
         btn_del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                databaseReference.removeValue();
-                Toast.makeText(getApplicationContext(),"게시글이 삭제되었습니다", Toast.LENGTH_SHORT).show();
-                onBackPressed();
+                AlertDialog.Builder oDialog = new AlertDialog.Builder(Community_post.this);
+                oDialog.setMessage("게시글을 삭제할까요?")
+                        .setPositiveButton("아니오", new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which)
+                            {}
+                        })
+                        .setNeutralButton("예", new DialogInterface.OnClickListener()
+                        {
+                            public void onClick(DialogInterface dialog, int which)
+                            {
+                                databaseReference.removeValue();
+                                Toast.makeText(getApplicationContext(),"게시글이 삭제되었습니다", Toast.LENGTH_SHORT).show();
+                                onBackPressed();
+                            }
+                        })
+                        .setCancelable(false).show();
+
             }
         });
 

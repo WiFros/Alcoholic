@@ -1,6 +1,8 @@
 package com.hanul.alcoholic;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,9 +63,28 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CustomVi
         holder.btn_del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { // 아이템 클릭했을때
-                pos = holder.getAbsoluteAdapterPosition();
-                databaseReference = firebaseDatabase.getReference("alcoholic/Post/"+arrayList.get(pos).getBoardId()+"/Comment/"+arrayList.get(pos).getUid());
-                databaseReference.removeValue();
+
+                AlertDialog.Builder oDialog = new AlertDialog.Builder(view.getContext());
+                oDialog.setMessage("댓글을 삭제할까요?")
+                        .setPositiveButton("아니오", new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which)
+                            {}
+                        })
+                        .setNeutralButton("예", new DialogInterface.OnClickListener()
+                        {
+                            public void onClick(DialogInterface dialog, int which)
+                            {
+
+                                Toast.makeText(context.getApplicationContext(), "댓글이 삭제되었습니다", Toast.LENGTH_SHORT).show();
+                                pos = holder.getAbsoluteAdapterPosition();
+                                databaseReference = firebaseDatabase.getReference("alcoholic/Post/"+arrayList.get(pos).getBoardId()+"/Comment/"+arrayList.get(pos).getUid());
+                                databaseReference.removeValue();
+                            }
+                        })
+                        .setCancelable(false).show();
+
 
             }
         });

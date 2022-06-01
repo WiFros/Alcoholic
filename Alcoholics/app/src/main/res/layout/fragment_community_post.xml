@@ -10,7 +10,6 @@
 
         android:id="@+id/postContent"
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -124,10 +123,14 @@
         <TextView
             android:id="@+id/post"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:text="안녕하세요~ 칵테일 처음 만들어봐요 ^^"
             android:layout_margin="5dp"
             android:textSize="15sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
 
         <View
             android:layout_width="match_parent"
@@ -142,15 +145,17 @@
             android:id="@+id/reply_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:hint="아직 댓글이 없어요. 가장 먼저 댓글을 남겨보세요."
-            android:textSize="14sp" />
+            android:padding="5dp"
+            android:text="댓글"
+            android:textSize="15sp"
+            android:background="@color/colorGray"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/comment_recycleView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:paddingBottom="10dp"/>
 
 
     </LinearLayout>
@@ -159,10 +164,13 @@
         android:id="@+id/reply_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorGray"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:id="@+id/imageButton"
