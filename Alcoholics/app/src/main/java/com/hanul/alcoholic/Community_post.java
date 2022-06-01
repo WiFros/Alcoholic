@@ -192,7 +192,6 @@ public class Community_post extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "신고가 완료되었습니다.", Toast.LENGTH_SHORT).show();
                 //신고 기능?
-
             }
         });
 

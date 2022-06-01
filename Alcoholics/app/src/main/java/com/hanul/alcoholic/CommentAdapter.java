@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -43,11 +44,9 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CustomVi
 
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
-        String current = arrayList.get(position).getUid();
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         final FirebaseUser user = mAuth.getCurrentUser();
 
-        databaseReference = firebaseDatabase.getReference("alcoholic/Post/"+arrayList.get(position).getBoardId()+"/Comment/"+current);
         holder.cm_author.setText(arrayList.get(position).getAuthor());
         holder.cm_body.setText(arrayList.get(position).getBody());
         holder.cm_date.setText(arrayList.get(position).getDate());
@@ -58,12 +57,14 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CustomVi
             holder.btn_del.setVisibility(View.VISIBLE); // 같으면
             holder.btn_del.setEnabled(true);
         }
-        pos = holder.getAbsoluteAdapterPosition();
         final CustomViewHolder customViewHolder = (CustomViewHolder) holder;
         holder.btn_del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { // 아이템 클릭했을때
+                pos = holder.getAbsoluteAdapterPosition();
+                databaseReference = firebaseDatabase.getReference("alcoholic/Post/"+arrayList.get(pos).getBoardId()+"/Comment/"+arrayList.get(pos).getUid());
                 databaseReference.removeValue();
+
             }
         });
     }

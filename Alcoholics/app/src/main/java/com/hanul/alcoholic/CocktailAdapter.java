@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -42,19 +44,21 @@ public class CocktailAdapter extends RecyclerView.Adapter<CocktailAdapter.Custom
 
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
+        String current = arrayList.get(position).getStrDrink();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        final FirebaseUser user = mAuth.getCurrentUser();
+
+        databaseReference = firebaseDatabase.
+                getReference("alcoholic/Favorite/"+user.getUid()+"/"+arrayList.get(position).getStrDrink());
         holder.tv_cockname.setText(arrayList.get(position).getStrDrink());
 
         Glide.with(holder.itemView).load(arrayList.get(position).getStrDrinkThumb()).into(holder.im_profile);
         pos = holder.getAbsoluteAdapterPosition();
         final CustomViewHolder customViewHolder = (CustomViewHolder) holder;
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.btn_del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { // 아이템 클릭했을때
-                //워하는 액티비티로 intent에 값도 같이 넣어서 액티비티 호출 가능
-                //Context context = view.getContext();
-                //Intent intent = new Intent(view.getContext(),Community_post.class);
-                //intent.putExtra("key",arrayList.get(customViewHolder.getAdapterPosition()).getKey());
-                //context.startActivity(intent);
+                databaseReference.removeValue();
             }
         });
     }
@@ -67,10 +71,12 @@ public class CocktailAdapter extends RecyclerView.Adapter<CocktailAdapter.Custom
     public class CustomViewHolder extends RecyclerView.ViewHolder {
         ImageView im_profile;
         TextView tv_cockname;
+        Button btn_del;
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
             this.im_profile = itemView.findViewById(R.id.im_favorite_profile);
             this.tv_cockname = itemView.findViewById(R.id.cm_cock);
+            this.btn_del = itemView.findViewById(R.id.favorite_delete);
 
         }
     }
