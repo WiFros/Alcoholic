@@ -1,4 +1,4 @@
-# Alcoholic Readme
+# Alcoholic README
 
 
 README document for the Alcoholic app
