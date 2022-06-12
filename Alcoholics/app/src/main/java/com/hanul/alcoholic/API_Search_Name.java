@@ -35,8 +35,8 @@ import java.util.ArrayList;
 
 public class API_Search_Name extends Fragment {
 
-    public static String key = "9973533";
-    public static String address = "https://www.thecocktaildb.com/api/json/v2/";
+    public static String key = "";
+    public static String address = "";
     private ListView listView;
     private Button btnData;
     private ImageButton backbtn;
