@@ -9,7 +9,7 @@ The platforms used to build the application include:
 1. [Android Studio](https://developer.android.com/?hl=ko) is the main platform for application development.
 2. [Firebase](https://firebase.google.com) is Google's web server framework that makes DB easy to use in JSON format from Android applications.
 3. [TheCocktailDB.com](https://thecocktaildb.com) is a paid API that provides 653 cocktail databases and search queries. Various data are obtained from the API, parsed, and used as desired data.
-4. [Papago API](https://developers.naver.com/docs/papago/README.md)is translates the data of 'The Cocktail DB' in English into another language. Used for user convenience.
+4. [Papago API](https://developers.naver.com/docs/papago/README.md) is translates the data of 'The Cocktail DB' in English into another language. Used for user convenience.
 
 
 ## Table of Contents
