@@ -47,8 +47,8 @@ import java.util.Locale;
 public class API_Search_Ingredient extends Fragment implements CompoundButton.OnCheckedChangeListener {
 
 
-    public static String key = "9973533";
-    public static String address = "https://www.thecocktaildb.com/api/json/v2/";
+    public static String key = "";
+    public static String address = "";
     private ListView listView;
     private Button ibutton,sbutton,cbutton;
     private EditText editText;
